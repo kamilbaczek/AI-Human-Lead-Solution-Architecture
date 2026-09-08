@@ -1,0 +1,8 @@
+{
+  "name": "ai-solution-architect",
+  "description": "ADR authoring/review skills and architectural fitness-function definition for AI-assisted solution architecture work.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Kamil Bączek"
+  }
+}

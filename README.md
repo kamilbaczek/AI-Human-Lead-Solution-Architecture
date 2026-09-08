@@ -1,30 +1,49 @@
-# Claude-Code-Skills
+# claude-code-skills
 
-A collection of skills and capabilities for Claude Code — reusable prompts, workflows, and tooling configurations that enhance Claude's ability to assist with software development tasks.
+A personal Claude Code plugin marketplace for AI-assisted solution architecture work: ADR authoring, ADR review, ADR research, and architectural fitness functions.
 
-## Overview
+## Install
 
-This project provides a structured library of skills that can be used with Claude Code to improve productivity and consistency across development workflows.
+Add the marketplace and install the plugin:
 
-## Getting Started
+```bash
+claude plugin marketplace add kamilbaczek/claude-code-skills
+claude plugin install ai-solution-architect@claude-code-skills
+```
 
-1. Clone this repository
-2. Browse the `skills/` directory for available skills
-3. Follow individual skill documentation for usage instructions
+## Plugins
 
-## Project Structure
+### ai-solution-architect
+
+ADR authoring/review skills and architectural fitness-function definition.
+
+| Skill | Purpose |
+|---|---|
+| `adr-create` | Create a production-ready ADR with deep trade-off analysis from a decision topic or free-text input |
+| `adr-research-draft` | Research-first ADR drafting — web research + codebase analysis before drafting, with evidence-backed trade-offs |
+| `adr-architecture-review` | Deep architectural review of an existing ADR — trade-off completeness, evolutionary fitness, decision reversibility |
+| `adr-review` | Interactive ADR review/draft against a checklist (core + REST API/DB-specific), survey-style gap filling |
+| `fitness-functions` | Define concrete, executable fitness functions for a decision or architectural characteristic — what to measure, how, thresholds, where it runs |
+
+## Project structure
 
 ```
 claude-code-skills/
-├── skills/          # Skill definitions
-├── examples/        # Usage examples
-├── docs/            # Documentation
-└── README.md
+  .claude-plugin/
+    marketplace.json
+  plugins/
+    ai-solution-architect/
+      .claude-plugin/
+        plugin.json
+      skills/
+        adr-create/
+        adr-research-draft/
+        adr-architecture-review/
+        adr-review/
+        fitness-functions/
+  docs/
+    specs/            # design docs
 ```
-
-## Contributing
-
-Contributions are welcome! Please read the contributing guidelines before submitting a pull request.
 
 ## License
 

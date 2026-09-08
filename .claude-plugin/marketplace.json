@@ -1,0 +1,15 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-code-skills",
+  "description": "Personal Claude Code plugin marketplace for AI-assisted solution architecture work: ADR authoring, review, research, and architectural fitness functions.",
+  "owner": {
+    "name": "Kamil Bączek"
+  },
+  "plugins": [
+    {
+      "name": "ai-solution-architect",
+      "source": "./plugins/ai-solution-architect",
+      "description": "ADR authoring/review skills and architectural fitness-function definition for AI-assisted solution architecture work."
+    }
+  ]
+}
