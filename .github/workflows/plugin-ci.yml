@@ -1,0 +1,78 @@
+name: Plugin CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  CI: true
+
+jobs:
+  validate:
+    name: Validate marketplace & plugin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Validate marketplace manifest, plugin manifest, and skills
+        run: claude plugin validate . --strict
+
+  tag-release:
+    name: Tag release on version bump
+    needs: validate
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Configure git identity for tagging
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Read plugin version
+        id: version
+        run: |
+          version=$(node -p "require('./plugins/ai-agent-solution-architect/.claude-plugin/plugin.json').version")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Check if release tag already exists
+        id: check_tag
+        run: |
+          tag="ai-agent-solution-architect--v${{ steps.version.outputs.version }}"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          if git ls-remote --tags origin "refs/tags/$tag" | grep -q "refs/tags/$tag$"; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Tag plugin release
+        if: steps.check_tag.outputs.exists == 'false'
+        run: |
+          claude plugin tag plugins/ai-agent-solution-architect --push \
+            -m "ai-agent-solution-architect %s"
+
+      - name: Skip (no version bump)
+        if: steps.check_tag.outputs.exists == 'true'
+        run: echo "Tag ${{ steps.check_tag.outputs.tag }} already exists — plugin.json version wasn't bumped, nothing to release."

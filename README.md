@@ -25,6 +25,17 @@ A toolkit for AI-assisted solution architecture work: create, research, and revi
 | `adr-review` | Interactive ADR review/draft against a checklist (core + REST API/DB-specific), survey-style gap filling |
 | `fitness-functions` | Define concrete, executable fitness functions for a decision or architectural characteristic — what to measure, how, thresholds, where it runs |
 
+## CI
+
+`.github/workflows/plugin-ci.yml` runs on every push/PR to `main`:
+
+- **validate** — `claude plugin validate . --strict` on every push/PR, so a broken manifest or skill never lands on `main`.
+- **tag-release** — on push to `main`, if `plugin.json`'s `version` was bumped, creates and pushes the `ai-agent-solution-architect--vX.Y.Z` release tag via `claude plugin tag`. Gives a stable, pinned `ref`/commit `sha` to reference when submitting to a marketplace.
+
+## Submitting to the official Claude Code plugin directory
+
+Anthropic's `claude-plugins-official` marketplace has no automated/PR-based submission path — external plugins are reviewed via the [plugin directory submission form](https://clau.de/plugin-directory-submission). Point it at this repo, path `plugins/ai-agent-solution-architect`, and a release tag from CI above for the `ref`/`sha`.
+
 ## Project structure
 
 ```
