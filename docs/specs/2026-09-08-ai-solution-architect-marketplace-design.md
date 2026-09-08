@@ -5,33 +5,54 @@ Status: Approved
 
 ## Context
 
-Kamil has a set of ADR-related Claude Code skills (`adr-create`, `adr-draft`,
-`adr-research-draft`, `adr-review`, `adr-architecture-review`) currently
-living loose in `~/.claude/skills/`. He wants to package and deploy them as
-a proper Claude Code plugin marketplace so they can be installed/shared like
-his other custom marketplaces (`dotnet-agent-skills`, `vladikk-modularity`),
-and add a new skill for defining architectural fitness functions.
+Kamil has a set of ADR-related Claude Code skills currently living loose in
+`~/.claude/skills/`. He wants to package the personal ones as a proper
+Claude Code plugin marketplace so they can be installed/shared like his
+other custom marketplaces (`dotnet-agent-skills`, `vladikk-modularity`), and
+add a new skill for defining architectural fitness functions.
 
 There is already a scaffolded, git-initialized, remote-less repo at
 `~/claude-code-skills` with a placeholder structure and one prior commit
 ("feat: add adr-review skill") — this design reuses that repo rather than
 starting a new one.
 
+**Correction found during planning:** of the five ADR skills initially
+assumed loose/personal, two are actually symlinks into `~/.se2`, a
+shared skill repo for Kamil's IoT Live work project:
+
+```
+~/.claude/skills/adr-draft  → ~/.se2/skills/iot-live/architecture/skills/adr-draft/SKILL.md
+~/.claude/skills/adr-review → ~/.se2/skills/iot-live/architecture/skills/adr-review/SKILL.md
+```
+
+`adr-review` in particular is explicitly scoped to "IoT Live CMP project"
+conventions (module boundaries, vertical-slice rules, DOMAIN.md tech
+stack). This is employer/client project content, not Kamil's personal
+material, and must not be copied into a personal GitHub repo. Kamil
+confirmed: **exclude both from the marketplace** — they stay exactly where
+they are, managed by se2 for the IoT Live project. Only the two genuinely
+standalone personal skills (`adr-create`, `adr-research-draft`,
+`adr-architecture-review` — three, not two) are migrated.
+
 ## Goals
 
 - Turn `~/claude-code-skills` into a valid Claude Code plugin marketplace.
-- House all ADR skills plus a new `fitness-functions` skill in a single
-  plugin, `ai-solution-architect`.
+- House the personal ADR skills plus a new `fitness-functions` skill in a
+  single plugin, `ai-solution-architect`.
 - Publish the repo privately on GitHub and register it in Kamil's Claude
   Code settings, replacing the loose copies in `~/.claude/skills/`.
+- Keep the marketplace free of any IoT Live (or other client/employer
+  project) content or references.
 
 ## Non-goals
 
 - Splitting skills into multiple plugins (single-plugin bundle was chosen
   for simplicity; can be revisited later if skills diverge in versioning
   needs).
-- Rewriting the content/behavior of the 5 existing ADR skills — they move
-  as-is.
+- Rewriting the content/behavior of the 3 migrated ADR skills — they move
+  as-is (confirmed to already be generic, no project-specific references).
+- Touching `adr-draft` / `adr-review` or anything under `~/.se2` — these
+  stay exactly where they are, managed by se2 for the IoT Live project.
 - Publishing to the public Claude Code plugin directory
   (`claude-plugins-official`) — this stays a private, personal marketplace.
 
@@ -52,14 +73,8 @@ claude-code-skills/
       skills/
         adr-create/
           SKILL.md
-        adr-draft/
-          SKILL.md
         adr-research-draft/
           SKILL.md
-        adr-review/
-          SKILL.md
-          checklist.md
-          templates/
         adr-architecture-review/
           SKILL.md
         fitness-functions/
@@ -105,20 +120,26 @@ is repurposed to hold this spec instead.)
 
 ## Migrating the existing ADR skills
 
-`git mv` each skill folder, unmodified, from `~/.claude/skills/<name>` to
-`plugins/ai-solution-architect/skills/<name>` inside the marketplace repo:
+`~/.claude/skills/<name>` is not inside the marketplace repo's git tree, so
+this is a copy into the new location (not a cross-repo `git mv`), followed
+by `git add` in `~/claude-code-skills` and a separate cleanup of the
+originals:
 
 - `adr-create`
-- `adr-draft`
 - `adr-research-draft`
-- `adr-review` (including `checklist.md` and `templates/`)
 - `adr-architecture-review`
 
-No content changes — only relocation. After the plugin is registered and
-confirmed working, the now-empty originals are deleted from
-`~/.claude/skills/` so there is a single source of truth (loose skill and
-plugin-provided skill would otherwise both register under the same skill
-name).
+No content changes — only relocation. `adr-draft` and `adr-review` are
+explicitly **not** touched — they are symlinks into `~/.se2` (the IoT Live
+project's skill repo) and stay exactly as they are; nothing is read from or
+written to `~/.se2` as part of this work beyond the read-only check already
+done to confirm their provenance.
+
+After the plugin is registered and confirmed working, the now-copied
+originals (`adr-create`, `adr-research-draft`, `adr-architecture-review`)
+are deleted from `~/.claude/skills/` so there is a single source of truth
+(loose skill and plugin-provided skill would otherwise both register under
+the same skill name).
 
 ## New skill: `fitness-functions`
 
@@ -171,34 +192,42 @@ Source: {ADR-NNN link, or "derived from: <description>"}
 
 ## Publish & register
 
-1. Commit the restructure to `~/claude-code-skills` (existing git history
+Claude Code ships a `claude plugin` CLI that does this without hand-editing
+`settings.json`:
+
+1. Validate locally first: `claude plugin validate ~/claude-code-skills`
+   (covers both the marketplace manifest and the plugin/skills inside it).
+2. Register the marketplace from the local path to test end-to-end before
+   publishing: `claude plugin marketplace add ~/claude-code-skills`.
+3. Install/enable the plugin: `claude plugin install ai-solution-architect@claude-code-skills`.
+4. Confirm it's live: `claude plugin list` should show
+   `ai-solution-architect@claude-code-skills` enabled, with its 4 skills
+   available.
+5. Commit the restructure to `~/claude-code-skills` (existing git history
    preserved).
-2. Create a new **private** GitHub repo `kamilbaczek/claude-code-skills`
+6. Create a new **private** GitHub repo `kamilbaczek/claude-code-skills`
    using the active `kamilbaczek` gh account, and push.
-3. In `~/.claude/settings.json`, add under `extraKnownMarketplaces`:
-   ```json
-   "claude-code-skills": {
-     "source": {
-       "source": "github",
-       "repo": "kamilbaczek/claude-code-skills"
-     }
-   }
-   ```
-   matching the existing entries for `dotnet-agent-skills`,
-   `vladikk-modularity`, and `claude-code-warp`.
-4. Enable the plugin: `"ai-solution-architect@claude-code-skills": true`
-   under `enabledPlugins`.
-5. Validate: confirm `marketplace.json`/`plugin.json` are well-formed JSON,
-   and that all 6 skills (5 migrated + `fitness-functions`) load and are
-   listed by Claude Code after registration.
-6. Remove the loose `adr-*` skill folders from `~/.claude/skills/`.
+7. Re-point the marketplace at GitHub instead of the local path: remove the
+   local registration (`claude plugin marketplace remove claude-code-skills`)
+   and re-add it from GitHub (`claude plugin marketplace add kamilbaczek/claude-code-skills`),
+   then re-install the plugin — this leaves `~/.claude/settings.json`'s
+   `extraKnownMarketplaces` entry pointing at the GitHub repo, matching the
+   pattern used by `dotnet-agent-skills`, `vladikk-modularity`, and
+   `claude-code-warp`.
+8. Remove the loose `adr-create`, `adr-research-draft`,
+   `adr-architecture-review` folders from `~/.claude/skills/`.
 
 ## Testing / validation approach
 
-- JSON validity check on both manifests before pushing.
-- After registering the marketplace and enabling the plugin, start a fresh
-  Claude Code session and confirm the 6 skills appear as available skills
-  (no duplicates, no missing entries) and that at least one (`adr-create`)
-  invokes correctly end-to-end.
-- Confirm the loose `~/.claude/skills/adr-*` folders are gone post-migration
-  so there's no duplicate/conflicting skill registration.
+- `claude plugin validate ~/claude-code-skills` must pass with no errors
+  (run with `--strict` to also catch warnings) before anything is
+  registered or pushed.
+- After local registration, `claude plugin list` must show the plugin
+  enabled with all 4 skills present, no duplicates, no missing entries.
+- After the GitHub-hosted round-trip (step 7), re-run `claude plugin list`
+  to confirm the marketplace source switched cleanly and the plugin still
+  resolves.
+- Confirm `~/.claude/skills/adr-create`, `adr-research-draft`, and
+  `adr-architecture-review` are gone post-migration so there's no
+  duplicate/conflicting skill registration; confirm `adr-draft` and
+  `adr-review` (the `~/.se2` symlinks) are untouched.
