@@ -44,7 +44,7 @@ folded into the plugin too.
 
 - Turn `~/claude-code-skills` into a valid Claude Code plugin marketplace.
 - House the personal ADR skills plus a new `fitness-functions` skill in a
-  single plugin, `ai-solution-architect`.
+  single plugin, `ai-agent-solution-architect`.
 - Publish the repo privately on GitHub and register it in Kamil's Claude
   Code settings, replacing the loose copies in `~/.claude/skills/`.
 - Keep the marketplace free of any IoT Live (or other client/employer
@@ -73,7 +73,7 @@ claude-code-skills/
   .claude-plugin/
     marketplace.json
   plugins/
-    ai-solution-architect/
+    ai-agent-solution-architect/
       .claude-plugin/
         plugin.json
       skills/
@@ -100,18 +100,25 @@ is repurposed to hold this spec instead.)
 
 ### `marketplace.json`
 
+The GitHub repo stays `kamilbaczek/claude-code-skills` — the marketplace's
+own identity (its registration name, used for `plugin@marketplace`
+addressing) comes from the `name` field below, not the repo name; they
+don't have to match (`dotnet-agent-skills`, for example, is hosted in the
+`dotnet/skills` repo).
+
 ```json
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "claude-code-skills",
+  "name": "ai-agent-solution-architect-skills",
+  "description": "AI Agent Solution Architect Skills — a personal Claude Code marketplace of skills for AI-assisted software architecture: authoring, researching, and reviewing Architecture Decision Records, and defining executable fitness functions that guard the architectural characteristics those decisions depend on.",
   "owner": {
     "name": "Kamil Bączek"
   },
   "plugins": [
     {
-      "name": "ai-solution-architect",
-      "source": "./plugins/ai-solution-architect",
-      "description": "ADR authoring/review skills and architectural fitness-function definition for AI-assisted solution architecture work."
+      "name": "ai-agent-solution-architect",
+      "source": "./plugins/ai-agent-solution-architect",
+      "description": "A toolkit for AI-assisted solution architecture work: create, research, and review Architecture Decision Records, and define concrete, executable fitness functions for the architectural characteristics behind them."
     }
   ]
 }
@@ -121,8 +128,8 @@ is repurposed to hold this spec instead.)
 
 ```json
 {
-  "name": "ai-solution-architect",
-  "description": "ADR authoring/review skills and architectural fitness-function definition for AI-assisted solution architecture work.",
+  "name": "ai-agent-solution-architect",
+  "description": "A toolkit for AI-assisted solution architecture work: create, research, and review Architecture Decision Records, and define concrete, executable fitness functions for the architectural characteristics behind them.",
   "version": "1.0.0",
   "author": {
     "name": "Kamil Bączek"
@@ -149,7 +156,7 @@ work beyond the read-only check already done to confirm their provenance.
 
 Separately, the project-scoped `.claude/skills/adr-review/` already inside
 this repo (generic, unrelated to the `~/.se2` one) is `git mv`'d — not
-copied — into `plugins/ai-solution-architect/skills/adr-review/`, since
+copied — into `plugins/ai-agent-solution-architect/skills/adr-review/`, since
 both source and destination are in the same repo.
 
 After the plugin is registered and confirmed working, the now-copied
@@ -216,16 +223,16 @@ Claude Code ships a `claude plugin` CLI that does this without hand-editing
    (covers both the marketplace manifest and the plugin/skills inside it).
 2. Register the marketplace from the local path to test end-to-end before
    publishing: `claude plugin marketplace add ~/claude-code-skills`.
-3. Install/enable the plugin: `claude plugin install ai-solution-architect@claude-code-skills`.
+3. Install/enable the plugin: `claude plugin install ai-agent-solution-architect@ai-agent-solution-architect-skills`.
 4. Confirm it's live: `claude plugin list` should show
-   `ai-solution-architect@claude-code-skills` enabled, with its 5 skills
+   `ai-agent-solution-architect@ai-agent-solution-architect-skills` enabled, with its 5 skills
    available.
 5. Commit the restructure to `~/claude-code-skills` (existing git history
    preserved).
 6. Create a new **private** GitHub repo `kamilbaczek/claude-code-skills`
    using the active `kamilbaczek` gh account, and push.
 7. Re-point the marketplace at GitHub instead of the local path: remove the
-   local registration (`claude plugin marketplace remove claude-code-skills`)
+   local registration (`claude plugin marketplace remove ai-agent-solution-architect-skills`)
    and re-add it from GitHub (`claude plugin marketplace add kamilbaczek/claude-code-skills`),
    then re-install the plugin — this leaves `~/.claude/settings.json`'s
    `extraKnownMarketplaces` entry pointing at the GitHub repo, matching the

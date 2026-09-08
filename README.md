@@ -1,6 +1,6 @@
-# claude-code-skills
+# AI Agent Solution Architect Skills
 
-A personal Claude Code plugin marketplace for AI-assisted solution architecture work: ADR authoring, ADR review, ADR research, and architectural fitness functions.
+A personal Claude Code plugin marketplace of skills for AI-assisted solution architecture work: ADR authoring, ADR review, ADR research, and defining architectural fitness functions.
 
 ## Install
 
@@ -8,14 +8,14 @@ Add the marketplace and install the plugin:
 
 ```bash
 claude plugin marketplace add kamilbaczek/claude-code-skills
-claude plugin install ai-solution-architect@claude-code-skills
+claude plugin install ai-agent-solution-architect@ai-agent-solution-architect-skills
 ```
 
 ## Plugins
 
-### ai-solution-architect
+### ai-agent-solution-architect
 
-ADR authoring/review skills and architectural fitness-function definition.
+A toolkit for AI-assisted solution architecture work: create, research, and review Architecture Decision Records, and define concrete, executable fitness functions for the architectural characteristics behind them.
 
 | Skill | Purpose |
 |---|---|
@@ -32,7 +32,7 @@ claude-code-skills/
   .claude-plugin/
     marketplace.json
   plugins/
-    ai-solution-architect/
+    ai-agent-solution-architect/
       .claude-plugin/
         plugin.json
       skills/
