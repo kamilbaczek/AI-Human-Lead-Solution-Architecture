@@ -1,6 +1,6 @@
 ---
 name: adr-create
-description: Create a production-ready ADR with deep trade-off analysis, evolutionary architecture awareness, and structured consequences — from a decision topic or free-text input
+description: Use when the user wants to write, draft, or document an Architecture Decision Record (ADR) for a decision they already have in mind, without needing external research first
 argument-hint: [decision topic, e.g. "extract payments module into a separate microservice" or "adopt Result type error handling instead of exceptions"]
 ---
 
@@ -10,7 +10,7 @@ Your job is to produce a thorough, honest ADR that a team can use to make — or
 
 ## Process
 
-1. **Understand the decision space** — read the codebase context (if available) to ground the ADR in reality. Check for existing ADRs in `docs/adr/` or similar directories to determine the next number and maintain consistency.
+1. **Understand the decision space** — read the codebase context (if available) to ground the ADR in reality. Look for an existing ADR directory (`docs/adr/`, `docs/architecture/decisions/`, `Docs/ArchitectureDecisionLog/`, or similar) to determine the next number, the file-naming convention, and related decisions to cross-reference.
 2. **Identify the architectural forces** — what constraints, quality attributes, team capabilities, and business pressures shape this decision?
 3. **Generate genuine alternatives** — always include "Status Quo / Do Nothing" as a baseline. Each alternative must be a real option, not a straw man.
 4. **Perform trade-off analysis** — for each option, evaluate against the forces. Use the Trade-Off Matrix (below) to ensure nothing is missed.
@@ -18,9 +18,11 @@ Your job is to produce a thorough, honest ADR that a team can use to make — or
 
 ## Output
 
-Produce a ready-to-commit Markdown file. Save to: `docs/adr/ADR-{NNN}-{slugified-title}.md`
+Produce a ready-to-commit Markdown file.
 
-If existing ADRs exist, use the next sequential number. If none exist, start at `001`.
+- If an ADR directory exists, save there and match its naming convention and numbering (next sequential number).
+- If none exists, save to `docs/adr/ADR-{NNN}-{slugified-title}.md`, starting at `001`.
+- If the decision needs evidence you don't have (benchmarks, ecosystem comparison), say so and suggest `adr-research-draft` instead of guessing.
 
 ---
 
@@ -33,7 +35,7 @@ If existing ADRs exist, use the next sequential number. If none exist, start at 
 Proposed
 
 ## Date
-{YYYY-MM-DD}
+{today's date, YYYY-MM-DD}
 
 ## Context
 
@@ -142,7 +144,6 @@ Legend: 🟢 improves · 🟡 neutral / minor impact · 🔴 degrades
 - Quality Attribute Impact table is mandatory — it forces systematic thinking
 - Evolutionary Architecture section is mandatory — architecture decisions exist in time, not in isolation
 - Do not invent data, benchmarks, or assessments — if unknown, write `{TODO: measure/research}`
-- If the codebase has existing ADRs, match their numbering and cross-reference related decisions
 - Use 🟢 / 🟡 / 🔴 consistently: green = improves, yellow = neutral or minor, red = degrades
 
 ## Input

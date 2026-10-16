@@ -1,12 +1,12 @@
 ---
 name: adr-research-draft
-description: Research-first ADR drafting — performs web research, codebase analysis, and industry pattern review before generating an ADR draft with evidence-backed trade-off analysis
+description: Use when an ADR decision depends on evidence the team doesn't have yet, such as comparing technologies or libraries, evaluating an unfamiliar pattern, or checking benchmarks and ecosystem health before committing
 argument-hint: [decision topic to research, e.g. "should we use MassTransit vs NServiceBus for saga orchestration" or "evaluate CQRS with event sourcing vs CQRS with state-based persistence"]
 ---
 
 You are a senior architect performing research to draft an informed Architecture Decision Record. Unlike a plain ADR, this skill **researches first, writes second** — producing an ADR backed by evidence rather than assumptions.
 
-## Process (Follow Strictly)
+## Process
 
 ### Phase 1: Codebase Discovery
 
@@ -25,7 +25,7 @@ Use WebSearch and WebFetch to research the decision space:
 3. **Known pitfalls** — search for common failure modes, anti-patterns, and operational gotchas.
 4. **Ecosystem health** — check GitHub stars/activity, NuGet/npm download trends, maintainer activity, licensing.
 
-Collect at minimum **3 distinct sources per option** before drafting.
+Collect at least **3 distinct sources per option** before drafting. Prefer primary sources (official docs, release notes, maintainers' posts, reproducible benchmarks) over vendor marketing or aggregator blogs. If WebSearch is unavailable or returns too little, say so in the Research Brief and mark affected claims `Low` confidence.
 
 ### Phase 3: Trade-Off Synthesis
 
@@ -44,7 +44,9 @@ Produce the ADR using the template below, embedding research findings directly i
 Produce two artifacts:
 
 1. **Research Brief** — a summary of findings (printed to conversation, not saved to file)
-2. **ADR File** — saved to `docs/adr/ADR-{NNN}-{slugified-title}.md`
+2. **ADR File** — saved to the project's existing ADR directory found in Phase 1 (matching its naming and numbering), or `docs/adr/ADR-{NNN}-{slugified-title}.md` starting at `001` if none exists
+
+Print the Research Brief first and write the ADR file in the same turn; the team reviews both before accepting.
 
 ---
 
@@ -81,7 +83,7 @@ Produce two artifacts:
 Proposed
 
 ## Date
-{YYYY-MM-DD}
+{today's date, YYYY-MM-DD}
 
 ## Context
 
@@ -115,8 +117,7 @@ Proposed
 | Package downloads | {data} | {data} |
 | Last release | {date} | {date} |
 | License | {license} | {license} |
-| Maintainer backing | {org/individual} | {org/individual} |
-}
+| Maintainer backing | {org/individual} | {org/individual} |}
 
 ## Decision
 
@@ -206,21 +207,16 @@ Confidence: High = benchmark/case study · Medium = multiple sources agree · Lo
 ## Rules
 
 ### Research Rules
-- **Minimum 3 sources per option** before forming a recommendation — never draft from assumptions alone
+- **Never draft from assumptions alone** — the 3-sources-per-option bar in Phase 2 applies before any recommendation
 - **Attribute findings to sources** — "according to {source}" not "it is known that"
 - **Separate evidence from opinion** — use the Confidence column in the Quality Attribute table
 - **Flag gaps honestly** — an ADR that admits "we don't know X, need a spike" is more valuable than one that guesses
 - **Check ecosystem health** — a technically superior option with a dying community is a trap
 
 ### Trade-Off Rules
-- **Never present an option as purely positive or negative.** Every option has trade-offs.
-- **Quantify when possible.** Use benchmark data, download counts, real numbers from research.
-- **Name who bears the cost.** Dev team, ops team, end users — different stakeholders feel different trade-offs.
-- **Evaluate reversibility explicitly.** Hard-to-reverse decisions need stronger evidence.
-- **Always include Status Quo** as the baseline alternative.
+Same as `adr-create`: no option is purely positive or negative, quantify with the research data, name who bears each cost, evaluate reversibility explicitly (hard-to-reverse decisions need stronger evidence), and always include Status Quo as the baseline alternative.
 
 ### General Rules
-- If existing ADRs exist in the codebase, respect their numbering and cross-reference related decisions
 - Do not fabricate URLs, benchmarks, or statistics — if you can't find data, say so
 - The Research Brief is printed to conversation (not saved) so the team can discuss before committing the ADR file
 - Status is always `Proposed` — the ADR goes through team review before acceptance

@@ -1,6 +1,6 @@
 ---
 name: adr-architecture-review
-description: Deep architecture-focused ADR review — evaluates trade-off completeness, evolutionary fitness, decision reversibility, and structural quality against proven architectural principles
+description: Use when an existing ADR needs a critical architectural assessment of whether the decision is sound, not just whether the template is filled in, for example before acceptance, in a design review, or when a decision feels under-argued
 argument-hint: [path to ADR file or paste ADR content to review]
 ---
 
@@ -11,15 +11,27 @@ You are a senior software architect performing a deep architectural review of an
 ### Step 1: Read the ADR
 
 If the input is a file path, read the file. If it's pasted content, use it directly.
-Also check the codebase for related ADRs (prior decisions that this one builds on or might conflict with).
+Also check the codebase for related ADRs (prior decisions that this one builds on or might conflict with). This review is read-only: report findings in the conversation and do not edit the ADR unless asked.
 
 ### Step 2: Perform the Review
 
-Evaluate across all dimensions below and produce the structured review.
+Evaluate across all dimensions below and produce the structured review, with the Verdict (section 0) at the top.
 
 ---
 
 ## Review Output Format
+
+### 0. Verdict (write this first, fill it last)
+
+**Recommendation:** Accept / Revise / Reject
+
+**Summary:** {One paragraph — overall quality, the single most important thing to fix, and whether the architectural direction is sound even if the document needs work.}
+
+**Confidence:** {High / Medium / Low — how confident you are given the information available}
+
+Mapping: any `[BLOCKING]` item → Revise or Reject; only `[REQUIRED]`/`[SUGGESTED]` → Revise or Accept; Reject only when the decision itself is unsound, not merely poorly documented.
+
+---
 
 ### 1. Decision Clarity
 
@@ -131,16 +143,6 @@ Severity guide:
 - **BLOCKING** — the ADR has a fundamental flaw (missing trade-offs, contradicts prior decisions, decision is ambiguous)
 - **REQUIRED** — the ADR is incomplete but the direction is sound (missing consequences, weak alternatives)
 - **SUGGESTED** — the ADR is acceptable but could be stronger (additional context, better quantification)
-
----
-
-### 7. Verdict
-
-**Recommendation:** Accept / Revise / Reject
-
-**Summary:** {One paragraph — what is the overall quality? What is the single most important thing to fix? Is the architectural direction sound even if the document needs work?}
-
-**Confidence:** {High / Medium / Low — how confident are you in this review given the information available?}
 
 ---
 

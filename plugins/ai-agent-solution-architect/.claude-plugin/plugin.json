@@ -1,7 +1,7 @@
 {
   "name": "ai-agent-solution-architect",
-  "description": "A toolkit for AI-assisted solution architecture work: create, research, and review Architecture Decision Records, and define concrete, executable fitness functions for the architectural characteristics behind them.",
-  "version": "1.0.0",
+  "description": "A toolkit for AI-assisted solution architecture work: create, research, and review Architecture Decision Records.",
+  "version": "1.1.0",
   "author": {
     "name": "Kamil Bączek"
   }

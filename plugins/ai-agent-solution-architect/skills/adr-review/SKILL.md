@@ -1,5 +1,6 @@
 ---
-description: Review an Architecture Decision Record (ADR) against a checklist, identify gaps, and interactively ask about missing sections like costs, risks, and alternatives. Also helps draft new ADRs for design decisions.
+name: adr-review
+description: Use when the user wants to check an ADR for missing sections (costs, risks, security, alternatives) against a checklist, or wants to be interviewed question by question to complete or draft an ADR
 argument-hint: "[path/to/adr.md or topic]"
 allowed-tools: Read, Write, Glob
 ---
@@ -25,13 +26,13 @@ Determine which mode to use:
 ## Review Mode — Reviewing an Existing ADR
 
 1. Read the ADR file at `$ARGUMENTS`
-2. Read the core checklist from `checklist.md`
+2. Read the core checklist from `checklist.md` (in this skill's directory)
 3. Detect ADR domain and load the relevant supplemental checklist:
    - ADR mentions REST API, HTTP endpoints, routes, controllers → also read `checklist-rest-api.md`
    - ADR mentions database, data store, schema, migrations, SQL, NoSQL → also read `checklist-db.md`
    - Multiple domains may apply — load all relevant checklists
 4. Analyze the ADR against every checklist item (core + supplemental)
-4. Produce a structured gap report:
+5. Produce a structured gap report:
 
 ```
 ## ADR Review: [Title]
@@ -46,13 +47,13 @@ Determine which mode to use:
 [List only ❌ and ⚠️ items that are high-priority]
 ```
 
-5. Then enter **Survey mode** — ask the user targeted questions for each gap, one section at a time. Do NOT dump all questions at once. Work through gaps conversationally:
+6. Then enter **Survey mode** — ask the user targeted questions for each gap, one section at a time. Do NOT dump all questions at once. Work through gaps conversationally:
 
    - Ask the most critical missing item first (costs, security, and risks take priority)
    - After the user answers, incorporate their answer and move to the next gap
    - If the user says "skip" or "N/A", note it and move on
 
-6. After the survey, offer to:
+7. After the survey, offer to:
    - Update the ADR file with the new information
    - Generate a clean final version using the template
 
@@ -83,7 +84,7 @@ When starting a new ADR from a topic:
 
 Ask each section as a focused, open question. Keep questions short. If the user's answer is thin, gently probe once (e.g., "Any specific cost estimates or just ballpark?").
 
-5. After all sections, generate the complete ADR using the template and offer to save it to `docs/adr/[NNN]-[slug].md`
+5. After all sections, generate the complete ADR using the template and offer to save it to the project's existing ADR directory (matching its naming and numbering), or `docs/adr/ADR-{NNN}-{slug}.md` if none exists
 
 ---
 
