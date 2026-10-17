@@ -7,7 +7,7 @@ A personal Claude Code plugin marketplace of skills for AI-assisted solution arc
 Add the marketplace and install the plugin:
 
 ```bash
-claude plugin marketplace add kamilbaczek/claude-code-skills
+claude plugin marketplace add kamilbaczek/AI-Human-Lead-Solution-Architecture
 claude plugin install ai-agent-solution-architect@ai-agent-solution-architect-skills
 ```
 
@@ -38,7 +38,7 @@ Anthropic's `claude-plugins-official` marketplace has no automated/PR-based subm
 ## Project structure
 
 ```
-claude-code-skills/
+AI-Human-Lead-Solution-Architecture/
   .claude-plugin/
     marketplace.json
   plugins/
