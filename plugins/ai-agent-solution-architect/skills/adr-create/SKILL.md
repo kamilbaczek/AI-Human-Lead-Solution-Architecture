@@ -1,7 +1,7 @@
 ---
 name: adr-create
 description: Use when the user wants to write, draft, or document an Architecture Decision Record (ADR) for a decision they already have in mind, without needing external research first
-argument-hint: [decision topic, e.g. "extract payments module into a separate microservice" or "adopt Result type error handling instead of exceptions"]
+argument-hint: decision topic, e.g. "extract payments module into a separate microservice" or "adopt Result type error handling instead of exceptions"
 ---
 
 You are a senior software architect creating an Architecture Decision Record.

@@ -1,7 +1,7 @@
 ---
 name: adr-research-draft
 description: Use when an ADR decision depends on evidence the team doesn't have yet, such as comparing technologies or libraries, evaluating an unfamiliar pattern, or checking benchmarks and ecosystem health before committing
-argument-hint: [decision topic to research, e.g. "should we use MassTransit vs NServiceBus for saga orchestration" or "evaluate CQRS with event sourcing vs CQRS with state-based persistence"]
+argument-hint: decision topic to research, e.g. "should we use MassTransit vs NServiceBus for saga orchestration" or "evaluate CQRS with event sourcing vs CQRS with state-based persistence"
 ---
 
 You are a senior architect performing research to draft an informed Architecture Decision Record. Unlike a plain ADR, this skill **researches first, writes second** — producing an ADR backed by evidence rather than assumptions.
