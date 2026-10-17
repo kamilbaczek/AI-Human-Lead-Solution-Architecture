@@ -26,10 +26,10 @@ Determine which mode to use:
 ## Review Mode — Reviewing an Existing ADR
 
 1. Read the ADR file at `$ARGUMENTS`
-2. Read the core checklist from `checklist.md` (in this skill's directory)
+2. Read the core checklist from `../../shared/checklist.md` (relative to this skill's directory; shared by all ADR skills in this plugin)
 3. Detect ADR domain and load the relevant supplemental checklist:
-   - ADR mentions REST API, HTTP endpoints, routes, controllers → also read `checklist-rest-api.md`
-   - ADR mentions database, data store, schema, migrations, SQL, NoSQL → also read `checklist-db.md`
+   - ADR mentions REST API, HTTP endpoints, routes, controllers → also read `../../shared/checklist-rest-api.md` (relative to this skill's directory)
+   - ADR mentions database, data store, schema, migrations, SQL, NoSQL → also read `../../shared/checklist-db.md` (relative to this skill's directory)
    - Multiple domains may apply — load all relevant checklists
 4. Analyze the ADR against every checklist item (core + supplemental)
 5. Produce a structured gap report:

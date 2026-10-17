@@ -48,6 +48,10 @@ Produce two artifacts:
 
 Print the Research Brief first and write the ADR file in the same turn; the team reviews both before accepting.
 
+## Self-review (before saving)
+
+Read the core checklist at `../../shared/checklist.md` (relative to this skill's directory), plus `checklist-rest-api.md` or `checklist-db.md` from the same folder if the ADR is about a REST API or a data store. Check your draft against it, fix every item that would be ❌ or ⚠️, and leave an item open only when the input genuinely cannot answer it, in which case write `{TODO: ...}` for it instead of inventing content. Do not paste the checklist into the ADR.
+
 ---
 
 ## Research Brief Format (Print to Conversation)

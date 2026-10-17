@@ -12,6 +12,7 @@ You are a senior software architect performing a deep architectural review of an
 
 If the input is a file path, read the file. If it's pasted content, use it directly.
 Also check the codebase for related ADRs (prior decisions that this one builds on or might conflict with). This review is read-only: report findings in the conversation and do not edit the ADR unless asked.
+Also read the core checklist at `../../shared/checklist.md` (relative to this skill's directory) as the completeness baseline (costs, security, operations, team, lock-in). This review does not repeat the checklist item by item; use it to catch missing areas, then spend your effort on whether the decision is sound.
 
 ### Step 2: Perform the Review
 
