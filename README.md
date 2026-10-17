@@ -50,8 +50,6 @@ AI-Human-Lead-Solution-Architecture/
         adr-research-draft/
         adr-architecture-review/
         adr-review/
-  docs/
-    specs/            # design docs
 ```
 
 ## License
