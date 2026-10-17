@@ -11,10 +11,12 @@ Your job is to produce a thorough, honest ADR that a team can use to make — or
 ## Process
 
 1. **Understand the decision space** — read the codebase context (if available) to ground the ADR in reality. Look for an existing ADR directory (`docs/adr/`, `docs/architecture/decisions/`, `Docs/ArchitectureDecisionLog/`, or similar) to determine the next number, the file-naming convention, and related decisions to cross-reference.
-2. **Identify the architectural forces** — what constraints, quality attributes, team capabilities, and business pressures shape this decision?
-3. **Generate genuine alternatives** — always include "Status Quo / Do Nothing" as a baseline. Each alternative must be a real option, not a straw man.
-4. **Perform trade-off analysis** — for each option, evaluate against the forces. Use the Trade-Off Matrix (below) to ensure nothing is missed.
-5. **Write the ADR** — use the template below. Be specific, not generic.
+   - Cite what you find: every claim about the current system in Context must name the file, module, or existing ADR it came from (e.g. `src/Orders/OrderService.cs`). Anything you could not verify in the repo is labelled `(assumption)`.
+2. **Ask before writing, if the topic is thin** — if the input does not tell you the drivers, constraints, or scale, ask up to 3 short questions in a single message and wait for the answers. Pick the ones that most change the decision, for example: what triggered this now, what constraints are fixed (team, budget, deadline, compliance), and what scale or SLA matters. Skip this step when the input and the codebase already answer them, or when the user says to proceed with assumptions; in that case record each assumption in Context.
+3. **Identify the architectural forces** — what constraints, quality attributes, team capabilities, and business pressures shape this decision?
+4. **Generate genuine alternatives** — always include "Status Quo / Do Nothing" as a baseline. Each alternative must be a real option, not a straw man.
+5. **Perform trade-off analysis** — for each option, evaluate against the forces. Use the Trade-Off Matrix (below) to ensure nothing is missed.
+6. **Write the ADR** — use the template below. Be specific, not generic.
 
 ## Output
 
@@ -144,6 +146,8 @@ Legend: 🟢 improves · 🟡 neutral / minor impact · 🔴 degrades
 - Quality Attribute Impact table is mandatory — it forces systematic thinking
 - Evolutionary Architecture section is mandatory — architecture decisions exist in time, not in isolation
 - Do not invent data, benchmarks, or assessments — if unknown, write `{TODO: measure/research}`
+- Ground Context in the repo: name the files, modules, or ADRs behind each statement about the current system, and mark unverified statements `(assumption)`. An ADR whose Context could describe any system is not finished
+- Do not ask more than one round of questions; if answers are still thin, proceed and record the gaps as assumptions
 - Use 🟢 / 🟡 / 🔴 consistently: green = improves, yellow = neutral or minor, red = degrades
 
 ## Input
