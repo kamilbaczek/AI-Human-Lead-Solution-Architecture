@@ -1,0 +1,62 @@
+{
+  "review": [
+    {
+      "id": "arch-review/no-alternatives",
+      "skill": "adr-architecture-review",
+      "fixture": "flaw-no-alternatives.md",
+      "mustMatch": ["status quo|do nothing", "alternatives?", "negative|downside|trade-?off", "revise|reject"],
+      "mustNotMatch": ["recommendation:\\W*accept\\b"]
+    },
+    {
+      "id": "arch-review/straw-man",
+      "skill": "adr-architecture-review",
+      "fixture": "flaw-straw-man.md",
+      "mustMatch": ["straw", "revise"],
+      "mustNotMatch": ["recommendation:\\W*accept\\b"]
+    },
+    {
+      "id": "arch-review/irreversible-no-cost",
+      "skill": "adr-architecture-review",
+      "fixture": "flaw-irreversible-no-cost.md",
+      "mustMatch": ["revers", "single release|big[- ]bang|rollback|incremental", "cost|effort", "revise|reject"],
+      "mustNotMatch": ["recommendation:\\W*accept\\b"]
+    },
+    {
+      "id": "arch-review/good-adr-control",
+      "skill": "adr-architecture-review",
+      "fixture": "good-adr.md",
+      "mustMatch": ["accept|revise"],
+      "mustNotMatch": ["recommendation:\\W*reject\\b", "\\[blocking\\]"]
+    },
+    {
+      "id": "adr-review/no-alternatives",
+      "skill": "adr-review",
+      "fixture": "flaw-no-alternatives.md",
+      "mustMatch": ["alternatives?", "risks?", "cost", "security"]
+    },
+    {
+      "id": "adr-review/irreversible-no-cost",
+      "skill": "adr-review",
+      "fixture": "flaw-irreversible-no-cost.md",
+      "mustMatch": ["cost", "risks?", "security", "operational|monitoring"]
+    }
+  ],
+  "triggers": [
+    {
+      "prompt": "Write an ADR for splitting the billing module into its own microservice.",
+      "expectSkill": "adr-create"
+    },
+    {
+      "prompt": "We need to pick between MassTransit and NServiceBus for saga orchestration. Research both and draft an ADR with evidence.",
+      "expectSkill": "adr-research-draft"
+    },
+    {
+      "prompt": "Critically assess whether the decision in evals/fixtures/flaw-straw-man.md is architecturally sound before we accept it.",
+      "expectSkill": "adr-architecture-review"
+    },
+    {
+      "prompt": "Check evals/fixtures/flaw-no-alternatives.md against the checklist for missing sections and interview me to fill the gaps.",
+      "expectSkill": "adr-review"
+    }
+  ]
+}
