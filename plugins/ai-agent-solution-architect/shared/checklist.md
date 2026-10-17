@@ -6,25 +6,25 @@ For each item, assess: ✅ Present & sufficient | ⚠️ Weak / vague | ❌ Miss
 ---
 
 ## 1. Context
-- [ ] Problem is clearly stated — not just symptoms, but root cause
-- [ ] Business or technical driver is identified — "Why?" is answered (business rationale is explicit)
+- [ ] Problem is clearly stated: not just symptoms, but root cause
+- [ ] Business or technical driver is identified: "Why?" is answered (business rationale is explicit)
 - [ ] Scope is defined (what is affected, what is not)
 - [ ] Current state / baseline is described
 
 ## 2. Decision
 - [ ] Decision is specific and actionable (not vague like "use a better approach")
 - [ ] Who is making the decision is clear (team, architect, CTO?)
-- [ ] Decision is scoped — applies to which systems/services/teams?
+- [ ] Decision is scoped: applies to which systems/services/teams?
 
-## 3. Consequences — Positive
+## 3. Consequences: Positive
 - [ ] At least one concrete benefit is listed
 - [ ] Benefits are specific, not generic marketing language
 
-## 4. Consequences — Negative
+## 4. Consequences: Negative
 - [ ] Trade-offs are honest and explicit
 - [ ] Short-term vs long-term impacts are distinguished where relevant
 
-## 5. Consequences — Risks
+## 5. Consequences: Risks
 - [ ] Technical risks identified (e.g., data loss, downtime, performance regression)
 - [ ] Organizational risks identified (e.g., team skill gaps, vendor dependency)
 - [ ] Mitigation strategies are mentioned for high-severity risks

@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "ai-agent-solution-architect-skills",
-  "description": "AI Agent Solution Architect Skills — a personal Claude Code marketplace of skills for AI-assisted software architecture: authoring, researching, and reviewing Architecture Decision Records.",
+  "description": "AI Agent Solution Architect Skills, a personal Claude Code marketplace of skills for AI-assisted software architecture: authoring, researching, and reviewing Architecture Decision Records.",
   "owner": {
     "name": "Kamil Bączek"
   },

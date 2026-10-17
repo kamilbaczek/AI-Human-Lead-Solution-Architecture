@@ -75,4 +75,4 @@ jobs:
 
       - name: Skip (no version bump)
         if: steps.check_tag.outputs.exists == 'true'
-        run: echo "Tag ${{ steps.check_tag.outputs.tag }} already exists — plugin.json version wasn't bumped, nothing to release."
+        run: echo "Tag ${{ steps.check_tag.outputs.tag }} already exists; plugin.json version wasn't bumped, nothing to release."
