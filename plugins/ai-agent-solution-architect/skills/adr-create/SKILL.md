@@ -6,15 +6,15 @@ argument-hint: decision topic, e.g. "extract payments module into a separate mic
 
 You are a senior software architect creating an Architecture Decision Record.
 
-Your job is to produce a thorough, honest ADR that a team can use to make — or document — a real architectural decision. The ADR must emphasize **trade-off analysis** above all: every option must have clearly articulated costs, benefits, and risks with concrete reasoning.
+Your job is to produce a thorough, honest ADR that a team can use to make, or document, a real architectural decision. The ADR must emphasize **trade-off analysis** above all: every option must have clearly articulated costs, benefits, and risks with concrete reasoning.
 
 ## Process
 
-1. **Understand the decision space** — read the codebase context (if available) to ground the ADR in reality. Look for an existing ADR directory (`docs/adr/`, `docs/architecture/decisions/`, `Docs/ArchitectureDecisionLog/`, or similar) to determine the next number, the file-naming convention, and related decisions to cross-reference.
-2. **Identify the architectural forces** — what constraints, quality attributes, team capabilities, and business pressures shape this decision?
-3. **Generate genuine alternatives** — always include "Status Quo / Do Nothing" as a baseline. Each alternative must be a real option, not a straw man.
-4. **Perform trade-off analysis** — for each option, evaluate against the forces. Use the Trade-Off Matrix (below) to ensure nothing is missed.
-5. **Write the ADR** — use the template below. Be specific, not generic.
+1. **Understand the decision space**: read the codebase context (if available) to ground the ADR in reality. Look for an existing ADR directory (`docs/adr/`, `docs/architecture/decisions/`, `Docs/ArchitectureDecisionLog/`, or similar) to determine the next number, the file-naming convention, and related decisions to cross-reference.
+2. **Identify the architectural forces**: what constraints, quality attributes, team capabilities, and business pressures shape this decision?
+3. **Generate genuine alternatives**: always include "Status Quo / Do Nothing" as a baseline. Each alternative must be a real option, not a straw man.
+4. **Perform trade-off analysis**: for each option, evaluate against the forces. Use the Trade-Off Matrix (below) to ensure nothing is missed.
+5. **Write the ADR**: use the template below. Be specific, not generic.
 
 ## Output
 
@@ -65,15 +65,15 @@ We will {describe the chosen approach in one clear sentence}.
 ## Consequences
 
 ### Positive
-- {Concrete benefit with reasoning, e.g. "Independent deployment of module X — reduces release coordination from 3 teams to 1"}
+- {Concrete benefit with reasoning, e.g. "Independent deployment of module X, reduces release coordination from 3 teams to 1"}
 - {Each benefit should answer: "positive for whom, and how much?"}
 
 ### Negative
-- {Concrete cost with reasoning, e.g. "Introduces network boundary between X and Y — adds ~5ms latency per call and requires handling partial failures"}
+- {Concrete cost with reasoning, e.g. "Introduces network boundary between X and Y, adds ~5ms latency per call and requires handling partial failures"}
 - {Each negative should answer: "how bad is this, and can we mitigate it?"}
 
 ### Risks
-- {Risk with likelihood and impact, e.g. "Team lacks RabbitMQ operational experience (likelihood: high, impact: medium) — mitigate with training + managed service"}
+- {Risk with likelihood and impact, e.g. "Team lacks RabbitMQ operational experience (likelihood: high, impact: medium), mitigate with training + managed service"}
 
 ## Trade-Off Analysis
 
@@ -108,7 +108,7 @@ Legend: 🟢 improves · 🟡 neutral / minor impact · 🔴 degrades
 ### Alternative 2: {Name}
 - **Description:** {How this alternative works}
 - **Trade-offs:** {Benefits and costs}
-- **Why not chosen:** {Specific reason — never "it's worse", always explain the specific trade-off that made the chosen option preferable}
+- **Why not chosen:** {Specific reason: never "it's worse", always explain the specific trade-off that made the chosen option preferable}
 
 ### Comparison Matrix
 
@@ -144,10 +144,10 @@ Legend: 🟢 improves · 🟡 neutral / minor impact · 🔴 degrades
 ### General Rules
 - Status starts as `Proposed` unless the user specifies otherwise
 - Context must include specific architectural forces, not vague statements
-- Every alternative must have a specific "Why not chosen" — never generic dismissals
-- Quality Attribute Impact table is mandatory — it forces systematic thinking
-- Evolutionary Architecture section is mandatory — architecture decisions exist in time, not in isolation
-- Do not invent data, benchmarks, or assessments — if unknown, write `{TODO: measure/research}`
+- Every alternative must have a specific "Why not chosen", never generic dismissals
+- Quality Attribute Impact table is mandatory: it forces systematic thinking
+- Evolutionary Architecture section is mandatory: architecture decisions exist in time, not in isolation
+- Do not invent data, benchmarks, or assessments; if unknown, write `{TODO: measure/research}`
 - Use 🟢 / 🟡 / 🔴 consistently: green = improves, yellow = neutral or minor, red = degrades
 
 ## Input

@@ -1,4 +1,4 @@
-# ADR Checklist — Database Design
+# ADR Checklist: Database Design
 
 Use when the ADR involves choosing, changing, or significantly modifying a database or data store.
 For each item, assess: ✅ Present & sufficient | ⚠️ Weak / vague | ❌ Missing
@@ -28,7 +28,7 @@ For each item, assess: ✅ Present & sufficient | ⚠️ Weak / vague | ❌ Miss
 - [ ] Connection pooling strategy addressed
 
 ## Reliability & Availability
-- [ ] Availability target stated (SLA — e.g., 99.9%)
+- [ ] Availability target stated (SLA: e.g., 99.9%)
 - [ ] Replication model defined (primary-replica, multi-primary, etc.)
 - [ ] Failover strategy defined (automatic vs. manual, RTO/RPO targets)
 - [ ] Backup strategy defined (frequency, retention, restore tested?)
