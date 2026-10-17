@@ -1,0 +1,13 @@
+{
+  "name": "ai-human-lead-solution-architecture",
+  "version": "1.1.0",
+  "description": "Installer for the ai-agent-solution-architect Claude Code plugin (ADR skills).",
+  "type": "module",
+  "bin": {
+    "ai-human-lead-solution-architecture": "bin/install.js"
+  },
+  "files": ["bin"],
+  "engines": { "node": ">=18" },
+  "repository": "github:kamilbaczek/AI-Human-Lead-Solution-Architecture",
+  "license": "MIT"
+}

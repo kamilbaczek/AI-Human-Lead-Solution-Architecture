@@ -27,7 +27,15 @@ challenge it before it's accepted.
 
 ## Getting started
 
-Add the marketplace and install the plugin:
+**Requirements:** [Claude Code](https://claude.com/claude-code) CLI and Node.js 18+
+
+One command, straight from GitHub:
+
+```bash
+npx github:kamilbaczek/AI-Human-Lead-Solution-Architecture
+```
+
+It runs the two commands below for you. Or run them yourself:
 
 ```bash
 claude plugin marketplace add kamilbaczek/AI-Human-Lead-Solution-Architecture
@@ -64,8 +72,11 @@ repo, path `plugins/ai-agent-solution-architect`, and a release tag from CI abov
 
 ```
 AI-Human-Lead-Solution-Architecture/
+  bin/
+    install.js        # npx installer
   .claude-plugin/
     marketplace.json
+  package.json
   plugins/
     ai-agent-solution-architect/
       .claude-plugin/
