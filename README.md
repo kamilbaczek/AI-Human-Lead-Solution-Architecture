@@ -13,8 +13,7 @@
   <a href="#-getting-started">Getting started</a> ·
   <a href="#-what-is-an-adr">What is an ADR?</a> ·
   <a href="#-principles">Principles</a> ·
-  <a href="#-skills">Skills</a> ·
-  <a href="#-documentation">Docs</a>
+  <a href="#-skills">Skills</a>
 </p>
 
 <p align="center">
@@ -170,15 +169,6 @@ AI-Human-Lead-Solution-Architecture/
         adr-review/
       shared/         # ADR template, significance gate, checklists
 ```
-
-## 📚 Documentation
-
-Each skill documents its own steps. Start with the one you need:
-
-* [`adr-create`](plugins/human-lead-architect/skills/adr-create/SKILL.md): write an ADR for a decision you already have in mind
-* [`adr-research-draft`](plugins/human-lead-architect/skills/adr-research-draft/SKILL.md): draft an ADR when the decision depends on evidence you don't have yet
-* [`adr-architecture-review`](plugins/human-lead-architect/skills/adr-architecture-review/SKILL.md): check whether the decision is sound
-* [`adr-review`](plugins/human-lead-architect/skills/adr-review/SKILL.md): review against a checklist and fill the gaps in an interview
 
 ## License
 
