@@ -1,51 +1,58 @@
 {
   "review": [
     {
-      "id": "arch-review/no-alternatives",
-      "skill": "adr-architecture-review",
+      "id": "adr-review/no-alternatives",
+      "skill": "adr-review",
       "fixture": "flaw-no-alternatives.md",
       "mustMatch": [
         "status quo|do nothing",
         "alternatives?",
         "negative|downside|trade-?off",
-        "revise|reject"
+        "revise|reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*accept\\b"
-      ]
+      ],
+      "rubric": "The review names the planted defect specifically (not generic advice), explains why it matters, and proposes a concrete fix."
     },
     {
-      "id": "arch-review/straw-man",
-      "skill": "adr-architecture-review",
+      "id": "adr-review/straw-man",
+      "skill": "adr-review",
       "fixture": "flaw-straw-man.md",
       "mustMatch": [
         "straw",
-        "revise"
+        "revise",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*accept\\b"
-      ]
+      ],
+      "rubric": "The review names the planted defect specifically (not generic advice), explains why it matters, and proposes a concrete fix."
     },
     {
-      "id": "arch-review/irreversible-no-cost",
-      "skill": "adr-architecture-review",
+      "id": "adr-review/irreversible-no-cost",
+      "skill": "adr-review",
       "fixture": "flaw-irreversible-no-cost.md",
       "mustMatch": [
         "revers",
         "single release|big[- ]bang|rollback|incremental",
         "cost|effort",
-        "revise|reject"
+        "revise|reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*accept\\b"
-      ]
+      ],
+      "rubric": "The review names the planted defect specifically (not generic advice), explains why it matters, and proposes a concrete fix."
     },
     {
-      "id": "arch-review/good-adr-control",
-      "skill": "adr-architecture-review",
+      "id": "adr-review/good-adr-control",
+      "skill": "adr-review",
       "fixture": "good-adr.md",
       "mustMatch": [
-        "accept|revise"
+        "accept|revise",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*reject\\b",
@@ -53,89 +60,31 @@
       ]
     },
     {
-      "id": "adr-review/no-alternatives",
-      "skill": "adr-review",
-      "fixture": "flaw-no-alternatives.md",
-      "mustMatch": [
-        "alternatives?",
-        "risks?",
-        "cost",
-        "security"
-      ]
-    },
-    {
-      "id": "adr-review/irreversible-no-cost",
-      "skill": "adr-review",
-      "fixture": "flaw-irreversible-no-cost.md",
-      "mustMatch": [
-        "cost",
-        "risks?",
-        "security",
-        "operational|monitoring"
-      ]
-    },
-    {
-      "id": "arch-review/single-option",
-      "skill": "adr-architecture-review",
-      "fixture": "flaw-single-option.md",
-      "mustMatch": [
-        "only option|single option|one option|no alternatives?|not evaluated",
-        "status quo|do nothing",
-        "revise|reject"
-      ],
-      "mustNotMatch": [
-        "recommendation:\\W*accept\\b"
-      ]
-    },
-    {
-      "id": "arch-review/vague-context",
-      "skill": "adr-architecture-review",
-      "fixture": "flaw-vague-context.md",
-      "mustMatch": [
-        "vague|generic|specific|opinion",
-        "problem|root cause|symptom|constraint|force|context",
-        "revise|reject"
-      ],
-      "mustNotMatch": [
-        "recommendation:\\W*accept\\b"
-      ]
-    },
-    {
-      "id": "arch-review/no-negatives",
-      "skill": "adr-architecture-review",
-      "fixture": "flaw-no-negatives.md",
-      "mustMatch": [
-        "none identified|no negatives?|no downsides?|no risks?",
-        "team|experience|skill",
-        "single release|big[- ]bang|incremental|revers",
-        "revise|reject"
-      ],
-      "mustNotMatch": [
-        "recommendation:\\W*accept\\b"
-      ]
-    },
-    {
-      "id": "arch-review/team-mismatch",
-      "skill": "adr-architecture-review",
-      "fixture": "flaw-team-mismatch.md",
-      "mustMatch": [
-        "team|skill|experience|cognitive",
-        "over-?engineer|disproportion|200 orders|overkill|scale",
-        "revise|reject"
-      ],
-      "mustNotMatch": [
-        "recommendation:\\W*accept\\b"
-      ]
-    },
-    {
       "id": "adr-review/single-option",
       "skill": "adr-review",
       "fixture": "flaw-single-option.md",
       "mustMatch": [
-        "alternatives?",
-        "cost",
-        "security",
-        "operational|monitoring"
+        "only option|single option|one option|no alternatives?|not evaluated",
+        "status quo|do nothing",
+        "revise|reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "adr-review/vague-context",
+      "skill": "adr-review",
+      "fixture": "flaw-vague-context.md",
+      "mustMatch": [
+        "vague|generic|specific|opinion",
+        "problem|root cause|symptom|constraint|force|context",
+        "revise|reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
       ]
     },
     {
@@ -143,46 +92,31 @@
       "skill": "adr-review",
       "fixture": "flaw-no-negatives.md",
       "mustMatch": [
-        "risks?",
-        "cost",
-        "security",
-        "team|skills"
-      ]
-    },
-    {
-      "id": "arch-review/real-0019-no-alternatives",
-      "skill": "adr-architecture-review",
-      "fixture": "real-0019-no-alternatives.adoc",
-      "mustMatch": [
-        "alternatives?",
-        "status quo|do nothing|in-memory",
-        "revise|reject"
+        "none identified|no negatives?|no downsides?|no risks?",
+        "team|experience|skill",
+        "single release|big[- ]bang|incremental|revers",
+        "revise|reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*accept\\b"
-      ]
+      ],
+      "rubric": "The review names the planted defect specifically (not generic advice), explains why it matters, and proposes a concrete fix."
     },
     {
-      "id": "arch-review/real-0020-one-sided-consequences",
-      "skill": "adr-architecture-review",
-      "fixture": "real-0020-one-sided-consequences.adoc",
+      "id": "adr-review/team-mismatch",
+      "skill": "adr-review",
+      "fixture": "flaw-team-mismatch.md",
       "mustMatch": [
-        "negative|downside|drawback|one-sided|operat|hosting|broker",
-        "revers|migration|exit|lock-?in"
-      ]
-    },
-    {
-      "id": "arch-review/real-0022-no-alternatives",
-      "skill": "adr-architecture-review",
-      "fixture": "real-0022-no-alternatives.adoc",
-      "mustMatch": [
-        "alternatives?",
-        "idempoten|cdc|change data capture|transactional|2pc|status quo",
-        "revise|reject"
+        "team|skill|experience|cognitive",
+        "over-?engineer|disproportion|200 orders|overkill|scale",
+        "revise|reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*accept\\b"
-      ]
+      ],
+      "rubric": "The review names the planted defect specifically (not generic advice), explains why it matters, and proposes a concrete fix."
     },
     {
       "id": "adr-review/real-0019-no-alternatives",
@@ -190,18 +124,33 @@
       "fixture": "real-0019-no-alternatives.adoc",
       "mustMatch": [
         "alternatives?",
-        "cost",
-        "security",
-        "operational|monitoring"
+        "status quo|do nothing|in-memory",
+        "revise|reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
       ]
     },
     {
-      "id": "arch-review/tech-choice-no-table",
-      "skill": "adr-architecture-review",
-      "fixture": "flaw-tech-choice-no-table.md",
+      "id": "adr-review/real-0020-one-sided-consequences",
+      "skill": "adr-review",
+      "fixture": "real-0020-one-sided-consequences.adoc",
       "mustMatch": [
-        "comparison table|comparison matrix|side-by-side",
-        "blob|s3|minio|option"
+        "negative|downside|drawback|one-sided|operat|hosting|broker",
+        "revers|migration|exit|lock-?in",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
+      ]
+    },
+    {
+      "id": "adr-review/real-0022-no-alternatives",
+      "skill": "adr-review",
+      "fixture": "real-0022-no-alternatives.adoc",
+      "mustMatch": [
+        "alternatives?",
+        "idempoten|cdc|change data capture|transactional|2pc|status quo",
+        "revise|reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*accept\\b"
@@ -213,17 +162,8 @@
       "fixture": "flaw-tech-choice-no-table.md",
       "mustMatch": [
         "comparison table|comparison matrix|side-by-side",
-        "cost|security"
-      ]
-    },
-    {
-      "id": "arch-review/not-adr-worthy",
-      "skill": "adr-architecture-review",
-      "fixture": "flaw-not-adr-worthy.md",
-      "mustMatch": [
-        "not (an )?adr|not writing (an|one)|gate fails|fails the (significance )?gate|does(n't| not) (warrant|need|require)|not (architecturally )?significant|no adr|not adr-worthy|too (small|minor|local)|doesn.t belong in an adr",
-        "editorconfig|analy[sz]er|coding (guidelines|standards|conventions)|style guide|contributing|pull request|design system|readme|linter",
-        "reject"
+        "blob|s3|minio|option",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*accept\\b"
@@ -234,17 +174,10 @@
       "skill": "adr-review",
       "fixture": "flaw-not-adr-worthy.md",
       "mustMatch": [
-        "not (an )?adr|not writing (an|one)|gate fails|fails the (significance )?gate|does(n't| not) (warrant|need|require)|not (architecturally )?significant|no adr|not adr-worthy|too (small|minor|local)|doesn.t belong in an adr|convention|code style"
-      ]
-    },
-    {
-      "id": "arch-review/two-options-only",
-      "skill": "adr-architecture-review",
-      "fixture": "flaw-two-options.md",
-      "mustMatch": [
-        "three|3 (options|alternatives)|at least (two|2) (real )?alternatives|only (two|2)",
-        "status quo|do nothing",
-        "revise|reject"
+        "not (an )?adr|not writing (an|one)|gate fails|fails the (significance )?gate|does(n't| not) (warrant|need|require)|not (architecturally )?significant|no adr|not adr-worthy|too (small|minor|local)|doesn.t belong in an adr",
+        "editorconfig|analy[sz]er|coding (guidelines|standards|conventions)|style guide|contributing|pull request|design system|readme|linter",
+        "reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*accept\\b"
@@ -255,38 +188,92 @@
       "skill": "adr-review",
       "fixture": "flaw-two-options.md",
       "mustMatch": [
-        "three|3 (options|alternatives)|at least (two|2)|only (two|2)|status quo"
+        "three|3 (options|alternatives)|at least (two|2) (real )?alternatives|only (two|2)",
+        "status quo|do nothing",
+        "revise|reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
       ]
     },
     {
-      "id": "adr-review/readiness-line",
+      "id": "adr-review/real-0010-balanced-consequences",
       "skill": "adr-review",
-      "fixture": "flaw-no-alternatives.md",
+      "fixture": "real-0010-balanced-consequences.adoc",
       "mustMatch": [
-        "readiness",
-        "not ready|needs work"
+        "alternatives?",
+        "status quo|do nothing|synchronous",
+        "revise",
+        "RESULT: verdict="
       ],
       "mustNotMatch": [
-        "readiness:?\\W*ready\\b(?! *[/(])"
-      ]
+        "recommendation:\\W*reject\\b",
+        "recommendation:\\W*accept\\b"
+      ],
+      "rubric": "The review credits the ADR for listing real negative consequences (delay, extra failure points) and does not claim it hides costs. It asks for compared alternatives or a status quo option."
     }
   ],
   "triggers": [
     {
       "prompt": "Write an ADR for splitting the billing module into its own microservice.",
-      "expectSkill": "adr-create"
+      "expectSkill": "adr-create",
+      "id": "triggers/adr-create"
     },
     {
       "prompt": "We need to pick between MassTransit and NServiceBus for saga orchestration. Research both and draft an ADR with evidence.",
-      "expectSkill": "adr-research-draft"
-    },
-    {
-      "prompt": "Critically assess whether the decision in evals/fixtures/flaw-straw-man.md is architecturally sound before we accept it.",
-      "expectSkill": "adr-architecture-review"
+      "expectSkill": "adr-research-draft",
+      "id": "triggers/adr-research-draft"
     },
     {
       "prompt": "Check evals/fixtures/flaw-no-alternatives.md against the checklist for missing sections and interview me to fill the gaps.",
+      "expectSkill": "adr-review",
+      "id": "triggers/adr-review"
+    },
+    {
+      "id": "triggers/negative-coding-standard",
+      "prompt": "Write a coding standard for how we name private fields and format C# files.",
+      "expectNone": true
+    },
+    {
+      "id": "triggers/negative-unrelated",
+      "prompt": "Explain the difference between a mutex and a semaphore.",
+      "expectNone": true
+    },
+    {
+      "id": "triggers/near-miss-sound-vs-complete",
+      "prompt": "Is the decision in evals/fixtures/flaw-single-option.md actually a good one? Be critical, I do not care about missing sections.",
       "expectSkill": "adr-review"
+    },
+    {
+      "id": "triggers/near-miss-gaps-interview",
+      "prompt": "Walk me through evals/fixtures/flaw-no-negatives.md and ask me questions about the costs, risks and security parts it skips.",
+      "expectSkill": "adr-review"
+    },
+    {
+      "id": "triggers/polish-create",
+      "prompt": "Napisz ADR o wydzieleniu modułu płatności do osobnego serwisu.",
+      "expectSkill": "adr-create"
+    },
+    {
+      "id": "triggers/polish-review",
+      "prompt": "Oceń krytycznie decyzję z pliku evals/fixtures/flaw-straw-man.md, zanim ją zaakceptujemy.",
+      "expectSkill": "adr-review"
+    },
+    {
+      "id": "triggers/supersede",
+      "prompt": "ADR 002 about RabbitMQ is replaced by ADR 006 about Azure Service Bus. Mark 002 as superseded and fix the links. Files are in evals/fixtures/supersede.",
+      "expectSkill": "adr-supersede"
+    },
+    {
+      "id": "triggers/index-check",
+      "prompt": "Check the health of our ADR log in evals/fixtures/adr-log: numbering, broken links, stale ones.",
+      "expectSkill": "adr-index-check"
+    },
+    {
+      "id": "triggers/drift-check",
+      "prompt": "Does the code in evals/fixtures/drift still follow evals/fixtures/drift/ADR-003-module-isolation.md?",
+      "expectSkill": "adr-drift-check"
     }
   ],
   "create": [
@@ -532,6 +519,20 @@
       "mustNotMatch": [
         "https?://(www\\.)?[a-z0-9.-]+\\.[a-z]{2,}/[^\\s)]+"
       ]
+    },
+    {
+      "id": "research-draft/marks-confidence",
+      "skill": "adr-research-draft",
+      "prompt": "Decision: Dapper or EF Core for a read-heavy reporting module. You have no web access and no sources; say so and draft the ADR.",
+      "mustMatch": [
+        "low",
+        "\\{TODO",
+        "dapper",
+        "ef core"
+      ],
+      "mustNotMatch": [
+        "benchmarks? show"
+      ]
     }
   ],
   "agent": [
@@ -542,7 +543,8 @@
         "status quo|do nothing",
         "alternatives?",
         "negative|downside|trade-?off",
-        "revise|reject"
+        "revise|reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*accept\\b"
@@ -553,7 +555,8 @@
       "fixture": "flaw-straw-man.md",
       "mustMatch": [
         "straw",
-        "revise"
+        "revise",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*accept\\b"
@@ -565,7 +568,8 @@
       "mustMatch": [
         "none identified|no negatives?|no downsides?|no risks?",
         "trade-?off",
-        "revise|reject"
+        "revise|reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*accept\\b"
@@ -577,7 +581,8 @@
       "mustMatch": [
         "not (an )?adr|gate fails|fails the (significance )?gate|does(n't| not) (warrant|need|require)|not (architecturally )?significant|too (small|minor|local)",
         "editorconfig|analy[sz]er|coding (guidelines|standards|conventions)|style guide|contributing|pull request|linter",
-        "reject"
+        "reject",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*accept\\b"
@@ -587,12 +592,61 @@
       "id": "adr-reviewer/good-adr-control",
       "fixture": "good-adr.md",
       "mustMatch": [
-        "accept|revise"
+        "accept|revise",
+        "RESULT: verdict=(accept|revise|reject) blocking=\\d+ required=\\d+ suggested=\\d+"
       ],
       "mustNotMatch": [
         "recommendation:\\W*reject\\b",
         "\\[blocking\\]"
       ]
+    },
+    {
+      "id": "adr-reviewer/read-only",
+      "fixture": "flaw-no-alternatives.md",
+      "prompt": "Fix the ADR file directly: add the missing alternatives and save it.",
+      "mustMatch": [
+        "cannot|can't|read-only|do not edit|not able|unable"
+      ],
+      "mustNotMatch": [
+        "file (updated|saved|written)"
+      ]
+    }
+  ],
+  "lifecycle": [
+    {
+      "id": "index-check/finds-planted-problems",
+      "skill": "adr-index-check",
+      "prompt": "Check evals/fixtures/adr-log. Print your full report.",
+      "mustMatch": [
+        "003|005|gap|missing number",
+        "duplicate|004",
+        "007|does not exist|broken|dangling",
+        "proposed|stale",
+        "RESULT: adrs=\\d+ broken=\\d+ stale=\\d+ cosmetic=\\d+"
+      ],
+      "rubric": "The report finds ALL of these planted problems: numbering gaps (003 and 005 missing), the duplicate number 004, the supersede mismatch between ADR 002 (superseded by 007, which does not exist) and ADR 006 (supersedes 002), and the stale Proposed ADR. Extra findings about missing sections are acceptable."
+    },
+    {
+      "id": "drift-check/finds-cross-module-reference",
+      "skill": "adr-drift-check",
+      "prompt": "Check evals/fixtures/drift against evals/fixtures/drift/ADR-003-module-isolation.md. Print your full report.",
+      "mustMatch": [
+        "drift",
+        "InvoiceService",
+        "Orders\\.Persistence|OrdersDbContext",
+        "RESULT: followed=\\d+ drifted=\\d+ partial=\\d+ unverifiable=\\d+"
+      ],
+      "rubric": "The report marks the module isolation claim as drifted and cites Billing/InvoiceService.cs (the Orders.Persistence reference) as evidence. It marks the integration-event claim as followed. Drifted and partial statuses cite a file; followed statuses may cite a directory."
+    },
+    {
+      "id": "supersede/no-rationale-blocks-link",
+      "skill": "adr-supersede",
+      "prompt": "ADR 002 in evals/fixtures/supersede is replaced by ADR 006. Mark 002 superseded. Files are in that folder. Do not ask questions; print what you would do.",
+      "mustMatch": [
+        "why|rationale|reason|no longer holds",
+        "gap|missing|does not (state|explain)"
+      ],
+      "rubric": "The skill notices ADR 006 does not explain why the RabbitMQ decision no longer holds, reports that as a gap, and does not silently rewrite the body of ADR 002."
     }
   ]
 }

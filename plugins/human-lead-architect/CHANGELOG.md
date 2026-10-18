@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.5.0 - 2026-10-18
+
+* Breaking: removed `adr-architecture-review`. `adr-review` now judges soundness and gives the verdict, so use it instead
+* `adr-review` no longer drafts new ADRs (use `adr-create`); it reviews, then interviews you to fill the gaps
+* `adr-reviewer` agent now loads `adr-review`
+
+## 1.4.0 - 2026-10-18
+
+* New skills: `adr-supersede` (retire an ADR and fix links), `adr-index-check` (numbering, supersede links, stale statuses across the whole log) and `adr-drift-check` (does the code still follow an accepted ADR)
+* Reviews now end with a machine-readable `RESULT:` line; severity levels and the verdict mapping moved to `shared/review-output.md` and are no longer duplicated
+* `adr-reviewer` agent loads only `adr-architecture-review` and reads checklists on demand, which saves context
+* Evals: each case runs 3 times and passes on 2 of 3, an LLM judge grades review quality against rubrics, and new cases cover negative and Polish triggers, the new skills, the agent's read-only guarantee and a balanced real-world ADR
+
 ## 1.3.1 - 2026-10-18
 
 * `adr-reviewer` agent: added a trade-off-driven reviewing lens (architecture characteristics, coupling, options, communicating across levels)
