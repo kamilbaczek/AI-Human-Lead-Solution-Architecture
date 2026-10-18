@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1 - 2026-10-18
+
+* Added a 1024 px square listing icon at `.claude-plugin/icon.png`
+* Scoped the `adr-review` write grant to `Write(./docs/**)` instead of unrestricted `Write`
+
 ## 1.2.0 - 2026-10-18
 
 - Technology comparison table in ADRs

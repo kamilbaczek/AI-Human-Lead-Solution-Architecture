@@ -1,7 +1,7 @@
 {
   "name": "ai-agent-solution-architect",
   "description": "A toolkit for AI-assisted solution architecture work: create, research, and review Architecture Decision Records.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": {
     "name": "Kamil Bączek",
     "url": "https://github.com/kamilbaczek"

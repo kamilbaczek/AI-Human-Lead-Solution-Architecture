@@ -2,7 +2,7 @@
 name: adr-review
 description: Use when the user wants to check an ADR for missing sections (costs, risks, security, alternatives) against a checklist, or wants to be interviewed question by question to complete or draft an ADR
 argument-hint: "[path/to/adr.md or topic]"
-allowed-tools: Read, Write, Glob
+allowed-tools: Read, Write(./docs/**), Glob
 ---
 
 # ADR Review & Survey
