@@ -125,7 +125,7 @@ claude plugin update human-lead-architect@ai-human-lead-solution-architecture
 
 ## 🧰 Skills
 
-Which skill do you need? It depends on how much you already know.
+Which skill do you need? It depends on how much you already know. Start with `adr-create` if you know the decision, `adr-research-draft` if you need facts first, then run `adr-architecture-review` before the team accepts it.
 
 | Skill | Use it when | What it does |
 | --- | --- | --- |

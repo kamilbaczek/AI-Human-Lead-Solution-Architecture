@@ -1,17 +1,17 @@
 ---
 name: adr-architecture-review
-description: Use when an existing ADR needs a critical assessment of whether the decision is sound, for example before acceptance, in a design review, or when a decision feels under-argued
+description: Use when an existing ADR needs a critical assessment of whether the decision is sound, for example before acceptance, in a design review, or when a decision feels under-argued. Not for filling in missing sections; use adr-review for that
 argument-hint: path to ADR file or paste ADR content to review
 ---
 
-You are a senior software architect performing a deep architectural review of an ADR. Assess whether the decision is sound, whether the trade-offs are captured honestly, and whether the reasoning holds up under scrutiny. Do not check template compliance.
+You are a senior software architect performing a deep architectural review of an ADR. Assess whether the decision is sound, whether the trade-offs are captured honestly, and whether the reasoning holds up under scrutiny. Do not check the template section by section; judge the reasoning.
 
 ## Process
 
 ### Step 1: Read the ADR
 
 If the input is a file path, read the file. If it's pasted content, use it directly.
-Also check the codebase for related ADRs (prior decisions that this one builds on or might conflict with). This review is read-only: report findings in the conversation and do not edit the ADR unless asked.
+Also check the codebase for related ADRs (prior decisions that this one builds on or might conflict with); Section 4 reports the result. This review is read-only: report findings in the conversation and do not edit the ADR unless asked.
 Also read the core checklist at `../../shared/checklist.md` (relative to this skill's directory) as the completeness baseline (costs, security, operations, team, lock-in). This review does not repeat the checklist item by item; use it to catch missing areas, then spend your effort on whether the decision is sound.
 
 ### Step 1b: Check significance
@@ -113,11 +113,9 @@ Check against fundamental architectural principles:
 | Principle | Status | Notes |
 |-----------|--------|-------|
 | **Separation of Concerns** | No issue / Concern | {Does this mix responsibilities?} |
-| **Module Independence** | No issue / Concern | {Does this create coupling between modules?} |
 | **Consistency with Prior ADRs** | No issue / Concern | {Does this contradict or supersede prior decisions without acknowledging it?} |
 | **Appropriate Abstraction Level** | No issue / Concern | {Is this decision at the right level, too abstract or too implementation-specific?} |
-| **Testability** | No issue / Concern | {Can the resulting design be tested effectively?} |
-| **Observability** | No issue / Concern | {Are monitoring, logging, tracing impacts addressed?} |
+| **Testability and observability** | No issue / Concern | {Can the design be tested, and are monitoring, logging and tracing impacts addressed?} |
 
 ---
 
@@ -131,6 +129,8 @@ Check against fundamental architectural principles:
 - {Risk the ADR doesn't mention but should}
 
 ---
+
+Omit table rows that have no finding; a row that only restates the question is noise.
 
 ### 6. Actionable Feedback
 
@@ -146,7 +146,7 @@ Reason: {Why it matters}
 Reason: {How it would strengthen the ADR}
 ```
 
-Severity guide:
+Severity guide (the Verdict mapping in section 0 depends on it):
 - **BLOCKING**: the ADR has a fundamental flaw (missing trade-offs, contradicts prior decisions, decision is ambiguous)
 - **REQUIRED**: the ADR is incomplete but the direction is sound (missing consequences, weak alternatives)
 - **SUGGESTED**: the ADR is acceptable but could be stronger (additional context, better quantification)
@@ -167,7 +167,6 @@ Severity guide:
 - **Assess complexity budget.** Every decision adds complexity. Is this complexity earning its keep?
 
 ### Consistency
-- **Cross-reference prior ADRs.** If the codebase has existing ADRs, check for contradictions or superseded decisions.
 - **Check tech stack alignment.** If the decision introduces new technology, is the rationale for divergence sufficient?
 
 ## Input

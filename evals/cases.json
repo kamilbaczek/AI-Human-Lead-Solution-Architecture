@@ -257,6 +257,18 @@
       "mustMatch": [
         "three|3 (options|alternatives)|at least (two|2)|only (two|2)|status quo"
       ]
+    },
+    {
+      "id": "adr-review/readiness-line",
+      "skill": "adr-review",
+      "fixture": "flaw-no-alternatives.md",
+      "mustMatch": [
+        "readiness",
+        "not ready|needs work"
+      ],
+      "mustNotMatch": [
+        "readiness:?\\W*ready\\b(?! *[/(])"
+      ]
     }
   ],
   "triggers": [
@@ -496,6 +508,29 @@
         "redis",
         "memcached",
         "hazelcast"
+      ]
+    },
+    {
+      "id": "create/supersedes-earlier-adr",
+      "skill": "adr-create",
+      "prompt": "Write an ADR that replaces ADR 0004 (use RabbitMQ for messaging) with Azure Service Bus because we are moving to Azure. Print the full ADR, do not save it.",
+      "mustMatch": [
+        "supersed",
+        "0004",
+        "status quo|do nothing"
+      ]
+    },
+    {
+      "id": "research-draft/no-web-access",
+      "skill": "adr-research-draft",
+      "prompt": "Research and draft an ADR for choosing between Kafka and Pulsar for our event backbone. Assume WebSearch and WebFetch are unavailable and say so. Print the Research Brief and the full ADR, do not save any file.",
+      "mustMatch": [
+        "unavailable|could not|no web|not available",
+        "low",
+        "spike|poc|todo"
+      ],
+      "mustNotMatch": [
+        "https?://(www\\.)?[a-z0-9.-]+\\.[a-z]{2,}/[^\\s)]+"
       ]
     }
   ]

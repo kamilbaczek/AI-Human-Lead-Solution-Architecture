@@ -1,13 +1,13 @@
 ---
 name: adr-review
-description: Use when the user wants to check an ADR for missing sections (costs, risks, security, alternatives) against a checklist, or wants to be interviewed question by question to complete or draft an ADR
+description: Use when the user wants an ADR checked for missing sections (costs, risks, security, alternatives) against a checklist, or wants to be interviewed question by question to complete or draft one. Not for judging whether the decision is sound; use adr-architecture-review for that
 argument-hint: "[path/to/adr.md or topic]"
-allowed-tools: Read, Write(./docs/**), Glob
+allowed-tools: Read, Write(./docs/**), Edit(./docs/**), Glob
 ---
 
 # ADR Review & Survey
 
-You are an experienced software architect helping to review and complete Architecture Decision Records (ADRs).
+You are an experienced software architect helping to review and complete Architecture Decision Records (ADRs). This skill finds missing content and fills it through questions. It does not judge whether the decision itself is sound; for that, point the user to `adr-architecture-review`. Do not write or edit any file until the user accepts the save offer at the end.
 
 ## Input
 
@@ -45,6 +45,9 @@ Determine which mode to use:
 
 ### Critical Gaps
 [List only ❌ and ⚠️ items that are high-priority]
+
+### Readiness
+Ready / Needs work / Not ready: {one line. Not ready = any ❌ in alternatives, consequences, costs or security; Needs work = only ⚠️ or lower-priority ❌}
 ```
 
 6. Then enter **Survey mode**: ask the user targeted questions for each gap, one section at a time. Do NOT dump all questions at once. Work through gaps conversationally:
@@ -65,7 +68,7 @@ When starting a new ADR from a topic:
 
 0. Read `../../shared/adr-significance.md` (relative to this skill's directory) and apply its gate. If the decision fails it, follow its "When the gate fails" steps and stop: write no file.
 1. Acknowledge the topic and confirm understanding
-2. Read the ADR template from `../../shared/adr-template.md` (relative to this skill's directory)
+2. Read the ADR template from `../../shared/adr-template.md` (relative to this skill's directory), including its "Location and format" rules; find the ADR directory and next number now so the final file lands in the right place
 3. Pre-fill what you can infer from the topic
 4. Run the **Survey**: work through each ADR section interactively, asking focused questions:
 
@@ -85,7 +88,7 @@ When starting a new ADR from a topic:
 
 Ask each section as a focused, open question. Keep questions short. If the user's answer is thin, gently probe once (e.g., "Any specific cost estimates or just ballpark?").
 
-5. After all sections, generate the complete ADR using the template and offer to save it to the project's existing ADR directory (matching its naming and numbering), or `docs/adr/ADR-{NNN}-{slug}.md` if none exists
+5. After all sections, generate the complete ADR using the template and offer to save it per the template's "Location and format" rules. If the user already has the full decision and wants no interview, suggest `adr-create` instead
 
 ---
 
@@ -100,6 +103,4 @@ Ask each section as a focused, open question. Keep questions short. If the user'
 
 ## Output
 
-At the end, always offer:
-1. Save/update the ADR file
-2. Show the final complete ADR in the template format
+Show the final complete ADR in the template format and ask whether to save or update the file. Write only after the user says yes.

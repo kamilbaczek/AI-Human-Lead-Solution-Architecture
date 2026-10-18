@@ -1,6 +1,6 @@
 # ADR template and rules
 
-Shared by `adr-create` and `adr-research-draft`. Fill every section; write `{TODO: ...}` instead of inventing content.
+Shared by `adr-create`, `adr-research-draft` and `adr-review`. Fill every section; write `{TODO: ...}` instead of inventing content.
 
 ```markdown
 # ADR {NNN}: {Title}
@@ -126,6 +126,11 @@ Swap aspects for ones that matter to this decision (for example consistency mode
 ---
 
 ## Rules
+
+### Location and format
+- If the project has an ADR directory (`docs/adr/`, `docs/architecture/decisions/`, `Docs/ArchitectureDecisionLog/`, or similar), save there and match its numbering, file naming and format (Markdown or AsciiDoc)
+- If none exists, save to `docs/adr/ADR-{NNN}-{slugified-title}.md`, starting at `001`
+- If the new ADR replaces an earlier one, add `Supersedes: ADR {NNN}` under Status and set the old ADR's status to `Superseded by ADR {NNN}`
 
 ### Trade-Off Analysis Rules (Critical)
 - **Never present an option as purely positive or purely negative.** Every real architectural option has trade-offs. If you can't find downsides, you haven't thought hard enough.

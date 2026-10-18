@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.3 - 2026-10-18
+
+* Moved the self-review step and the ADR location rules into shared files so the skills no longer repeat them
+* `adr-review` and `adr-architecture-review` descriptions now point to each other; `adr-review` gets a readiness line, a write-after-confirmation rule and `Edit(./docs/**)`
+* ADR template: supersede handling, Markdown or AsciiDoc output
+* `adr-research-draft`: fewer than 2 sources for the recommended option means Low confidence and a spike
+
 ## 1.2.2 - 2026-10-18
 
 * Removed AI-sounding phrasing from `adr-create` and `adr-architecture-review`

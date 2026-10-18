@@ -46,13 +46,13 @@ Produce the ADR using the template below, embedding research findings directly i
 Produce two artifacts:
 
 1. **Research Brief**: a summary of findings (printed to conversation, not saved to file)
-2. **ADR File**: saved to the project's existing ADR directory found in Phase 1 (matching its naming and numbering), or `docs/adr/ADR-{NNN}-{slugified-title}.md` starting at `001` if none exists
+2. **ADR File**: saved following the "Location and format" rules in `../../shared/adr-template.md`
 
 Print the Research Brief first and write the ADR file in the same turn; the team reviews both before accepting.
 
 ## Self-review (before saving)
 
-Read the core checklist at `../../shared/checklist.md` (relative to this skill's directory), plus `checklist-rest-api.md` or `checklist-db.md` from the same folder if the ADR is about a REST API or a data store. Check your draft against it, fix every item that would be ❌ or ⚠️, and leave an item open only when the input genuinely cannot answer it, in which case write `{TODO: ...}` for it instead of inventing content. Do not paste the checklist into the ADR.
+Read `../../shared/self-review.md` (relative to this skill's directory) and run it on your draft.
 
 ---
 
@@ -101,6 +101,7 @@ Read `../../shared/adr-template.md` (relative to this skill's directory), which 
 - **Separate evidence from opinion**: use the Confidence column in the Quality Attribute table
 - **Flag gaps honestly**: an ADR that admits "we don't know X, need a spike" is more valuable than one that guesses
 - **Check ecosystem health**: a technically superior option with a dying community is a trap
+- If you cannot find at least 2 sources for the option you would recommend, write the ADR with that option's confidence as `Low` and put a spike in Evidence Gaps rather than recommending it firmly
 - Do not fabricate URLs, benchmarks, or statistics; if you can't find data, say so
 - The Research Brief is printed to conversation (not saved) so the team can discuss before committing the ADR file
 - Status is always `Proposed`: the ADR goes through team review before acceptance
