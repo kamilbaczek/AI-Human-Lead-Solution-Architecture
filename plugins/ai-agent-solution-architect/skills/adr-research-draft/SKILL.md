@@ -8,6 +8,8 @@ You are a senior architect performing research to draft an informed Architecture
 
 ## Process
 
+Before anything else, read `../../shared/adr-significance.md` (relative to this skill's directory) and apply its gate. If the decision fails it, follow its "When the gate fails" steps and stop: do no research and write no file.
+
 ### Phase 1: Codebase Discovery
 
 Before any research, understand the current system:
@@ -78,133 +80,16 @@ Read the core checklist at `../../shared/checklist.md` (relative to this skill's
 
 ---
 
-## ADR Template
+## ADR template
 
-```markdown
-# ADR {NNN}: {Title}
+Read `../../shared/adr-template.md` (relative to this skill's directory), which also holds the trade-off and general rules. Use it with these changes:
 
-## Status
-Proposed
-
-## Date
-{today's date, YYYY-MM-DD}
-
-## Context
-
-{Ground the decision in the current system reality:
-- What is the current architecture and relevant tech stack?
-- What problem, opportunity, or evolutionary pressure triggered this decision?
-- What quality attributes are at stake?
-- What constraints exist (team, timeline, budget, compliance)?
-- Reference prior ADRs if this decision builds on or supersedes them.}
-
-## Research Summary
-
-{Distill your research into actionable insights:
-
-### Industry Adoption
-- {Option A}: {adoption context, notable users, maturity}
-- {Option B}: {adoption context, notable users, maturity}
-
-### Benchmarks & Evidence
-- {Specific performance/reliability data from research, with source}
-- {Comparison data if available}
-
-### Known Pitfalls
-- {Option A}: {documented failure modes or operational challenges}
-- {Option B}: {documented failure modes or operational challenges}
-
-### Ecosystem Health
-| Factor | Option A | Option B |
-|---|---|---|
-| GitHub stars / activity | {data} | {data} |
-| Package downloads | {data} | {data} |
-| Last release | {date} | {date} |
-| License | {license} | {license} |
-| Maintainer backing | {org/individual} | {org/individual} |}
-
-## Decision
-
-We will {describe the chosen approach in one clear sentence}.
-
-{Implementation details:
-- What changes structurally?
-- What is the migration path?
-- What is the rollout strategy?}
-
-## Consequences
-
-### Positive
-- {Evidence-backed benefit: cite source when possible}
-
-### Negative
-- {Evidence-backed cost: cite source when possible}
-
-### Risks
-- {Risk with likelihood/impact assessment}
-- {Mitigations, or flag as `TODO: define mitigation`}
-
-## Trade-Off Analysis
-
-### Quality Attribute Impact
-
-| Quality Attribute | Impact | Evidence | Confidence |
-|---|---|---|---|
-| Performance | 🟢 / 🟡 / 🔴 | {specific data or reasoning} | High / Medium / Low |
-| Maintainability | 🟢 / 🟡 / 🔴 | {specific data or reasoning} | High / Medium / Low |
-| Scalability | 🟢 / 🟡 / 🔴 | {specific data or reasoning} | High / Medium / Low |
-| Testability | 🟢 / 🟡 / 🔴 | {specific data or reasoning} | High / Medium / Low |
-| Operability | 🟢 / 🟡 / 🔴 | {specific data or reasoning} | High / Medium / Low |
-| Security | 🟢 / 🟡 / 🔴 | {specific data or reasoning} | High / Medium / Low |
-| Team Cognitive Load | 🟢 / 🟡 / 🔴 | {specific data or reasoning} | High / Medium / Low |
-
-Legend: 🟢 improves · 🟡 neutral · 🔴 degrades
-Confidence: High = benchmark/case study · Medium = multiple sources agree · Low = assumption
-
-### Evolutionary Architecture Considerations
-
-- **Reversibility:** {Cost of reversal: data migration, API contracts, team retraining}
-- **Incremental adoption:** {Can this be piloted in one module first?}
-- **Future optionality:** {What doors open? What doors close?}
-- **Module boundary impact:** {Does this respect, strengthen, or break module isolation?}
-
-## Alternatives Considered
-
-### Alternative 1: Status Quo / Do Nothing
-- **Description:** {Current approach}
-- **Evidence:** {What research says about sustainability of current approach}
-- **Why not chosen:** {Specific force that makes inaction unacceptable}
-
-### Alternative 2: {Name}
-- **Description:** {How it works}
-- **Evidence:** {What research found: adoption, benchmarks, pitfalls}
-- **Why not chosen:** {Specific trade-off that made the chosen option preferable, reference evidence}
-
-### Comparison Matrix
-
-| Criterion | Chosen: {Name} | Status Quo | Alt 2: {Name} |
-|---|---|---|---|
-| {Key force 1} | 🟢 | 🟡 | 🔴 |
-| {Key force 2} | 🟡 | 🔴 | 🟢 |
-| Evidence confidence | {level} | High (known) | {level} |
-| Migration effort | {estimate} | None | {estimate} |
-
-## References
-
-1. {Source title}: {URL}
-2. {Source title}: {URL}
-3. {Prior ADR references}
-
-## Evidence Gaps & Recommended Spikes
-
-- [ ] {Area where evidence is low-confidence: needs PoC or benchmark}
-- [ ] {Area where team experience is unknown: needs training spike}
-
-## Follow-Up Tasks
-
-- [ ] {Implementation task}
-- [ ] {Validation task}
-```
+- Fill the Technology Comparison Table from your research with sourced values, and add an `Evidence confidence` row (High / Medium / Low per technology). This replaces the Ecosystem Health table below when the decision is a technology choice.
+- Add a `## Research Summary` section after Context with four parts: Industry Adoption, Benchmarks & Evidence, Known Pitfalls, and an Ecosystem Health table (GitHub stars/activity, package downloads, last release, license, maintainer backing, one column per option).
+- Add `Evidence` and `Confidence` columns to the Quality Attribute Impact table. Confidence: High = benchmark or case study, Medium = multiple sources agree, Low = assumption.
+- In Alternatives Considered, replace each `Trade-offs` line with an `Evidence` line (adoption, benchmarks, pitfalls found) and add an "Evidence confidence" row to the Comparison Matrix.
+- Cite a source for each Consequence where one exists, and number the References as `{Source title}: {URL}`.
+- Add `## Evidence Gaps & Recommended Spikes` before Follow-Up Tasks, listing low-confidence areas that need a PoC, benchmark or training spike.
 
 ---
 
@@ -216,11 +101,6 @@ Confidence: High = benchmark/case study · Medium = multiple sources agree · Lo
 - **Separate evidence from opinion**: use the Confidence column in the Quality Attribute table
 - **Flag gaps honestly**: an ADR that admits "we don't know X, need a spike" is more valuable than one that guesses
 - **Check ecosystem health**: a technically superior option with a dying community is a trap
-
-### Trade-Off Rules
-Same as `adr-create`: no option is purely positive or negative, quantify with the research data, name who bears each cost, evaluate reversibility explicitly (hard-to-reverse decisions need stronger evidence), and always include Status Quo as the baseline alternative.
-
-### General Rules
 - Do not fabricate URLs, benchmarks, or statistics; if you can't find data, say so
 - The Research Brief is printed to conversation (not saved) so the team can discuss before committing the ADR file
 - Status is always `Proposed`: the ADR goes through team review before acceptance

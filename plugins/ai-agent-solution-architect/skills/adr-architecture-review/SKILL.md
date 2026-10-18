@@ -14,6 +14,10 @@ If the input is a file path, read the file. If it's pasted content, use it direc
 Also check the codebase for related ADRs (prior decisions that this one builds on or might conflict with). This review is read-only: report findings in the conversation and do not edit the ADR unless asked.
 Also read the core checklist at `../../shared/checklist.md` (relative to this skill's directory) as the completeness baseline (costs, security, operations, team, lock-in). This review does not repeat the checklist item by item; use it to catch missing areas, then spend your effort on whether the decision is sound.
 
+### Step 1b: Check significance
+
+Read `../../shared/adr-significance.md` (relative to this skill's directory). If the ADR records a decision that fails its gate (cosmetic, local, a coding convention, or reversible in one pull request), the Verdict is **Reject**, the summary says the decision does not warrant an ADR and where it belongs instead, and you skip the detailed sections.
+
 ### Step 2: Perform the Review
 
 Evaluate across all dimensions below and produce the structured review, with the Verdict (section 0) at the top.
@@ -57,8 +61,10 @@ This is the most important part of the review. Most ADRs fail here.
 | Are costs quantified or estimated? | Yes / No | {"Adds complexity" without specifics is useless} |
 | Is "who bears the cost" identified? | Yes / No | {Dev team? Ops? Users? Different stakeholders feel different pain} |
 | Is a Status Quo option included? | Yes / No | {Without it, you can't assess "is change worth the cost?"} |
+| Are at least 3 options compared (chosen + 2 real alternatives) plus Status Quo? | Yes / No | {Fewer than 3 options is [REQUIRED]; no Status Quo is [REQUIRED]} |
 | Are alternatives genuinely considered? | Yes / No | {Straw-man alternatives weaken the ADR} |
 | Are rejected alternatives explained? | Yes / No | {"Not chosen" without reasoning is hand-waving} |
+| Technology choice: is there a comparison table with concrete values per option? | Yes / No / N/A | {A product, library, framework or service choice made in prose only is REQUIRED, not optional} |
 
 **Depth Assessment:**
 

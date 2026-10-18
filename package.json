@@ -6,8 +6,21 @@
   "bin": {
     "ai-human-lead-solution-architecture": "bin/install.js"
   },
-  "files": ["bin"],
-  "engines": { "node": ">=18" },
+  "files": [
+    "bin"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "repository": "github:kamilbaczek/AI-Human-Lead-Solution-Architecture",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/ui": "^3.2.4",
+    "vitest": "^3.2.4"
+  },
+  "scripts": {
+    "evals": "vitest run",
+    "evals:ui": "vitest --ui"
+  },
+  "private": false
 }
