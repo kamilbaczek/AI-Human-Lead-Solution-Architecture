@@ -162,6 +162,8 @@ AI-Human-Lead-Solution-Architecture/
     human-lead-architect/
       .claude-plugin/
         plugin.json
+      agents/
+        adr-reviewer.md
       skills/
         adr-create/
         adr-research-draft/

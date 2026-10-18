@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0 - 2026-10-18
+
+* Added the `adr-reviewer` agent: a read-only subagent (Read, Grep, Glob) that reviews an ADR for soundness and completeness and returns a verdict without editing files
+
 ## 1.2.3 - 2026-10-18
 
 * Moved the self-review step and the ADR location rules into shared files so the skills no longer repeat them

@@ -45,6 +45,12 @@ Checks an ADR against a checklist (core, plus REST API or database specific) and
 /human-lead-architect:adr-review docs/adr/0007-event-sourcing.md
 ```
 
+## Agents
+
+### `adr-reviewer`
+
+A read-only subagent that reviews an ADR in its own context window and returns a verdict with prioritized feedback. It combines the soundness assessment of `adr-architecture-review` with the checklist coverage of `adr-review`, and it cannot edit files. Ask Claude to use it, for example: "Use the adr-reviewer agent on docs/adr/0007-event-sourcing.md".
+
 ## Shared files
 
 The skills read these from the plugin's `shared/` folder: `adr-template.md`, `adr-significance.md`, `checklist.md`, `checklist-rest-api.md`, `checklist-db.md`.
