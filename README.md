@@ -129,10 +129,10 @@ Which skill do you need? It depends on how much you already know.
 
 | Skill | Use it when | What it does |
 | --- | --- | --- |
-| ✍️ [`adr-create`](plugins/human-lead-architect/skills/adr-create/SKILL.md) | You already know the decision | Writes a production-ready ADR with deep trade-off analysis from a topic or free text |
-| 🔎 [`adr-research-draft`](plugins/human-lead-architect/skills/adr-research-draft/SKILL.md) | The decision needs evidence you don't have | Researches the web and your codebase first, then drafts an evidence-backed ADR |
-| 🧠 [`adr-architecture-review`](plugins/human-lead-architect/skills/adr-architecture-review/SKILL.md) | You need to know if the decision is sound | Reviews trade-off completeness, evolutionary fitness and reversibility, and ends with a verdict |
-| ✅ [`adr-review`](plugins/human-lead-architect/skills/adr-review/SKILL.md) | You want gaps found and filled | Checks the ADR against a checklist (core, REST API, database) and interviews you to fill the gaps |
+| ✍️ [`adr-create`](plugins/human-lead-architect/skills/adr-create/SKILL.md) | You already know the decision | Turns your decision into a complete ADR: real alternatives, a trade-off matrix, consequences and follow-ups. It numbers the file to match your ADR folder and checks the draft against a checklist before saving |
+| 🔎 [`adr-research-draft`](plugins/human-lead-architect/skills/adr-research-draft/SKILL.md) | The decision needs evidence you don't have | Reads your codebase and existing ADRs, collects at least 3 sources per option, and marks each claim with a confidence level. You get an ADR built on evidence, not on opinion |
+| 🧠 [`adr-architecture-review`](plugins/human-lead-architect/skills/adr-architecture-review/SKILL.md) | You need to know if the decision is sound | Gives a clear verdict (Accept, Revise or Reject) and ranks every issue as blocking, required or suggested. It checks trade-offs, evolutionary fitness and reversibility, and never edits your file |
+| ✅ [`adr-review`](plugins/human-lead-architect/skills/adr-review/SKILL.md) | You want gaps found and filled | Interviews you question by question about the costs, risks and security gaps your ADR skips. It uses a core checklist plus REST API and database checks, so you fix the gaps before the team meets |
 
 ### The flow
 
