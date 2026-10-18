@@ -152,10 +152,6 @@ flowchart LR
 
 > **Note:** The gate says no on purpose. An ADR log full of small choices hides the few decisions that matter.
 
-## 📮 Submitting to the official Claude Code plugin directory
-
-Anthropic's `claude-plugins-official` marketplace has no automated or PR-based submission path. You submit through the [plugin directory submission form](https://clau.de/plugin-directory-submission). Point it at this repo, path `plugins/ai-agent-solution-architect`, and use a release tag from CI as the `ref` and `sha`.
-
 ## 🗂️ Project structure
 
 ```text
