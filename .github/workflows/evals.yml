@@ -19,6 +19,8 @@ jobs:
     name: Run skill evals
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     # Fork PRs have no access to secrets
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     steps:
@@ -34,9 +36,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Skip notice
+        if: env.ANTHROPIC_API_KEY == ''
+        run: echo "::notice::ANTHROPIC_API_KEY secret is not set, skipping evals."
+
       - name: Run evals
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        if: env.ANTHROPIC_API_KEY != ''
         run: npx vitest run
 
       - name: Upload report
