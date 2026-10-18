@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" role="img" aria-labelledby="t d">
+  <title id="t">AI Human Lead Solution Architecture</title>
+  <desc id="d">A classical pediment on three columns above a document with decision lines, with a spark marking AI assistance.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f2937"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f59e6c"/>
+      <stop offset="1" stop-color="#d97757"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="224" height="224" rx="48" fill="url(#bg)"/>
+  <rect x="8" y="8" width="224" height="224" rx="48" fill="none" stroke="#d97757" stroke-opacity=".35" stroke-width="2"/>
+  <!-- pediment -->
+  <path d="M120 40 L196 84 H44 Z" fill="url(#accent)"/>
+  <rect x="44" y="90" width="152" height="8" rx="2" fill="#f3f4f6"/>
+  <!-- columns -->
+  <g fill="#f3f4f6">
+    <rect x="56" y="104" width="20" height="60" rx="3"/>
+    <rect x="110" y="104" width="20" height="60" rx="3"/>
+    <rect x="164" y="104" width="20" height="60" rx="3"/>
+  </g>
+  <!-- ADR document as the base -->
+  <rect x="44" y="172" width="152" height="40" rx="8" fill="#f3f4f6"/>
+  <rect x="58" y="183" width="70" height="5" rx="2.5" fill="#1f2937"/>
+  <rect x="58" y="194" width="104" height="5" rx="2.5" fill="#9ca3af"/>
+  <path d="M170 182 l6 6 l12 -13" fill="none" stroke="#d97757" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- AI spark -->
+  <path d="M198 36 l4 11 l11 4 l-11 4 l-4 11 l-4 -11 l-11 -4 l11 -4 z" fill="url(#accent)"/>
+</svg>
