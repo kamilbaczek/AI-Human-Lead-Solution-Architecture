@@ -61,8 +61,6 @@
 
 You have a decision to make. It will be expensive to undo, and in a year nobody will remember why the team chose it. That is the problem an ADR solves. It is also why most teams stop writing them: a good ADR needs research, trade-off analysis and a review round, and that takes time.
 
-We built this marketplace to cut the time without cutting the thinking. It packages 1 plugin, `ai-agent-solution-architect`, with 4 skills. The AI does the legwork of drafting, researching and checking. You stay the architect who decides.
-
 What we cover:
 
 * Creating an ADR from a decision you already have
