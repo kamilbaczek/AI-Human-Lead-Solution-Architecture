@@ -125,14 +125,16 @@ claude plugin update human-lead-architect@ai-human-lead-solution-architecture
 
 ## 🧰 Skills
 
-Which skill do you need? It depends on how much you already know. Start with `adr-create` if you know the decision, `adr-research-draft` if you need facts first, then run `adr-architecture-review` before the team accepts it.
+Which skill do you need? It depends on how much you already know. Start with `adr-create` if you know the decision, `adr-research-draft` if you need facts first, then run `adr-review` before the team accepts it. Later, use `adr-supersede`, `adr-index-check` and `adr-drift-check` to keep the log honest.
 
 | Skill | Use it when | What it does |
 | --- | --- | --- |
 | ✍️ [`adr-create`](plugins/human-lead-architect/skills/adr-create/SKILL.md) | You already know the decision | Turns your decision into a complete ADR: real alternatives, a trade-off matrix, consequences and follow-ups. It numbers the file to match your ADR folder and checks the draft against a checklist before saving |
 | 🔎 [`adr-research-draft`](plugins/human-lead-architect/skills/adr-research-draft/SKILL.md) | The decision needs evidence you don't have | Reads your codebase and existing ADRs, collects at least 3 sources per option, and marks each claim with a confidence level. You get an ADR built on evidence, not on opinion |
-| 🧠 [`adr-architecture-review`](plugins/human-lead-architect/skills/adr-architecture-review/SKILL.md) | You need to know if the decision is sound | Gives a clear verdict (Accept, Revise or Reject) and ranks every issue as blocking, required or suggested. It checks trade-offs, evolutionary fitness and reversibility, and never edits your file |
-| ✅ [`adr-review`](plugins/human-lead-architect/skills/adr-review/SKILL.md) | You want gaps found and filled | Interviews you question by question about the costs, risks and security gaps your ADR skips. It uses a core checklist plus REST API and database checks, so you fix the gaps before the team meets |
+| ✅ [`adr-review`](plugins/human-lead-architect/skills/adr-review/SKILL.md) | You want an ADR checked before the team accepts it | Gives a verdict (Accept, Revise or Reject), ranks every issue as blocking, required or suggested, and checks trade-offs, reversibility and a checklist with REST API and database checks. Then it interviews you question by question to fill the gaps |
+| 🔁 [`adr-supersede`](plugins/human-lead-architect/skills/adr-supersede/SKILL.md) | A decision is being replaced | Marks the old ADR as superseded, checks the new one explains why the old decision no longer holds, and lists every reference to update. The old ADR's body is never rewritten |
+| 🩺 [`adr-index-check`](plugins/human-lead-architect/skills/adr-index-check/SKILL.md) | You want the whole ADR log checked | Finds numbering gaps, duplicates, broken supersede links and stale Proposed ADRs across the log. It only reports and never edits |
+| 🧭 [`adr-drift-check`](plugins/human-lead-architect/skills/adr-drift-check/SKILL.md) | You suspect the code ignores an ADR | Checks each claim in an accepted ADR against the code and marks it followed, drifted, partial or unverifiable, with the file as evidence |
 
 ### The flow
 
@@ -167,8 +169,10 @@ AI-Human-Lead-Solution-Architecture/
       skills/
         adr-create/
         adr-research-draft/
-        adr-architecture-review/
         adr-review/
+        adr-supersede/
+        adr-index-check/
+        adr-drift-check/
       shared/         # ADR template, significance gate, checklists
 ```
 
