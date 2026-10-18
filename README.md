@@ -129,10 +129,10 @@ Which skill do you need? It depends on how much you already know.
 
 | Skill | Use it when | What it does |
 | --- | --- | --- |
-| ✍️ `adr-create` | You already know the decision | Writes a production-ready ADR with deep trade-off analysis from a topic or free text |
-| 🔎 `adr-research-draft` | The decision needs evidence you don't have | Researches the web and your codebase first, then drafts an evidence-backed ADR |
-| 🧠 `adr-architecture-review` | You need to know if the decision is sound | Reviews trade-off completeness, evolutionary fitness and reversibility, and ends with a verdict |
-| ✅ `adr-review` | You want gaps found and filled | Checks the ADR against a checklist (core, REST API, database) and interviews you to fill the gaps |
+| ✍️ [`adr-create`](plugins/human-lead-architect/skills/adr-create/SKILL.md) | You already know the decision | Writes a production-ready ADR with deep trade-off analysis from a topic or free text |
+| 🔎 [`adr-research-draft`](plugins/human-lead-architect/skills/adr-research-draft/SKILL.md) | The decision needs evidence you don't have | Researches the web and your codebase first, then drafts an evidence-backed ADR |
+| 🧠 [`adr-architecture-review`](plugins/human-lead-architect/skills/adr-architecture-review/SKILL.md) | You need to know if the decision is sound | Reviews trade-off completeness, evolutionary fitness and reversibility, and ends with a verdict |
+| ✅ [`adr-review`](plugins/human-lead-architect/skills/adr-review/SKILL.md) | You want gaps found and filled | Checks the ADR against a checklist (core, REST API, database) and interviews you to fill the gaps |
 
 ### The flow
 
