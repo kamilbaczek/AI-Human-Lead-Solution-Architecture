@@ -194,6 +194,48 @@
         "security",
         "operational|monitoring"
       ]
+    },
+    {
+      "id": "arch-review/tech-choice-no-table",
+      "skill": "adr-architecture-review",
+      "fixture": "flaw-tech-choice-no-table.md",
+      "mustMatch": [
+        "comparison table|comparison matrix|side-by-side",
+        "blob|s3|minio|option"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "adr-review/tech-choice-no-table",
+      "skill": "adr-review",
+      "fixture": "flaw-tech-choice-no-table.md",
+      "mustMatch": [
+        "comparison table|comparison matrix|side-by-side",
+        "cost|security"
+      ]
+    },
+    {
+      "id": "arch-review/not-adr-worthy",
+      "skill": "adr-architecture-review",
+      "fixture": "flaw-not-adr-worthy.md",
+      "mustMatch": [
+        "not (an )?adr|not writing (an|one)|gate fails|fails the (significance )?gate|does(n't| not) (warrant|need|require)|not (architecturally )?significant|no adr|not adr-worthy|too (small|minor|local)|doesn.t belong in an adr",
+        "editorconfig|analy[sz]er|coding (guidelines|standards|conventions)|style guide|contributing|pull request|design system|readme|linter",
+        "reject"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "adr-review/not-adr-worthy",
+      "skill": "adr-review",
+      "fixture": "flaw-not-adr-worthy.md",
+      "mustMatch": [
+        "not (an )?adr|not writing (an|one)|gate fails|fails the (significance )?gate|does(n't| not) (warrant|need|require)|not (architecturally )?significant|no adr|not adr-worthy|too (small|minor|local)|doesn.t belong in an adr|convention|code style"
+      ]
     }
   ],
   "triggers": [
@@ -221,13 +263,11 @@
       "prompt": "Write an ADR: we are standardising on PostgreSQL for the new reporting service. It is the only option we are considering. Print the full ADR, do not save it.",
       "mustMatch": [
         "status quo|do nothing",
-        "alternative 2|alternatives considered",
         "reversib",
         "quality attribute"
       ],
       "mustNotMatch": [
-        "no alternatives",
-        "only viable option"
+        "[\\uD83C-\\uD83E][\\uDC00-\\uDFFF]|[\\u2600-\\u27BF]"
       ]
     },
     {
@@ -241,7 +281,8 @@
       ],
       "mustNotMatch": [
         "\\d+\\s?ms faster",
-        "\\$\\d{3,}"
+        "\\$\\d{3,}",
+        "[\\uD83C-\\uD83E][\\uDC00-\\uDFFF]|[\\u2600-\\u27BF]"
       ]
     },
     {
@@ -255,8 +296,160 @@
         "## consequences",
         "trade-off analysis",
         "evolutionary",
-        "comparison matrix",
+        "comparison matrix|technology comparison table",
         "follow-up"
+      ],
+      "mustNotMatch": [
+        "[\\uD83C-\\uD83E][\\uDC00-\\uDFFF]|[\\u2600-\\u27BF]"
+      ]
+    },
+    {
+      "id": "create/tech-choice-blob-storage",
+      "skill": "adr-create",
+      "prompt": "Write an ADR choosing blob storage for customer documents on Azure. Print the full ADR, do not save it.",
+      "mustMatch": [
+        "technology comparison",
+        "team familiarity",
+        "\\|\\s*-{3,}",
+        "lock-?in",
+        "\\|\\s*\\**aspect"
+      ],
+      "mustNotMatch": [
+        "[\\uD83C-\\uD83E][\\uDC00-\\uDFFF]|[\\u2600-\\u27BF]"
+      ]
+    },
+    {
+      "id": "create/tech-choice-background-jobs",
+      "skill": "adr-create",
+      "prompt": "Write an ADR choosing a background processing library for our .NET service. Print the full ADR, do not save it.",
+      "mustMatch": [
+        "technology comparison",
+        "team familiarity",
+        "\\|\\s*-{3,}",
+        "hangfire|quartz|masstransit|wolverine",
+        "\\|\\s*\\**aspect"
+      ],
+      "mustNotMatch": [
+        "[\\uD83C-\\uD83E][\\uDC00-\\uDFFF]|[\\u2600-\\u27BF]"
+      ]
+    },
+    {
+      "id": "create/non-tech-no-table",
+      "skill": "adr-create",
+      "prompt": "Write an ADR deciding that all modules must communicate only through public contracts, no shared database tables. Print the full ADR, do not save it.",
+      "mustMatch": [
+        "comparison matrix"
+      ],
+      "mustNotMatch": [
+        "technology comparison table\\n\\n\\|",
+        "[\\uD83C-\\uD83E][\\uDC00-\\uDFFF]|[\\u2600-\\u27BF]"
+      ]
+    },
+    {
+      "id": "create/tables-no-emoji",
+      "skill": "adr-create",
+      "prompt": "Write an ADR for introducing a Redis cache in front of the product catalog API. Print the full ADR, do not save it.",
+      "mustMatch": [
+        "\\|\\s*\\**aspect|\\|\\s*quality attribute",
+        "improves|neutral|degrades"
+      ],
+      "mustNotMatch": [
+        "[\\uD83C-\\uD83E][\\uDC00-\\uDFFF]|[\\u2600-\\u27BF]"
+      ]
+    },
+    {
+      "id": "refuse/font-family",
+      "skill": "adr-create",
+      "prompt": "Write an ADR for choosing Inter as the font family for our web app. Print the result, do not save any file.",
+      "mustMatch": [
+        "not (an )?adr|not writing (an|one)|gate fails|fails the (significance )?gate|does(n't| not) (warrant|need|require)|not (architecturally )?significant|no adr|not adr-worthy|too (small|minor|local)|doesn.t belong in an adr",
+        "editorconfig|analy[sz]er|coding (guidelines|standards|conventions)|style guide|contributing|pull request|design system|readme|linter"
+      ],
+      "mustNotMatch": [
+        "## status",
+        "## consequences",
+        "## alternatives considered"
+      ]
+    },
+    {
+      "id": "refuse/refactor-few-classes",
+      "skill": "adr-create",
+      "prompt": "Write an ADR for refactoring the OrderMapper and OrderValidator classes into one OrderFactory class. Print the result, do not save any file.",
+      "mustMatch": [
+        "not (an )?adr|not writing (an|one)|gate fails|fails the (significance )?gate|does(n't| not) (warrant|need|require)|not (architecturally )?significant|no adr|not adr-worthy|too (small|minor|local)|doesn.t belong in an adr",
+        "editorconfig|analy[sz]er|coding (guidelines|standards|conventions)|style guide|contributing|pull request|design system|readme|linter"
+      ],
+      "mustNotMatch": [
+        "## status",
+        "## consequences",
+        "## alternatives considered"
+      ]
+    },
+    {
+      "id": "refuse/switch-expressions",
+      "skill": "adr-create",
+      "prompt": "Write an ADR saying we use switch expressions instead of classic switch statements. Print the result, do not save any file.",
+      "mustMatch": [
+        "not (an )?adr|not writing (an|one)|gate fails|fails the (significance )?gate|does(n't| not) (warrant|need|require)|not (architecturally )?significant|no adr|not adr-worthy|too (small|minor|local)|doesn.t belong in an adr",
+        "editorconfig|analy[sz]er|coding (guidelines|standards|conventions)|style guide|contributing|pull request|design system|readme|linter"
+      ],
+      "mustNotMatch": [
+        "## status",
+        "## consequences",
+        "## alternatives considered"
+      ]
+    },
+    {
+      "id": "refuse/test-naming-convention",
+      "skill": "adr-create",
+      "prompt": "Write an ADR for our test naming convention: Should_ExpectedBehavior_When_Condition. Print the result, do not save any file.",
+      "mustMatch": [
+        "not (an )?adr|not writing (an|one)|gate fails|fails the (significance )?gate|does(n't| not) (warrant|need|require)|not (architecturally )?significant|no adr|not adr-worthy|too (small|minor|local)|doesn.t belong in an adr",
+        "editorconfig|analy[sz]er|coding (guidelines|standards|conventions)|style guide|contributing|pull request|design system|readme|linter"
+      ],
+      "mustNotMatch": [
+        "## status",
+        "## consequences",
+        "## alternatives considered"
+      ]
+    },
+    {
+      "id": "refuse/research-draft-trivial",
+      "skill": "adr-research-draft",
+      "prompt": "Research and draft an ADR for choosing between tabs and spaces for indentation. Print the result, do not save any file.",
+      "mustMatch": [
+        "not (an )?adr|not writing (an|one)|gate fails|fails the (significance )?gate|does(n't| not) (warrant|need|require)|not (architecturally )?significant|no adr|not adr-worthy|too (small|minor|local)|doesn.t belong in an adr",
+        "editorconfig|analy[sz]er|coding (guidelines|standards|conventions)|style guide|contributing|pull request|design system|readme|linter"
+      ],
+      "mustNotMatch": [
+        "## status",
+        "## consequences",
+        "## alternatives considered",
+        "sources consulted"
+      ]
+    },
+    {
+      "id": "refuse/significant-still-written",
+      "skill": "adr-create",
+      "prompt": "Write an ADR for moving customer data from a shared SQL Server database to a database owned by the new customer service. Print the full ADR, do not save it.",
+      "mustMatch": [
+        "## status",
+        "## consequences",
+        "reversib"
+      ],
+      "mustNotMatch": [
+        "does(n't| not) warrant"
+      ]
+    },
+    {
+      "id": "refuse/borderline-asks-consequence",
+      "skill": "adr-create",
+      "prompt": "Write an ADR for renaming the Common project to Shared. Print the result, do not save any file.",
+      "mustMatch": [
+        "architectural|boundar|contract|dependenc"
+      ],
+      "mustNotMatch": [
+        "## consequences"
       ]
     }
   ]

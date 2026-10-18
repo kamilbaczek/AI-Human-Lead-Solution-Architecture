@@ -1,0 +1,48 @@
+name: Skill evals
+
+on:
+  pull_request:
+    paths:
+      - "plugins/**"
+      - "evals/**"
+      - ".github/workflows/evals.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1" # weekly, catches model drift
+
+concurrency:
+  group: evals-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  evals:
+    name: Run skill evals
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    # Fork PRs have no access to secrets
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run evals
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: npx vitest run
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-report  # open index.html, or: npx vite preview --outDir evals/report
+          path: evals/report/
+          if-no-files-found: ignore
