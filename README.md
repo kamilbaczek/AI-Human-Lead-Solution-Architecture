@@ -141,10 +141,13 @@ Which skill do you need? It depends on how much you already know.
 
 Every request goes through the significance gate first. If the decision fails it, we stop and tell you where it belongs instead.
 
-```text
- decision ──► significance gate ──► create / research ──► review ──► accepted ADR
-                    │
-                    └── not significant ──► no ADR, and a note on where it belongs
+```mermaid
+flowchart LR
+    D([Decision]) --> G{Significance gate}
+    G -- significant --> C[Create or research]
+    C --> R[Review]
+    R --> A([Accepted ADR])
+    G -- not significant --> N([No ADR, a note on where it belongs])
 ```
 
 > **Note:** The gate says no on purpose. An ADR log full of small choices hides the few decisions that matter.
