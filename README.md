@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/logo.svg" alt="AI Human Lead Solution Architecture logo" width="160" height="160">
+  <img src="assets/logo.svg" alt="Human Lead Architect logo" width="160" height="160">
 </p>
 
-<h1 align="center">AI Human Lead Solution Architecture</h1>
+<h1 align="center">Human Lead Architect</h1>
 
 <p align="center">
   <b>Skills for the distinguished software architect.</b><br>
