@@ -61,6 +61,7 @@ This is the most important part of the review. Most ADRs fail here.
 | Are costs quantified or estimated? | Yes / No | {"Adds complexity" without specifics is useless} |
 | Is "who bears the cost" identified? | Yes / No | {Dev team? Ops? Users? Different stakeholders feel different pain} |
 | Is a Status Quo option included? | Yes / No | {Without it, you can't assess "is change worth the cost?"} |
+| Are at least 3 options compared (chosen + 2 real alternatives) plus Status Quo? | Yes / No | {Fewer than 3 options is [REQUIRED]; no Status Quo is [REQUIRED]} |
 | Are alternatives genuinely considered? | Yes / No | {Straw-man alternatives weaken the ADR} |
 | Are rejected alternatives explained? | Yes / No | {"Not chosen" without reasoning is hand-waving} |
 | Technology choice: is there a comparison table with concrete values per option? | Yes / No / N/A | {A product, library, framework or service choice made in prose only is REQUIRED, not optional} |

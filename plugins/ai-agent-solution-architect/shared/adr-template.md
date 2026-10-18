@@ -137,6 +137,7 @@ Swap aspects for ones that matter to this decision (for example consistency mode
 ### General Rules
 - Status starts as `Proposed` unless the user specifies otherwise
 - Context must include specific architectural forces, not vague statements
+- Compare at least three options: the chosen one plus at least two genuine alternatives (two options alone is too thin to show a real trade-off), and always list Status Quo / Do Nothing as the baseline. If the user names fewer, research and propose the missing alternatives and mark them `{TODO: confirm with team}`
 - Every alternative must have a specific "Why not chosen", never generic dismissals
 - Quality Attribute Impact table is mandatory: it forces systematic thinking
 - Evolutionary Architecture section is mandatory: architecture decisions exist in time, not in isolation
