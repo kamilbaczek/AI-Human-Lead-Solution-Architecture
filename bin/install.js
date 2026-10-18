@@ -2,7 +2,7 @@
 import { spawnSync } from "node:child_process";
 
 const MARKETPLACE_SOURCE = "kamilbaczek/AI-Human-Lead-Solution-Architecture";
-const PLUGIN = "ai-agent-solution-architect@ai-agent-solution-architect-skills";
+const PLUGIN = "human-lead-architect@ai-human-lead-solution-architecture";
 
 const steps = [
   ["plugin", "marketplace", "add", MARKETPLACE_SOURCE],

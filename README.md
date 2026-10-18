@@ -110,7 +110,7 @@ It runs the 2 commands below for you. If you prefer to see each step, run them y
 
 ```bash
 claude plugin marketplace add kamilbaczek/AI-Human-Lead-Solution-Architecture
-claude plugin install ai-agent-solution-architect@ai-agent-solution-architect-skills
+claude plugin install human-lead-architect@ai-human-lead-solution-architecture
 ```
 
 ### Updating
@@ -118,8 +118,8 @@ claude plugin install ai-agent-solution-architect@ai-agent-solution-architect-sk
 Already installed an earlier version? Refresh the marketplace and update the plugin, then restart Claude Code:
 
 ```bash
-claude plugin marketplace update ai-agent-solution-architect-skills
-claude plugin update ai-agent-solution-architect@ai-agent-solution-architect-skills
+claude plugin marketplace update ai-human-lead-solution-architecture
+claude plugin update human-lead-architect@ai-human-lead-solution-architecture
 ```
 
 > **Note:** If `marketplace add` fails with "its source doesn't match its `extraKnownMarketplaces` entry", an older entry in `~/.claude/settings.json` points at a different repo. Change its `repo` to `kamilbaczek/AI-Human-Lead-Solution-Architecture` and run the command again.
@@ -160,7 +160,7 @@ AI-Human-Lead-Solution-Architecture/
     marketplace.json
   package.json
   plugins/
-    ai-agent-solution-architect/
+    human-lead-architect/
       .claude-plugin/
         plugin.json
       skills/
@@ -175,10 +175,10 @@ AI-Human-Lead-Solution-Architecture/
 
 Each skill documents its own steps. Start with the one you need:
 
-* [`adr-create`](plugins/ai-agent-solution-architect/skills/adr-create/SKILL.md): write an ADR for a decision you already have in mind
-* [`adr-research-draft`](plugins/ai-agent-solution-architect/skills/adr-research-draft/SKILL.md): draft an ADR when the decision depends on evidence you don't have yet
-* [`adr-architecture-review`](plugins/ai-agent-solution-architect/skills/adr-architecture-review/SKILL.md): check whether the decision is sound
-* [`adr-review`](plugins/ai-agent-solution-architect/skills/adr-review/SKILL.md): review against a checklist and fill the gaps in an interview
+* [`adr-create`](plugins/human-lead-architect/skills/adr-create/SKILL.md): write an ADR for a decision you already have in mind
+* [`adr-research-draft`](plugins/human-lead-architect/skills/adr-research-draft/SKILL.md): draft an ADR when the decision depends on evidence you don't have yet
+* [`adr-architecture-review`](plugins/human-lead-architect/skills/adr-architecture-review/SKILL.md): check whether the decision is sound
+* [`adr-review`](plugins/human-lead-architect/skills/adr-review/SKILL.md): review against a checklist and fill the gaps in an interview
 
 ## License
 

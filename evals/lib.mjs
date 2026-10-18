@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
 export const repoRoot = resolve(here, "..");
-export const PLUGIN = "ai-agent-solution-architect";
+export const PLUGIN = "human-lead-architect";
 export const cases = JSON.parse(readFileSync(join(here, "cases.json"), "utf8"));
 
 const base = [

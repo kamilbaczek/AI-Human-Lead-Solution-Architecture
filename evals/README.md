@@ -35,7 +35,7 @@ not part of the per-push `plugin-ci.yml`.
 ## Gotcha: skill name collisions
 
 A personal skill with the same bare name (for example a user-level `adr-review`) shadows the
-plugin's. The runner always uses the namespaced `ai-agent-solution-architect:<skill>` name.
+plugin's. The runner always uses the namespaced `human-lead-architect:<skill>` name.
 
 ## Significance gate
 

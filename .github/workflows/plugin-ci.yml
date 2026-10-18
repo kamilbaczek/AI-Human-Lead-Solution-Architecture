@@ -53,13 +53,13 @@ jobs:
       - name: Read plugin version
         id: version
         run: |
-          version=$(node -p "require('./plugins/ai-agent-solution-architect/.claude-plugin/plugin.json').version")
+          version=$(node -p "require('./plugins/human-lead-architect/.claude-plugin/plugin.json').version")
           echo "version=$version" >> "$GITHUB_OUTPUT"
 
       - name: Check if release tag already exists
         id: check_tag
         run: |
-          tag="ai-agent-solution-architect--v${{ steps.version.outputs.version }}"
+          tag="human-lead-architect--v${{ steps.version.outputs.version }}"
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
           if git ls-remote --tags origin "refs/tags/$tag" | grep -q "refs/tags/$tag$"; then
             echo "exists=true" >> "$GITHUB_OUTPUT"
@@ -70,8 +70,8 @@ jobs:
       - name: Tag plugin release
         if: steps.check_tag.outputs.exists == 'false'
         run: |
-          claude plugin tag plugins/ai-agent-solution-architect --push \
-            -m "ai-agent-solution-architect %s"
+          claude plugin tag plugins/human-lead-architect --push \
+            -m "human-lead-architect %s"
 
       - name: Skip (no version bump)
         if: steps.check_tag.outputs.exists == 'true'
