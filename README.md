@@ -35,6 +35,22 @@ The architect leads, the AI does the legwork. This marketplace packages one plug
 decision to a reviewed, evidence-backed document: create it, research what is missing, and
 challenge it before it is accepted.
 
+## 📖 What is an ADR?
+
+An **Architecture Decision Record** is a short document that captures one significant decision: the
+context that forced it, the options considered, the choice made, and the consequences accepted.
+
+| Section | The question it answers |
+| --- | --- |
+| **Context** | Why do we have to decide this now? What forces are at play? |
+| **Options** | What else could we have done, and what does each cost? |
+| **Decision** | What did we choose, and why this one over the others? |
+| **Consequences** | What gets easier, what gets harder, and what risks do we now carry? |
+
+An ADR is a **collaboration artifact**, not a verdict handed down. The team debates it in review,
+challenges the trade-offs, and records the outcome, so a new engineer a year later can read *why*
+before changing *how*.
+
 ## 🧭 Principles
 
 | Principle | What it means in practice |
