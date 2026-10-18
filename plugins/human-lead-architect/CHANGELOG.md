@@ -2,7 +2,7 @@
 
 ## 1.2.1 - 2026-10-18
 
-* Added a 1024 px square listing icon at `.claude-plugin/icon.png`
+* Added a 1024 px square listing icon
 * Scoped the `adr-review` write grant to `Write(./docs/**)` instead of unrestricted `Write`
 
 ## 1.2.0 - 2026-10-18
