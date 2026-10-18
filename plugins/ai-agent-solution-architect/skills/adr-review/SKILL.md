@@ -63,6 +63,7 @@ Determine which mode to use:
 
 When starting a new ADR from a topic:
 
+0. Read `../../shared/adr-significance.md` (relative to this skill's directory) and apply its gate. If the decision fails it, follow its "When the gate fails" steps and stop: write no file.
 1. Acknowledge the topic and confirm understanding
 2. Read the ADR template from `../../shared/adr-template.md` (relative to this skill's directory)
 3. Pre-fill what you can infer from the topic

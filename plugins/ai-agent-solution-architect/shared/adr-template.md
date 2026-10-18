@@ -49,17 +49,17 @@ We will {describe the chosen approach in one clear sentence}.
 
 ### Quality Attribute Impact
 
-| Quality Attribute | Impact | Reasoning |
+| Quality attribute | Impact | Reasoning |
 |---|---|---|
-| Performance | 🟢 / 🟡 / 🔴 | {specific impact} |
-| Maintainability | 🟢 / 🟡 / 🔴 | {specific impact} |
-| Scalability | 🟢 / 🟡 / 🔴 | {specific impact} |
-| Testability | 🟢 / 🟡 / 🔴 | {specific impact} |
-| Operability | 🟢 / 🟡 / 🔴 | {specific impact} |
-| Security | 🟢 / 🟡 / 🔴 | {specific impact} |
-| Team Cognitive Load | 🟢 / 🟡 / 🔴 | {specific impact} |
+| **Performance** | Improves / Neutral / Degrades | {specific impact} |
+| **Maintainability** | Improves / Neutral / Degrades | {specific impact} |
+| **Scalability** | Improves / Neutral / Degrades | {specific impact} |
+| **Testability** | Improves / Neutral / Degrades | {specific impact} |
+| **Operability** | Improves / Neutral / Degrades | {specific impact} |
+| **Security** | Improves / Neutral / Degrades | {specific impact} |
+| **Team cognitive load** | Improves / Neutral / Degrades | {specific impact} |
 
-Legend: 🟢 improves · 🟡 neutral / minor impact · 🔴 degrades
+Keep the Impact column to one of the three words, and put the detail in Reasoning.
 
 ### Evolutionary Architecture Considerations
 
@@ -82,13 +82,36 @@ Legend: 🟢 improves · 🟡 neutral / minor impact · 🔴 degrades
 
 ### Comparison Matrix
 
-| Criterion | Chosen: {Name} | Alt 1: Status Quo | Alt 2: {Name} |
+{For a technology choice, use the Technology Comparison Table below instead of this matrix.}
+
+Aspects in the left column, options as columns. Every cell holds a concrete statement, not a symbol.
+
+| Aspect | **Chosen: {Name}** | Status Quo | {Alternative} |
 |---|---|---|---|
-| {Force 1} | 🟢 | 🟡 | 🔴 |
-| {Force 2} | 🟡 | 🔴 | 🟢 |
-| {Force 3} | 🟢 | 🔴 | 🟡 |
+| **{Force 1}** | {how this option satisfies or fails it} | {value} | {value} |
+| **{Force 2}** | {value} | {value} | {value} |
 | **Migration effort** | {estimate} | None | {estimate} |
 | **Team readiness** | {assessment} | Ready | {assessment} |
+| **Reversibility** | {cost of reversal} | n/a | {cost of reversal} |
+
+### Technology Comparison Table
+
+{Include this section, in place of the Comparison Matrix, only when the decision selects a product, library, framework or service, for example a frontend framework, background processing library, messaging library, blob storage or database.}
+
+Aspects in the left column, one column per technology. Put the chosen technology first and mark it in the header. Include every real option, and Status Quo when the team already runs something. Every cell holds a concrete value; use `code` for names, versions and settings, links for sources, and bold for the deciding factor.
+
+| Aspect | **{Chosen}** (chosen) | {Option 2} | {Option 3} |
+|---|---|---|---|
+| **Programming model / fit** | {value} | {value} | {value} |
+| **Cost (license + hosting)** | {value} | {value} | {value} |
+| **Compatibility with our stack** | {value} | {value} | {value} |
+| **Team familiarity** | High / Medium / Low | {level} | {level} |
+| **Performance / scale** | {value or `{TODO: measure}`} | {value} | {value} |
+| **Ecosystem and maintenance** | {last release, license, backing, [source](url)} | {value} | {value} |
+| **Lock-in / exit cost** | {value} | {value} | {value} |
+| **Verdict** | {why it wins, naming the deciding aspect} | {why not} | {why not} |
+
+Swap aspects for ones that matter to this decision (for example consistency model and query capabilities for a database, or SSR and bundle size for a frontend framework), but keep team familiarity, cost and lock-in. Unknown cells hold `{TODO: ...}`, never a guess.
 
 ## References
 
@@ -118,4 +141,6 @@ Legend: 🟢 improves · 🟡 neutral / minor impact · 🔴 degrades
 - Quality Attribute Impact table is mandatory: it forces systematic thinking
 - Evolutionary Architecture section is mandatory: architecture decisions exist in time, not in isolation
 - Do not invent data, benchmarks, or assessments; if unknown, write `{TODO: measure/research}`
-- Use 🟢 / 🟡 / 🔴 consistently: green = improves, yellow = neutral or minor, red = degrades
+- A technology choice (product, library, framework or service) requires the Technology Comparison Table with at least two options
+- No emoji anywhere in the ADR. Tables carry words and concrete values; use bold, `code`, links and short lists for emphasis and structure
+- In every comparison table, aspects go in the left column and options (technologies) across the top

@@ -8,6 +8,8 @@ You are a senior architect performing research to draft an informed Architecture
 
 ## Process
 
+Before anything else, read `../../shared/adr-significance.md` (relative to this skill's directory) and apply its gate. If the decision fails it, follow its "When the gate fails" steps and stop: do no research and write no file.
+
 ### Phase 1: Codebase Discovery
 
 Before any research, understand the current system:
@@ -82,6 +84,7 @@ Read the core checklist at `../../shared/checklist.md` (relative to this skill's
 
 Read `../../shared/adr-template.md` (relative to this skill's directory), which also holds the trade-off and general rules. Use it with these changes:
 
+- Fill the Technology Comparison Table from your research with sourced values, and add an `Evidence confidence` row (High / Medium / Low per technology). This replaces the Ecosystem Health table below when the decision is a technology choice.
 - Add a `## Research Summary` section after Context with four parts: Industry Adoption, Benchmarks & Evidence, Known Pitfalls, and an Ecosystem Health table (GitHub stars/activity, package downloads, last release, license, maintainer backing, one column per option).
 - Add `Evidence` and `Confidence` columns to the Quality Attribute Impact table. Confidence: High = benchmark or case study, Medium = multiple sources agree, Low = assumption.
 - In Alternatives Considered, replace each `Trade-offs` line with an `Evidence` line (adoption, benchmarks, pitfalls found) and add an "Evidence confidence" row to the Comparison Matrix.

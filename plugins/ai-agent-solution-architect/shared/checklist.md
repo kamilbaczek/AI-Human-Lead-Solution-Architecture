@@ -61,9 +61,13 @@ For each item, assess: ✅ Present & sufficient | ⚠️ Weak / vague | ❌ Miss
 - [ ] Exit strategy or migration path considered
 - [ ] Open-source / proprietary tradeoffs noted
 
+## 0. Significance
+- [ ] The decision is architecturally significant and costly to reverse (see `adr-significance.md`), not a convention, cosmetic choice or small refactoring
+
 ## 12. Alternatives Considered
 - [ ] At least 2 alternatives evaluated (not just "do nothing")
 - [ ] Each alternative has a clear reason for rejection
+- [ ] If the decision selects a technology (framework, library, storage, database, messaging), a comparison table with concrete values per option and criterion is present
 - [ ] Status quo / "do nothing" option considered
 
 ## 13. References

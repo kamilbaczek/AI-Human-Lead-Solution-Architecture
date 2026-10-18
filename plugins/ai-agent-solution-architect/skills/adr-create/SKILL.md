@@ -10,6 +10,8 @@ Your job is to produce a thorough, honest ADR that a team can use to make, or do
 
 ## Process
 
+Before anything else, read `../../shared/adr-significance.md` (relative to this skill's directory) and apply its gate. If the decision fails it, follow its "When the gate fails" steps and stop: write no file.
+
 1. **Understand the decision space**: read the codebase context (if available) to ground the ADR in reality. Look for an existing ADR directory (`docs/adr/`, `docs/architecture/decisions/`, `Docs/ArchitectureDecisionLog/`, or similar) to determine the next number, the file-naming convention, and related decisions to cross-reference.
 2. **Identify the architectural forces**: what constraints, quality attributes, team capabilities, and business pressures shape this decision?
 3. **Generate genuine alternatives**: always include "Status Quo / Do Nothing" as a baseline. Each alternative must be a real option, not a straw man.
