@@ -44,8 +44,7 @@
 > Significance is measured by how hard it is to undo. If one pull request can reverse it,
 > it is not an architecture decision and it does not get an ADR.
 >
-> **— after Grady Booch**: *"Architecture represents the significant design decisions that shape a system,
-> where significant is measured by cost of change."*
+> **— Grady Booch**
 
 </div>
 
