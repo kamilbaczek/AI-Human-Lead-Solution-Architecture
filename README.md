@@ -152,13 +152,6 @@ flowchart LR
 
 > **Note:** The gate says no on purpose. An ADR log full of small choices hides the few decisions that matter.
 
-## ⚙️ CI
-
-We run [`.github/workflows/plugin-ci.yml`](.github/workflows/plugin-ci.yml) on every push and PR to `main`:
-
-* **validate** runs `claude plugin validate . --strict`, so a broken manifest or skill never lands on `main`.
-* **tag-release** runs on push to `main`. If `plugin.json`'s `version` was bumped, it creates and pushes the `ai-agent-solution-architect--vX.Y.Z` release tag via `claude plugin tag`. That tag gives you a stable, pinned `ref` and commit `sha` for a marketplace submission.
-
 ## 📮 Submitting to the official Claude Code plugin directory
 
 Anthropic's `claude-plugins-official` marketplace has no automated or PR-based submission path. You submit through the [plugin directory submission form](https://clau.de/plugin-directory-submission). Point it at this repo, path `plugins/ai-agent-solution-architect`, and use a release tag from CI as the `ref` and `sha`.
