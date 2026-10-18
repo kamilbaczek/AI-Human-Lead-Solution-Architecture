@@ -1,8 +1,20 @@
-<h1 align="center">AI Human Lead Solution Architecture 🏛️</h1>
+<p align="center">
+  <img src="assets/logo.svg" alt="AI Human Lead Solution Architecture logo" width="160" height="160">
+</p>
+
+<h1 align="center">AI Human Lead Solution Architecture</h1>
 
 <p align="center">
   <b>Skills for the distinguished software architect.</b><br>
-  ADR authoring, research and review, powered by Claude Code.
+  <i>The architect leads. The AI does the legwork.</i>
+</p>
+
+<p align="center">
+  <a href="#-getting-started">Getting started</a> ·
+  <a href="#-what-is-an-adr">What is an ADR?</a> ·
+  <a href="#-principles">Principles</a> ·
+  <a href="#-skills">Skills</a> ·
+  <a href="#-documentation">Docs</a>
 </p>
 
 <p align="center">
@@ -18,27 +30,54 @@
 
 <hr>
 
+<div align="center">
+
 > ### 💬 *"Why" is more important than "How".*
 >
-> Anyone can describe what was built. An architect preserves the reasoning, so the next team can tell
-> whether the decision still holds.
+> Anyone can describe what was built. An architect preserves the reasoning,
+> so the next team can tell whether the decision still holds.
+>
+> **— Neal Ford & Mark Richards**, *Fundamentals of Software Architecture* (the Second Law)
 
 > ### 💬 *An ADR records a significant decision: one that is hard to revert.*
 >
-> Significance is measured by how hard it is to undo. If one pull request can reverse it, it is not an
-> architecture decision and it does not get an ADR.
+> Significance is measured by how hard it is to undo. If one pull request can reverse it,
+> it is not an architecture decision and it does not get an ADR.
+>
+> **— after Grady Booch**: *"Architecture represents the significant design decisions that shape a system,
+> where significant is measured by cost of change."*
+
+</div>
+
+<table align="center">
+  <tr>
+    <td align="center" width="25%"><h3>✍️</h3><b>Create</b><br><sub>ADR from a decision you already have</sub></td>
+    <td align="center" width="25%"><h3>🔎</h3><b>Research</b><br><sub>Evidence first, draft second</sub></td>
+    <td align="center" width="25%"><h3>🧠</h3><b>Challenge</b><br><sub>Is the decision actually sound?</sub></td>
+    <td align="center" width="25%"><h3>✅</h3><b>Review</b><br><sub>Checklist and gap-filling interview</sub></td>
+  </tr>
+</table>
 
 ## About
 
-The architect leads, the AI does the legwork. This marketplace packages one plugin,
-`ai-agent-solution-architect`, with skills that take an Architecture Decision Record from a rough
-decision to a reviewed, evidence-backed document: create it, research what is missing, and
-challenge it before it is accepted.
+You have a decision to make. It will be expensive to undo, and in a year nobody will remember why the team chose it. That is the problem an ADR solves. It is also why most teams stop writing them: a good ADR needs research, trade-off analysis and a review round, and that takes time.
+
+We built this marketplace to cut the time without cutting the thinking. It packages 1 plugin, `ai-agent-solution-architect`, with 4 skills. The AI does the legwork of drafting, researching and checking. You stay the architect who decides.
+
+What we cover:
+
+* Creating an ADR from a decision you already have
+* Researching the evidence behind a decision before you draft
+* Challenging and reviewing an ADR before the team accepts it
+
+What we leave to you:
+
+* The decision itself
+* The conversation with your team about it
 
 ## 📖 What is an ADR?
 
-An **Architecture Decision Record** is a short document that captures one significant decision: the
-context that forced it, the options considered, the choice made, and the consequences accepted.
+An **Architecture Decision Record** (ADR) captures 1 significant decision: the context that forced it, the options we considered, the choice we made, and the consequences we accept.
 
 | Section | The question it answers |
 | --- | --- |
@@ -47,46 +86,61 @@ context that forced it, the options considered, the choice made, and the consequ
 | **Decision** | What did we choose, and why this one over the others? |
 | **Consequences** | What gets easier, what gets harder, and what risks do we now carry? |
 
-An ADR is a **collaboration artifact**, not a verdict handed down. The team debates it in review,
-challenges the trade-offs, and records the outcome, so a new engineer a year later can read *why*
-before changing *how*.
+The team writes an ADR for the team. People debate it in review, challenge the trade-offs and record the outcome. A new engineer who joins a year later can read *why* before changing *how*.
 
 ## 🧭 Principles
 
+We follow 4 principles when we write and review ADRs.
+
 | Principle | What it means in practice |
 | --- | --- |
-| ⚖️ **Trade-off analysis** | Every option has a cost. Each ADR compares real alternatives and states what you give up, not only what you gain. |
-| 🎯 **Risk-driven decisions** | Spend effort where the risk is. The harder a decision is to reverse, the more evidence it needs. |
-| 🤝 **Collaborative decisions** | A decision is owned by the team. The skills ask questions and surface gaps instead of deciding for you. |
-| 🚪 **Significance gate** | Cosmetic, local or one-PR-reversible choices are turned away, so the ADR log stays worth reading. |
+| ⚖️ **Trade-off analysis** | Every option has a cost. We compare real alternatives and write down what you give up, not only what you gain. |
+| 🎯 **Risk-driven decisions** | We spend effort where the risk is. The harder a decision is to reverse, the more evidence it needs. |
+| 🤝 **Collaborative decisions** | The team owns the decision. The skills ask questions and point out gaps. They never decide for you. |
+| 🚪 **Significance gate** | A cosmetic, local or 1-PR-reversible choice gets turned away, so your ADR log stays worth reading. |
 
 ## 🚀 Getting started
 
-**Requirements:** [Claude Code](https://claude.com/claude-code) CLI and Node.js 18+
+You need the [Claude Code](https://claude.com/claude-code) CLI and Node.js 18+.
 
-One command, straight from GitHub:
+The fastest path is 1 command, straight from GitHub:
 
 ```bash
 npx github:kamilbaczek/AI-Human-Lead-Solution-Architecture
 ```
 
-It runs the two commands below for you. Or run them yourself:
+It runs the 2 commands below for you. If you prefer to see each step, run them yourself:
 
 ```bash
 claude plugin marketplace add kamilbaczek/AI-Human-Lead-Solution-Architecture
 claude plugin install ai-agent-solution-architect@ai-agent-solution-architect-skills
 ```
 
+### Updating
+
+Already installed an earlier version? Refresh the marketplace and update the plugin, then restart Claude Code:
+
+```bash
+claude plugin marketplace update ai-agent-solution-architect-skills
+claude plugin update ai-agent-solution-architect@ai-agent-solution-architect-skills
+```
+
+> **Note:** If `marketplace add` fails with "its source doesn't match its `extraKnownMarketplaces` entry", an older entry in `~/.claude/settings.json` points at a different repo. Change its `repo` to `kamilbaczek/AI-Human-Lead-Solution-Architecture` and run the command again.
+
 ## 🧰 Skills
+
+Which skill do you need? It depends on how much you already know.
 
 | Skill | Use it when | What it does |
 | --- | --- | --- |
-| ✍️ `adr-create` | You already know the decision | Production-ready ADR with deep trade-off analysis from a topic or free-text input |
-| 🔎 `adr-research-draft` | The decision needs evidence you don't have | Web and codebase research first, then an evidence-backed ADR draft |
-| 🧠 `adr-architecture-review` | You need to know if the decision is sound | Critical review of trade-off completeness, evolutionary fitness and reversibility, ending in a verdict |
-| ✅ `adr-review` | You want gaps found and filled | Checklist review (core, REST API, database) with interview-style questions |
+| ✍️ `adr-create` | You already know the decision | Writes a production-ready ADR with deep trade-off analysis from a topic or free text |
+| 🔎 `adr-research-draft` | The decision needs evidence you don't have | Researches the web and your codebase first, then drafts an evidence-backed ADR |
+| 🧠 `adr-architecture-review` | You need to know if the decision is sound | Reviews trade-off completeness, evolutionary fitness and reversibility, and ends with a verdict |
+| ✅ `adr-review` | You want gaps found and filled | Checks the ADR against a checklist (core, REST API, database) and interviews you to fill the gaps |
 
 ### The flow
+
+Every request goes through the significance gate first. If the decision fails it, we stop and tell you where it belongs instead.
 
 ```text
  decision ──► significance gate ──► create / research ──► review ──► accepted ADR
@@ -94,22 +148,18 @@ claude plugin install ai-agent-solution-architect@ai-agent-solution-architect-sk
                     └── not significant ──► no ADR, and a note on where it belongs
 ```
 
+> **Note:** The gate says no on purpose. An ADR log full of small choices hides the few decisions that matter.
+
 ## ⚙️ CI
 
-[`.github/workflows/plugin-ci.yml`](.github/workflows/plugin-ci.yml) runs on every push/PR to `main`:
+We run [`.github/workflows/plugin-ci.yml`](.github/workflows/plugin-ci.yml) on every push and PR to `main`:
 
-- **validate**: `claude plugin validate . --strict`, so a broken manifest or skill never lands on `main`.
-- **tag-release**: on push to `main`, if `plugin.json`'s `version` was bumped, creates and pushes the
-  `ai-agent-solution-architect--vX.Y.Z` release tag via `claude plugin tag`. Gives a stable, pinned
-  `ref`/commit `sha` to reference when submitting to a marketplace.
+* **validate** runs `claude plugin validate . --strict`, so a broken manifest or skill never lands on `main`.
+* **tag-release** runs on push to `main`. If `plugin.json`'s `version` was bumped, it creates and pushes the `ai-agent-solution-architect--vX.Y.Z` release tag via `claude plugin tag`. That tag gives you a stable, pinned `ref` and commit `sha` for a marketplace submission.
 
 ## 📮 Submitting to the official Claude Code plugin directory
 
-Anthropic's `claude-plugins-official` marketplace has no automated/PR-based submission path.
-External plugins are reviewed via the
-[plugin directory submission form](https://clau.de/plugin-directory-submission). Point it at this
-repo, path `plugins/ai-agent-solution-architect`, and a release tag from CI above for the
-`ref`/`sha`.
+Anthropic's `claude-plugins-official` marketplace has no automated or PR-based submission path. You submit through the [plugin directory submission form](https://clau.de/plugin-directory-submission). Point it at this repo, path `plugins/ai-agent-solution-architect`, and use a release tag from CI as the `ref` and `sha`.
 
 ## 🗂️ Project structure
 
@@ -134,10 +184,12 @@ AI-Human-Lead-Solution-Architecture/
 
 ## 📚 Documentation
 
-- [`adr-create`](plugins/ai-agent-solution-architect/skills/adr-create/SKILL.md): write an ADR for a decision you already have in mind
-- [`adr-research-draft`](plugins/ai-agent-solution-architect/skills/adr-research-draft/SKILL.md): draft an ADR when the decision depends on evidence you don't have yet
-- [`adr-architecture-review`](plugins/ai-agent-solution-architect/skills/adr-architecture-review/SKILL.md): critical assessment of whether the decision is sound
-- [`adr-review`](plugins/ai-agent-solution-architect/skills/adr-review/SKILL.md): checklist review and interview-style gap filling
+Each skill documents its own steps. Start with the one you need:
+
+* [`adr-create`](plugins/ai-agent-solution-architect/skills/adr-create/SKILL.md): write an ADR for a decision you already have in mind
+* [`adr-research-draft`](plugins/ai-agent-solution-architect/skills/adr-research-draft/SKILL.md): draft an ADR when the decision depends on evidence you don't have yet
+* [`adr-architecture-review`](plugins/ai-agent-solution-architect/skills/adr-architecture-review/SKILL.md): check whether the decision is sound
+* [`adr-review`](plugins/ai-agent-solution-architect/skills/adr-review/SKILL.md): review against a checklist and fill the gaps in an interview
 
 ## License
 
