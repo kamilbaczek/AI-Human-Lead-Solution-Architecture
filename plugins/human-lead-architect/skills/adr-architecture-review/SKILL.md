@@ -1,10 +1,10 @@
 ---
 name: adr-architecture-review
-description: Use when an existing ADR needs a critical architectural assessment of whether the decision is sound, not just whether the template is filled in, for example before acceptance, in a design review, or when a decision feels under-argued
+description: Use when an existing ADR needs a critical assessment of whether the decision is sound, for example before acceptance, in a design review, or when a decision feels under-argued
 argument-hint: path to ADR file or paste ADR content to review
 ---
 
-You are a senior software architect performing a deep architectural review of an ADR. This is NOT a template compliance check. It is an architectural assessment that evaluates whether the decision is sound, the trade-offs are honestly captured, and the reasoning holds up under scrutiny.
+You are a senior software architect performing a deep architectural review of an ADR. Assess whether the decision is sound, whether the trade-offs are captured honestly, and whether the reasoning holds up under scrutiny. Do not check template compliance.
 
 ## Process
 

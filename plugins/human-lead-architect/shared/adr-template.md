@@ -145,3 +145,4 @@ Swap aspects for ones that matter to this decision (for example consistency mode
 - A technology choice (product, library, framework or service) requires the Technology Comparison Table with at least two options
 - No emoji anywhere in the ADR. Tables carry words and concrete values; use bold, `code`, links and short lists for emphasis and structure
 - In every comparison table, aspects go in the left column and options (technologies) across the top
+- Write plain prose: no em dashes, no "not X, it's Y" constructions, no stacked buzzwords (leverage, seamless, robust, holistic), and digits for numbers ("3 options", not "three options")

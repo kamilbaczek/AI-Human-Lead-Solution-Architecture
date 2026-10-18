@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.2 - 2026-10-18
+
+* Removed AI-sounding phrasing from `adr-create` and `adr-architecture-review`
+* Added a plain-prose rule to the shared ADR template: no em dashes, no "not X, it's Y", no stacked buzzwords
+
 ## 1.2.1 - 2026-10-18
 
 * Added a 1024 px square listing icon

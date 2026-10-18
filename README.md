@@ -19,7 +19,7 @@
 
 <p align="center">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude_Code-plugin_marketplace-D97757?logo=anthropic&logoColor=white">
-  <img alt="Plugin version" src="https://img.shields.io/badge/ai--agent--solution--architect-1.2.1-blue">
+  <img alt="Plugin version" src="https://img.shields.io/badge/human--lead--architect-1.2.2-blue">
   <img alt="Skills" src="https://img.shields.io/badge/skills-4-green">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-lightgrey">
 </p>
