@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.1 - 2026-10-18
+
+* `adr-reviewer` agent: added a trade-off-driven reviewing lens (architecture characteristics, coupling, options, communicating across levels)
+
 ## 1.3.0 - 2026-10-18
 
 * Added the `adr-reviewer` agent: a read-only subagent (Read, Grep, Glob) that reviews an ADR for soundness and completeness and returns a verdict without editing files

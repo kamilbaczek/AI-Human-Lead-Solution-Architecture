@@ -533,5 +533,66 @@
         "https?://(www\\.)?[a-z0-9.-]+\\.[a-z]{2,}/[^\\s)]+"
       ]
     }
+  ],
+  "agent": [
+    {
+      "id": "adr-reviewer/no-alternatives",
+      "fixture": "flaw-no-alternatives.md",
+      "mustMatch": [
+        "status quo|do nothing",
+        "alternatives?",
+        "negative|downside|trade-?off",
+        "revise|reject"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "adr-reviewer/straw-man",
+      "fixture": "flaw-straw-man.md",
+      "mustMatch": [
+        "straw",
+        "revise"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "adr-reviewer/no-negatives",
+      "fixture": "flaw-no-negatives.md",
+      "mustMatch": [
+        "none identified|no negatives?|no downsides?|no risks?",
+        "trade-?off",
+        "revise|reject"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "adr-reviewer/not-adr-worthy",
+      "fixture": "flaw-not-adr-worthy.md",
+      "mustMatch": [
+        "not (an )?adr|gate fails|fails the (significance )?gate|does(n't| not) (warrant|need|require)|not (architecturally )?significant|too (small|minor|local)",
+        "editorconfig|analy[sz]er|coding (guidelines|standards|conventions)|style guide|contributing|pull request|linter",
+        "reject"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "adr-reviewer/good-adr-control",
+      "fixture": "good-adr.md",
+      "mustMatch": [
+        "accept|revise"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*reject\\b",
+        "\\[blocking\\]"
+      ]
+    }
   ]
 }

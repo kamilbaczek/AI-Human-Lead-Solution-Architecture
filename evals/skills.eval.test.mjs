@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { PLUGIN, cases, claude, createPrompt, firedSkills, reviewPrompt } from "./lib.mjs";
+import { PLUGIN, agentPrompt, cases, claude, createPrompt, firedSkills, reviewPrompt } from "./lib.mjs";
 
 function assertOutput(out, c) {
   // Boolean asserts keep failure output short; toMatch would dump the whole model answer.
@@ -10,6 +10,13 @@ function assertOutput(out, c) {
 describe.concurrent("review", () => {
   it.each(cases.review)("$id", async (c) => {
     assertOutput(await claude(reviewPrompt(c)), c);
+  });
+});
+
+describe.concurrent("agent", () => {
+  it.each(cases.agent ?? [])("$id", async (c) => {
+    // Runs the whole session as the plugin's subagent definition, so its tool limits and prompt apply.
+    assertOutput(await claude(agentPrompt(c), ["--agent", `${PLUGIN}:adr-reviewer`]), c);
   });
 });
 

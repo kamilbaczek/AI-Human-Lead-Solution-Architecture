@@ -30,6 +30,9 @@ export function claude(prompt, extra = []) {
 export const reviewPrompt = (c) =>
   `Use the ${PLUGIN}:${c.skill} skill on ${join("evals", "fixtures", c.fixture)}. Do not ask questions; print your full report.`;
 
+export const agentPrompt = (c) =>
+  `Review ${join("evals", "fixtures", c.fixture)}. Do not ask questions; print your full report.`;
+
 export const createPrompt = (c) => `Use the ${PLUGIN}:${c.skill} skill. ${c.prompt}`;
 
 /** Names of the skills Claude invoked, from a stream-json transcript. */

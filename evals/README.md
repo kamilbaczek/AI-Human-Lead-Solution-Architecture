@@ -20,6 +20,9 @@ not part of the per-push `plugin-ci.yml`.
   analysis). `adr-architecture-review` and `adr-review` must flag it. `good-adr.md` is the control:
   a sound ADR must not be rejected. Other fixtures cover a single option, vague context, no
   negatives or risks, and a solution out of proportion to the team and scale.
+- **Agent** (`cases.json` → `agent`). The `adr-reviewer` agent runs as the whole session
+  (`--agent human-lead-architect:adr-reviewer`) on the same planted-flaw fixtures and the
+  `good-adr.md` control. It must give a verdict, flag the defect and reject the not-ADR-worthy case.
 - **Creation** (`cases.json` → `create`). `adr-create` must produce the required sections, keep
   Status Quo as an alternative even when the user says there is only one option, and write
   `{TODO}` instead of inventing numbers. Technology choices must include a comparison table with
