@@ -17,7 +17,11 @@ not part of the per-push CI.
 - **Planted-flaw reviews** (`cases.json` → `review`). Each fixture in `fixtures/` is an ADR with a
   known defect (no alternatives, straw-man alternatives, irreversible change with no cost
   analysis). `adr-architecture-review` and `adr-review` must flag it. `good-adr.md` is the control:
-  a sound ADR must not be rejected.
+  a sound ADR must not be rejected. Other fixtures cover a single option, vague context, no
+  negatives or risks, and a solution out of proportion to the team and scale.
+- **Creation** (`cases.json` → `create`). `adr-create` must produce the required sections, keep
+  Status Quo as an alternative even when the user says there is only one option, and write
+  `{TODO}` instead of inventing numbers.
 - **Triggering** (`cases.json` → `triggers`). A prompt must make Claude invoke the expected skill.
 
 ## Adding a case
@@ -30,3 +34,11 @@ not part of the per-push CI.
 
 A personal skill with the same bare name (for example a user-level `adr-review`) shadows the
 plugin's. The runner always uses the namespaced `ai-agent-solution-architect:<skill>` name.
+
+## Real-world fixtures
+
+`fixtures/real-*.adoc` are ADRs 19, 20 and 22 from Chapter 4 of
+[evolutionary-architecture-by-example](https://github.com/evolutionary-architecture/evolutionary-architecture-by-example)
+(MIT licensed), copied unchanged, AsciiDoc format included. They check that the skills handle ADRs
+written by real teams, not only the synthetic `flaw-*` ones: 0019 and 0022 state a decision with no
+alternatives, and 0020 compares three options but lists only benefits.

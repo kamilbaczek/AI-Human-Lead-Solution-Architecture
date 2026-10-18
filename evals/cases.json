@@ -4,41 +4,196 @@
       "id": "arch-review/no-alternatives",
       "skill": "adr-architecture-review",
       "fixture": "flaw-no-alternatives.md",
-      "mustMatch": ["status quo|do nothing", "alternatives?", "negative|downside|trade-?off", "revise|reject"],
-      "mustNotMatch": ["recommendation:\\W*accept\\b"]
+      "mustMatch": [
+        "status quo|do nothing",
+        "alternatives?",
+        "negative|downside|trade-?off",
+        "revise|reject"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
     },
     {
       "id": "arch-review/straw-man",
       "skill": "adr-architecture-review",
       "fixture": "flaw-straw-man.md",
-      "mustMatch": ["straw", "revise"],
-      "mustNotMatch": ["recommendation:\\W*accept\\b"]
+      "mustMatch": [
+        "straw",
+        "revise"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
     },
     {
       "id": "arch-review/irreversible-no-cost",
       "skill": "adr-architecture-review",
       "fixture": "flaw-irreversible-no-cost.md",
-      "mustMatch": ["revers", "single release|big[- ]bang|rollback|incremental", "cost|effort", "revise|reject"],
-      "mustNotMatch": ["recommendation:\\W*accept\\b"]
+      "mustMatch": [
+        "revers",
+        "single release|big[- ]bang|rollback|incremental",
+        "cost|effort",
+        "revise|reject"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
     },
     {
       "id": "arch-review/good-adr-control",
       "skill": "adr-architecture-review",
       "fixture": "good-adr.md",
-      "mustMatch": ["accept|revise"],
-      "mustNotMatch": ["recommendation:\\W*reject\\b", "\\[blocking\\]"]
+      "mustMatch": [
+        "accept|revise"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*reject\\b",
+        "\\[blocking\\]"
+      ]
     },
     {
       "id": "adr-review/no-alternatives",
       "skill": "adr-review",
       "fixture": "flaw-no-alternatives.md",
-      "mustMatch": ["alternatives?", "risks?", "cost", "security"]
+      "mustMatch": [
+        "alternatives?",
+        "risks?",
+        "cost",
+        "security"
+      ]
     },
     {
       "id": "adr-review/irreversible-no-cost",
       "skill": "adr-review",
       "fixture": "flaw-irreversible-no-cost.md",
-      "mustMatch": ["cost", "risks?", "security", "operational|monitoring"]
+      "mustMatch": [
+        "cost",
+        "risks?",
+        "security",
+        "operational|monitoring"
+      ]
+    },
+    {
+      "id": "arch-review/single-option",
+      "skill": "adr-architecture-review",
+      "fixture": "flaw-single-option.md",
+      "mustMatch": [
+        "only option|single option|one option|no alternatives?|not evaluated",
+        "status quo|do nothing",
+        "revise|reject"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "arch-review/vague-context",
+      "skill": "adr-architecture-review",
+      "fixture": "flaw-vague-context.md",
+      "mustMatch": [
+        "vague|generic|specific|opinion",
+        "problem|root cause|symptom|constraint|force|context",
+        "revise|reject"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "arch-review/no-negatives",
+      "skill": "adr-architecture-review",
+      "fixture": "flaw-no-negatives.md",
+      "mustMatch": [
+        "none identified|no negatives?|no downsides?|no risks?",
+        "team|experience|skill",
+        "single release|big[- ]bang|incremental|revers",
+        "revise|reject"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "arch-review/team-mismatch",
+      "skill": "adr-architecture-review",
+      "fixture": "flaw-team-mismatch.md",
+      "mustMatch": [
+        "team|skill|experience|cognitive",
+        "over-?engineer|disproportion|200 orders|overkill|scale",
+        "revise|reject"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "adr-review/single-option",
+      "skill": "adr-review",
+      "fixture": "flaw-single-option.md",
+      "mustMatch": [
+        "alternatives?",
+        "cost",
+        "security",
+        "operational|monitoring"
+      ]
+    },
+    {
+      "id": "adr-review/no-negatives",
+      "skill": "adr-review",
+      "fixture": "flaw-no-negatives.md",
+      "mustMatch": [
+        "risks?",
+        "cost",
+        "security",
+        "team|skills"
+      ]
+    },
+    {
+      "id": "arch-review/real-0019-no-alternatives",
+      "skill": "adr-architecture-review",
+      "fixture": "real-0019-no-alternatives.adoc",
+      "mustMatch": [
+        "alternatives?",
+        "status quo|do nothing|in-memory",
+        "revise|reject"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "arch-review/real-0020-one-sided-consequences",
+      "skill": "adr-architecture-review",
+      "fixture": "real-0020-one-sided-consequences.adoc",
+      "mustMatch": [
+        "negative|downside|drawback|one-sided|operat|hosting|broker",
+        "revers|migration|exit|lock-?in"
+      ]
+    },
+    {
+      "id": "arch-review/real-0022-no-alternatives",
+      "skill": "adr-architecture-review",
+      "fixture": "real-0022-no-alternatives.adoc",
+      "mustMatch": [
+        "alternatives?",
+        "idempoten|cdc|change data capture|transactional|2pc|status quo",
+        "revise|reject"
+      ],
+      "mustNotMatch": [
+        "recommendation:\\W*accept\\b"
+      ]
+    },
+    {
+      "id": "adr-review/real-0019-no-alternatives",
+      "skill": "adr-review",
+      "fixture": "real-0019-no-alternatives.adoc",
+      "mustMatch": [
+        "alternatives?",
+        "cost",
+        "security",
+        "operational|monitoring"
+      ]
     }
   ],
   "triggers": [
@@ -57,6 +212,52 @@
     {
       "prompt": "Check evals/fixtures/flaw-no-alternatives.md against the checklist for missing sections and interview me to fill the gaps.",
       "expectSkill": "adr-review"
+    }
+  ],
+  "create": [
+    {
+      "id": "create/single-option-prompt",
+      "skill": "adr-create",
+      "prompt": "Write an ADR: we are standardising on PostgreSQL for the new reporting service. It is the only option we are considering. Print the full ADR, do not save it.",
+      "mustMatch": [
+        "status quo|do nothing",
+        "alternative 2|alternatives considered",
+        "reversib",
+        "quality attribute"
+      ],
+      "mustNotMatch": [
+        "no alternatives",
+        "only viable option"
+      ]
+    },
+    {
+      "id": "create/no-invented-data",
+      "skill": "adr-create",
+      "prompt": "Write an ADR for moving our job queue from Hangfire to Azure Service Bus. I have no benchmarks or cost figures. Print the full ADR, do not save it.",
+      "mustMatch": [
+        "todo",
+        "status quo|do nothing",
+        "reversib"
+      ],
+      "mustNotMatch": [
+        "\\d+\\s?ms faster",
+        "\\$\\d{3,}"
+      ]
+    },
+    {
+      "id": "create/sections-present",
+      "skill": "adr-create",
+      "prompt": "Write an ADR for introducing a Redis cache in front of the product catalog API. Print the full ADR, do not save it.",
+      "mustMatch": [
+        "## status",
+        "## context",
+        "## decision",
+        "## consequences",
+        "trade-off analysis",
+        "evolutionary",
+        "comparison matrix",
+        "follow-up"
+      ]
     }
   ]
 }

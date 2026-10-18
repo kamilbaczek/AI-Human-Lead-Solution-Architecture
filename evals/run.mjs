@@ -38,10 +38,19 @@ function claude(prompt, extra = []) {
 function runReview(c) {
   const path = join("evals", "fixtures", c.fixture);
   const out = claude(`Use the ${PLUGIN}:${c.skill} skill on ${path}. Do not ask questions; print your full report.`);
+  return check(out, c);
+}
+
+function check(out, c) {
   const failures = [];
   for (const p of c.mustMatch ?? []) if (!new RegExp(p, "i").test(out)) failures.push(`missing /${p}/`);
   for (const p of c.mustNotMatch ?? []) if (new RegExp(p, "i").test(out)) failures.push(`unexpected /${p}/`);
   return failures;
+}
+
+function runCreate(c) {
+  const out = claude(`Use the ${PLUGIN}:${c.skill} skill. ${c.prompt}`);
+  return check(out, c);
 }
 
 function runTrigger(c) {
@@ -62,6 +71,7 @@ function runTrigger(c) {
 
 const jobs = [
   ...(onlyTriggers ? [] : cases.review.map((c) => ({ id: c.id, run: () => runReview(c) }))),
+  ...(onlyTriggers || onlyReviews ? [] : (cases.create ?? []).map((c) => ({ id: c.id, run: () => runCreate(c) }))),
   ...(onlyReviews ? [] : cases.triggers.map((c) => ({ id: `trigger/${c.expectSkill}`, run: () => runTrigger(c) }))),
 ].filter((j) => !filter || j.id.includes(filter));
 
