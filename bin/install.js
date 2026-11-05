@@ -2,12 +2,11 @@
 import { spawnSync } from "node:child_process";
 
 const MARKETPLACE_SOURCE = "kamilbaczek/AI-Human-Lead-Solution-Architecture";
-const MARKETPLACE = "ai-human-lead-solution-architecture";
-const PLUGINS = ["human-lead-architect", "tech-stack-management"];
+const PLUGIN = "human-lead-architect@ai-human-lead-solution-architecture";
 
 const steps = [
   ["plugin", "marketplace", "add", MARKETPLACE_SOURCE],
-  ...PLUGINS.map((p) => ["plugin", "install", `${p}@${MARKETPLACE}`]),
+  ["plugin", "install", PLUGIN],
 ];
 
 if (spawnSync("claude", ["--version"], { stdio: "ignore" }).status !== 0) {

@@ -15,7 +15,7 @@ You are a senior architect keeping the tech stack deliberate. A new technology i
 4. **Overlap check.** Look in the generated section, the Planned section and the code for a technology in the same layer with the same job (a second cache, a second broker, a second ORM, a second test framework). If you find one, name it with evidence and ask why both are needed. Record the answer in Purpose. Do not refuse: the team decides.
 5. **Decision check.** Decide whether the choice is significant (see "Link decisions" in `codebase-evidence.md`).
    - Significant with an ADR: link it.
-   - Significant without an ADR: say it needs one, suggest `human-lead-architect:adr-create` if that plugin is installed, and record `{TODO: ADR}` in Decision.
+   - Significant without an ADR: say it needs one, suggest `adr-create`, and record `{TODO: ADR}` in Decision.
    - Not significant: write `not needed: {short reason}`, for example `not needed: test-only dependency`.
 6. Show the new Planned row and ask before writing. Then add it to the Planned section. If the section is missing, create it after the generated markers. Never write between the `generated:tech-stack` markers: that section only reflects the code.
 

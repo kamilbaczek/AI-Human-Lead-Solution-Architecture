@@ -8,7 +8,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 export const repoRoot = resolve(here, "..");
 export const PLUGIN = "human-lead-architect";
 /** Every plugin in this marketplace; all are loaded in each eval run. */
-export const PLUGINS = [PLUGIN, "tech-stack-management"];
+export const PLUGINS = [PLUGIN];
 export const cases = JSON.parse(readFileSync(join(here, "cases.json"), "utf8"));
 
 const base = [

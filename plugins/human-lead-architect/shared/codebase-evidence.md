@@ -1,6 +1,6 @@
 # Reading a system from its repository
 
-Shared by the `tech-stack-management` skills. Works for any language or platform: never assume a stack, find it.
+Shared by `tech-stack-reverse-engineer` and `tech-stack-add`. Works for any language or platform: never assume a stack, find it.
 
 ## Where the evidence is
 
@@ -23,7 +23,7 @@ Never read secrets. If a config file holds real credentials, note that the integ
 - **Unknown is a valid answer.** A connection you suspect but cannot prove is marked `?` with a short note, never drawn or listed as fact.
 - **Names come from the repository.** Use the names the code uses (project, service, module, queue). Do not invent friendlier ones.
 - **Versions come from manifests or lock files.** If no version is pinned, write `unpinned`; do not guess the latest one.
-- **Link decisions.** When an ADR governs a technology, link it. When a significant choice has no ADR, say so and suggest writing one (`human-lead-architect:adr-create` if that plugin is installed). Significant means hard to reverse: a data store, a message broker, a cloud service, a framework or language for a whole component, an identity provider. Do not ask for ADRs for small libraries, test helpers or dev tooling.
+- **Link decisions.** When an ADR governs a technology, link it. When a significant choice has no ADR, say so and suggest `adr-create`. Use `adr-significance.md` in this folder to decide what is significant: a data store, a message broker, a cloud service, a framework or language for a whole component, an identity provider. Do not ask for ADRs for small libraries, test helpers or dev tooling.
 
 ## Generated sections and human notes
 

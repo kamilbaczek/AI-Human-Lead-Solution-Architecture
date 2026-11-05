@@ -9,12 +9,7 @@
     {
       "name": "human-lead-architect",
       "source": "./plugins/human-lead-architect",
-      "description": "A toolkit for AI-assisted solution architecture work: create, research, review, supersede and audit Architecture Decision Records."
-    },
-    {
-      "name": "tech-stack-management",
-      "source": "./plugins/tech-stack-management",
-      "description": "Reverse-engineer a project's tech stack into Markdown with evidence, and add new technologies with an overlap and decision check."
+      "description": "A toolkit for AI-assisted solution architecture work: create, research, review, supersede and audit Architecture Decision Records, and reverse-engineer and manage the tech stack."
     }
   ]
 }

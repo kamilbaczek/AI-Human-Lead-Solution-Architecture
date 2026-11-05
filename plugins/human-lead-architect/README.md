@@ -2,6 +2,8 @@
 
 A Claude Code plugin for taking an Architecture Decision Record (ADR) from a rough decision to a reviewed, evidence-backed document: create it, research what is missing, and review it before it is accepted.
 
+It also keeps the tech stack documented from the code, and makes new technologies go in on purpose.
+
 ## Installation
 
 ```bash
@@ -11,7 +13,7 @@ claude plugin install human-lead-architect@ai-human-lead-solution-architecture
 
 ## Skills
 
-Every skill first applies a significance gate (`shared/adr-significance.md`). A decision that is cosmetic, local, or reversible in one pull request gets no ADR.
+The ADR skills first apply a significance gate (`shared/adr-significance.md`). A decision that is cosmetic, local, or reversible in one pull request gets no ADR.
 
 ### `/human-lead-architect:adr-create`
 
@@ -61,6 +63,22 @@ Read-only check of whether the code still follows an accepted ADR. Each claim is
 /human-lead-architect:adr-drift-check docs/adr/ADR-003-module-isolation.md
 ```
 
+### `/human-lead-architect:tech-stack-reverse-engineer`
+
+Reads any repository and writes `docs/architecture/tech-stack.md`: deployable units, technologies by layer with versions and a file as evidence, the ADR behind each significant choice, and findings (version drift, significant technologies with no ADR, unverified items). A rerun updates only the generated section and lists what changed. The Planned and Notes sections are never rewritten.
+
+```
+/human-lead-architect:tech-stack-reverse-engineer
+```
+
+### `/human-lead-architect:tech-stack-add`
+
+Records a new technology in the Planned section of `tech-stack.md`, after checking whether something already does the same job and whether the choice needs an ADR. It never edits build files.
+
+```
+/human-lead-architect:tech-stack-add Redis as a distributed cache for Orders.Api
+```
+
 ## Agents
 
 ### `adr-reviewer`
@@ -69,7 +87,7 @@ A read-only subagent that reviews an ADR in its own context window and returns a
 
 ## Shared files
 
-The skills read these from the plugin's `shared/` folder: `adr-template.md`, `adr-significance.md`, `review-output.md`, `self-review.md`, `checklist.md`, `checklist-rest-api.md`, `checklist-db.md`.
+The skills read these from the plugin's `shared/` folder: `adr-template.md`, `adr-significance.md`, `review-output.md`, `self-review.md`, `checklist.md`, `checklist-rest-api.md`, `checklist-db.md`, `codebase-evidence.md`, `tech-stack-template.md`.
 
 ## Requirements
 
