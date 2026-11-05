@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.5.2 - 2026-11-05
+
+* `adr-research-draft`: 3 sources per option is a hard minimum again; the only exception is fewer than 2 for the recommended option, which means Low confidence and a spike
+* `adr-research-draft` can also save to `Docs/` (for `Docs/ArchitectureDecisionLog/` on case-sensitive file systems)
+* Plugin README says "review" instead of the removed "challenge"
+
+## 1.5.1 - 2026-11-05
+
+* `adr-review` is now read-only in `allowed-tools`; it asks before writing instead of holding a standing `Write`/`Edit` grant
+* `adr-research-draft` declares its `allowed-tools` (read, web search and fetch, `Write(./docs/**)`)
+* README, `package.json` and marketplace descriptions now match the plugin: 6 skills, supersede and audit mentioned, no leftover Challenge skill
+
 ## 1.5.0 - 2026-10-18
 
 * Breaking: removed `adr-architecture-review`. `adr-review` now judges soundness and gives the verdict, so use it instead

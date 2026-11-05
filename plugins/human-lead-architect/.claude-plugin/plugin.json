@@ -1,7 +1,7 @@
 {
   "name": "human-lead-architect",
   "description": "A toolkit for AI-assisted solution architecture work: create, research, review, supersede and audit Architecture Decision Records.",
-  "version": "1.5.0",
+  "version": "1.5.2",
   "author": {
     "name": "Kamil Bączek",
     "url": "https://github.com/kamilbaczek"

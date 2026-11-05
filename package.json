@@ -1,6 +1,6 @@
 {
   "name": "ai-human-lead-solution-architecture",
-  "version": "1.1.0",
+  "version": "1.5.2",
   "description": "Installer for the human-lead-architect Claude Code plugin (ADR skills).",
   "type": "module",
   "bin": {

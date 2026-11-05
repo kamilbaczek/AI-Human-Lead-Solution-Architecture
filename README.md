@@ -18,8 +18,8 @@
 
 <p align="center">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude_Code-plugin_marketplace-D97757?logo=anthropic&logoColor=white">
-  <img alt="Plugin version" src="https://img.shields.io/badge/human--lead--architect-1.2.2-blue">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-4-green">
+  <img alt="Plugin version" src="https://img.shields.io/badge/human--lead--architect-1.5.2-blue">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-6-green">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-lightgrey">
 </p>
 
@@ -51,8 +51,8 @@
   <tr>
     <td align="center" width="25%"><h3>✍️</h3><b>Create</b><br><sub>ADR from a decision you already have</sub></td>
     <td align="center" width="25%"><h3>🔎</h3><b>Research</b><br><sub>Evidence first, draft second</sub></td>
-    <td align="center" width="25%"><h3>🧠</h3><b>Challenge</b><br><sub>Is the decision actually sound?</sub></td>
-    <td align="center" width="25%"><h3>✅</h3><b>Review</b><br><sub>Checklist and gap-filling interview</sub></td>
+    <td align="center" width="25%"><h3>🧠</h3><b>Review</b><br><sub>Is the decision actually sound?</sub></td>
+    <td align="center" width="25%"><h3>✅</h3><b>Maintain</b><br><sub>Supersede, index and drift checks</sub></td>
   </tr>
 </table>
 
@@ -64,7 +64,8 @@ What we cover:
 
 * Creating an ADR from a decision you already have
 * Researching the evidence behind a decision before you draft
-* Challenging and reviewing an ADR before the team accepts it
+* Reviewing an ADR before the team accepts it
+* Superseding old ADRs and checking the log and the code against them
 
 What we leave to you:
 
