@@ -19,7 +19,8 @@
 <p align="center">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude_Code-plugin_marketplace-D97757?logo=anthropic&logoColor=white">
   <img alt="Plugin version" src="https://img.shields.io/badge/human--lead--architect-1.5.2-blue">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-6-green">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-8-green">
+  <img alt="Plugins" src="https://img.shields.io/badge/plugins-2-green">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-lightgrey">
 </p>
 
@@ -106,11 +107,12 @@ The fastest path is 1 command, straight from GitHub:
 npx github:kamilbaczek/AI-Human-Lead-Solution-Architecture
 ```
 
-It runs the 2 commands below for you. If you prefer to see each step, run them yourself:
+It installs both plugins by running the commands below for you. If you prefer to see each step, run them yourself:
 
 ```bash
 claude plugin marketplace add kamilbaczek/AI-Human-Lead-Solution-Architecture
 claude plugin install human-lead-architect@ai-human-lead-solution-architecture
+claude plugin install tech-stack-management@ai-human-lead-solution-architecture
 ```
 
 ### Updating
@@ -152,6 +154,19 @@ flowchart LR
 
 > **Note:** The gate says no on purpose. An ADR log full of small choices hides the few decisions that matter.
 
+## 🧱 Tech stack management
+
+A second plugin, `tech-stack-management`, keeps the tech stack written down and chosen on purpose. It works with any language or platform.
+
+```bash
+claude plugin install tech-stack-management@ai-human-lead-solution-architecture
+```
+
+| Skill | Use it when | What it does |
+| --- | --- | --- |
+| 🔬 [`tech-stack-reverse-engineer`](plugins/tech-stack-management/skills/tech-stack-reverse-engineer/SKILL.md) | You need to know what a codebase is built with, or the stack doc is out of date | Reads manifests, lock files, compose, infrastructure and config, then writes `docs/architecture/tech-stack.md` with a file as evidence for every row. It flags version drift between units and significant technologies with no ADR. On a rerun it updates only the generated section and lists what changed |
+| ➕ [`tech-stack-add`](plugins/tech-stack-management/skills/tech-stack-add/SKILL.md) | The team wants to start using a new technology | Checks whether something in the stack already does the same job and whether the choice needs an ADR, then records it in the Planned section. It never edits build files |
+
 ## 🗂️ Project structure
 
 ```text
@@ -175,6 +190,13 @@ AI-Human-Lead-Solution-Architecture/
         adr-index-check/
         adr-drift-check/
       shared/         # ADR template, significance gate, checklists
+    tech-stack-management/
+      .claude-plugin/
+        plugin.json
+      skills/
+        tech-stack-reverse-engineer/
+        tech-stack-add/
+      shared/         # evidence rules, tech-stack document template
 ```
 
 ## License
