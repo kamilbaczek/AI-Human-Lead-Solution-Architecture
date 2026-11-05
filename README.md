@@ -18,8 +18,8 @@
 
 <p align="center">
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude_Code-plugin_marketplace-D97757?logo=anthropic&logoColor=white">
-  <img alt="Plugin version" src="https://img.shields.io/badge/human--lead--architect-1.5.2-blue">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-6-green">
+  <img alt="Plugin version" src="https://img.shields.io/badge/human--lead--architect-1.6.0-blue">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-8-green">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-lightgrey">
 </p>
 
@@ -66,6 +66,7 @@ What we cover:
 * Researching the evidence behind a decision before you draft
 * Reviewing an ADR before the team accepts it
 * Superseding old ADRs and checking the log and the code against them
+* Documenting the tech stack from the code and adding new technologies on purpose
 
 What we leave to you:
 
@@ -152,6 +153,15 @@ flowchart LR
 
 > **Note:** The gate says no on purpose. An ADR log full of small choices hides the few decisions that matter.
 
+### Tech stack
+
+The same rule applies to the stack: write down what the code really uses, and add new technologies on purpose. Works with any language or platform.
+
+| Skill | Use it when | What it does |
+| --- | --- | --- |
+| 🔬 [`tech-stack-reverse-engineer`](plugins/human-lead-architect/skills/tech-stack-reverse-engineer/SKILL.md) | You need to know what a codebase is built with, or the stack doc is out of date | Reads manifests, lock files, compose, infrastructure and config, then writes `docs/architecture/tech-stack.md` with a file as evidence for every row. It flags version drift between units and significant technologies with no ADR. On a rerun it updates only the generated section and lists what changed |
+| ➕ [`tech-stack-add`](plugins/human-lead-architect/skills/tech-stack-add/SKILL.md) | The team wants to start using a new technology | Checks whether something in the stack already does the same job and whether the choice needs an ADR, then records it in the Planned section. It never edits build files |
+
 ## 🗂️ Project structure
 
 ```text
@@ -174,7 +184,9 @@ AI-Human-Lead-Solution-Architecture/
         adr-supersede/
         adr-index-check/
         adr-drift-check/
-      shared/         # ADR template, significance gate, checklists
+        tech-stack-reverse-engineer/
+        tech-stack-add/
+      shared/         # ADR template, significance gate, checklists, tech-stack rules
 ```
 
 ## License

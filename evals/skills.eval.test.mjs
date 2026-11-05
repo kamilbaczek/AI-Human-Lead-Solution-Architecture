@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  PLUGIN, agentPrompt, cases, claude, createPrompt, firedSkills, judge, majority, reviewPrompt, skillPrompt,
+  PLUGIN, PLUGINS, agentPrompt, cases, claude, createPrompt, firedSkills, judge, majority, reviewPrompt, skillPrompt,
 } from "./lib.mjs";
 
 async function assertOutput(out, c) {
@@ -33,6 +33,13 @@ describe.concurrent("create", () => {
   }, 600_000);
 });
 
+describe.concurrent("tech-stack", () => {
+  it.each(cases.techStack ?? [])("$id", async (c) => {
+    // Scanning a repository takes more reads than reviewing one ADR.
+    await majority(async () => assertOutput(await claude(skillPrompt(c), [], 20), c));
+  }, 600_000);
+});
+
 describe.concurrent("lifecycle", () => {
   it.each(cases.lifecycle ?? [])("$id", async (c) => {
     await majority(async () => assertOutput(await claude(skillPrompt(c)), c));
@@ -44,11 +51,11 @@ describe.concurrent("triggers", () => {
     await majority(async () => {
       const fired = firedSkills(await claude(c.prompt, ["--output-format", "stream-json", "--verbose"]));
       if (c.expectNone) {
-        // Negative case: no skill of this plugin may fire.
-        expect(fired.filter((s) => s.startsWith(`${PLUGIN}:`)), "a plugin skill fired").toEqual([]);
+        // Negative case: no skill of this marketplace may fire.
+        expect(fired.filter((s) => PLUGINS.some((p) => s.startsWith(`${p}:`))), "a plugin skill fired").toEqual([]);
       } else {
         // The namespaced name is required: a personal skill with the same bare name must not count.
-        expect(fired).toContain(`${PLUGIN}:${c.expectSkill}`);
+        expect(fired).toContain(`${c.plugin ?? PLUGIN}:${c.expectSkill}`);
       }
     });
   }, 600_000);

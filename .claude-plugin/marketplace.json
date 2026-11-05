@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "ai-human-lead-solution-architecture",
-  "description": "AI Human Lead Solution Architecture, a Claude Code marketplace of skills for AI-assisted software architecture: authoring, researching, reviewing, superseding and auditing Architecture Decision Records.",
+  "description": "AI Human Lead Solution Architecture, a Claude Code marketplace of skills for AI-assisted software architecture: authoring, researching, reviewing, superseding and auditing Architecture Decision Records, and documenting and managing the tech stack.",
   "owner": {
     "name": "Kamil Bączek"
   },
@@ -9,7 +9,7 @@
     {
       "name": "human-lead-architect",
       "source": "./plugins/human-lead-architect",
-      "description": "A toolkit for AI-assisted solution architecture work: create, research, review, supersede and audit Architecture Decision Records."
+      "description": "A toolkit for AI-assisted solution architecture work: create, research, review, supersede and audit Architecture Decision Records, and reverse-engineer and manage the tech stack."
     }
   ]
 }

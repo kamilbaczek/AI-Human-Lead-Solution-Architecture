@@ -274,6 +274,21 @@
       "id": "triggers/drift-check",
       "prompt": "Does the code in evals/fixtures/drift still follow evals/fixtures/drift/ADR-003-module-isolation.md?",
       "expectSkill": "adr-drift-check"
+    },
+    {
+      "id": "triggers/tech-stack-reverse-engineer",
+      "expectSkill": "tech-stack-reverse-engineer",
+      "prompt": "What is this repository built with? Document the tech stack in a markdown file."
+    },
+    {
+      "id": "triggers/tech-stack-reverse-engineer-pl",
+      "expectSkill": "tech-stack-reverse-engineer",
+      "prompt": "Udokumentuj tech stack tego projektu w markdownie."
+    },
+    {
+      "id": "triggers/tech-stack-add",
+      "expectSkill": "tech-stack-add",
+      "prompt": "We want to start using Redis as a cache in Orders.Api. Add it to our tech stack."
     }
   ],
   "create": [
@@ -647,6 +662,75 @@
         "gap|missing|does not (state|explain)"
       ],
       "rubric": "The skill notices ADR 006 does not explain why the RabbitMQ decision no longer holds, reports that as a gap, and does not silently rewrite the body of ADR 002."
+    }
+  ],
+  "techStack": [
+    {
+      "id": "tech-stack/reverse-create",
+      "skill": "tech-stack-reverse-engineer",
+      "prompt": "Scan the repository at evals/fixtures/tech-stack/shop. Do not ask questions; print the full output and write nothing.",
+      "mustMatch": [
+        "postgres",
+        "rabbitmq",
+        "redis",
+        "masstransit",
+        "react",
+        "7\\.0\\.11",
+        "drift",
+        "no ADR|missing (adr|decision)",
+        "RESULT: units=\\d+ technologies=\\d+ drift=[1-9]\\d* missing_adr=[1-9]\\d* unverified=\\d+"
+      ],
+      "mustNotMatch": [
+        "__set_in_vault__"
+      ],
+      "rubric": "The document lists the deployable units (Orders.Api, Billing.Worker, web; the test project may be listed under Testing instead), cites a file for each technology, links PostgreSQL to ADR 001, flags RabbitMQ as a significant technology with no ADR, and reports version drift for Npgsql.EntityFrameworkCore.PostgreSQL (8.0.4 in Orders.Api vs 7.0.11 in Billing.Worker). It must not copy the database password."
+    },
+    {
+      "id": "tech-stack/reverse-update",
+      "skill": "tech-stack-reverse-engineer",
+      "prompt": "Scan the repository at evals/fixtures/tech-stack/shop. The existing tech-stack file is evals/fixtures/tech-stack/old-tech-stack.md. Do not ask questions; print the full output and write nothing.",
+      "mustMatch": [
+        "added",
+        "version changed|changed",
+        "net8\\.0",
+        "payments team",
+        "now in code|redis",
+        "RESULT: units=\\d+ technologies=\\d+ drift=\\d+ missing_adr=\\d+ unverified=\\d+"
+      ],
+      "rubric": "The reply gives a change list against the old generated section, including the version changes (.NET net7.0 to net8.0, PostgreSQL 15 to 16, React 17 to 18) and newly found technologies. The Notes text about the payments team and the Planned table are kept unchanged. Redis, planned earlier, is reported as now in code, and its Planned row is left in place (the run may not ask questions, so leaving the removal as an open point is correct)."
+    },
+    {
+      "id": "tech-stack/add-overlap",
+      "skill": "tech-stack-add",
+      "prompt": "The tech-stack file is evals/fixtures/tech-stack/current-tech-stack.md and the code is in evals/fixtures/tech-stack/shop. Add Memcached as a cache for Billing.Worker, status Planned. Do not ask questions; print the full output and write nothing.",
+      "mustMatch": [
+        "redis",
+        "overlap|already|same (job|purpose)",
+        "RESULT: added=.+ overlap=yes"
+      ],
+      "rubric": "The skill notices that Redis is already used as a cache, names it with evidence, and asks or records why a second cache is needed. It does not refuse and does not write between the generated markers."
+    },
+    {
+      "id": "tech-stack/add-needs-adr",
+      "skill": "tech-stack-add",
+      "prompt": "The tech-stack file is evals/fixtures/tech-stack/current-tech-stack.md and the code is in evals/fixtures/tech-stack/shop. Add Apache Kafka for event streaming between Orders.Api and Billing.Worker, status Trial. Do not ask questions; print the full output and write nothing.",
+      "mustMatch": [
+        "rabbitmq",
+        "adr",
+        "RESULT: added=.+ overlap=yes adr=needed"
+      ]
+    },
+    {
+      "id": "tech-stack/add-not-significant",
+      "skill": "tech-stack-add",
+      "prompt": "The tech-stack file is evals/fixtures/tech-stack/current-tech-stack.md and the code is in evals/fixtures/tech-stack/shop. Add Playwright for end-to-end tests of web, status Planned. Do not ask questions; print the full output and write nothing.",
+      "mustMatch": [
+        "not needed",
+        "RESULT: added=.+ adr=not-needed"
+      ],
+      "mustNotMatch": [
+        "adr=needed"
+      ]
     }
   ]
 }

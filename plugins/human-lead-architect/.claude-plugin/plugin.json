@@ -1,7 +1,7 @@
 {
   "name": "human-lead-architect",
-  "description": "A toolkit for AI-assisted solution architecture work: create, research, review, supersede and audit Architecture Decision Records.",
-  "version": "1.5.2",
+  "description": "A toolkit for AI-assisted solution architecture work: create, research, review, supersede and audit Architecture Decision Records, and reverse-engineer and manage the tech stack.",
+  "version": "1.6.0",
   "author": {
     "name": "Kamil Bączek",
     "url": "https://github.com/kamilbaczek"
@@ -15,6 +15,8 @@
     "architecture-decision-record",
     "architecture-review",
     "solution-architecture",
-    "trade-off-analysis"
+    "trade-off-analysis",
+    "tech-stack",
+    "reverse-engineering"
   ]
 }

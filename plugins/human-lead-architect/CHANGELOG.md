@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.0 - 2026-11-05
+
+* New tech stack category with 2 skills: `tech-stack-reverse-engineer` (discover the stack from any repository and write or update `docs/architecture/tech-stack.md` with evidence, version drift and missing ADRs) and `tech-stack-add` (record a new technology after an overlap and ADR check)
+* New shared files: `codebase-evidence.md` and `tech-stack-template.md`
+
 ## 1.5.2 - 2026-11-05
 
 * `adr-research-draft`: 3 sources per option is a hard minimum again; the only exception is fewer than 2 for the recommended option, which means Low confidence and a spike
