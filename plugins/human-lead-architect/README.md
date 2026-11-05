@@ -1,6 +1,6 @@
 # Human Lead Architect
 
-A Claude Code plugin for taking an Architecture Decision Record (ADR) from a rough decision to a reviewed, evidence-backed document: create it, research what is missing, and challenge it before it is accepted.
+A Claude Code plugin for taking an Architecture Decision Record (ADR) from a rough decision to a reviewed, evidence-backed document: create it, research what is missing, and review it before it is accepted.
 
 ## Installation
 

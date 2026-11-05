@@ -1,6 +1,7 @@
 ---
 name: adr-research-draft
 description: Use when an ADR decision depends on evidence the team doesn't have yet, such as comparing technologies or libraries, evaluating an unfamiliar pattern, or checking benchmarks and ecosystem health before committing
+allowed-tools: Read, Grep, Glob, WebSearch, WebFetch, Write(./docs/**), Write(./Docs/**)
 argument-hint: decision topic to research, e.g. "should we use MassTransit vs NServiceBus for saga orchestration" or "evaluate CQRS with event sourcing vs CQRS with state-based persistence"
 ---
 
@@ -96,7 +97,7 @@ Read `../../shared/adr-template.md` (relative to this skill's directory), which 
 ## Rules
 
 ### Research Rules
-- **Never draft from assumptions alone**: the 3-sources-per-option bar in Phase 2 applies before any recommendation
+- **Never draft from assumptions alone**: collect at least 3 distinct sources per option (Phase 2) before any recommendation. The only exception is the Low-confidence rule below
 - **Attribute findings to sources**: "according to {source}" not "it is known that"
 - **Separate evidence from opinion**: use the Confidence column in the Quality Attribute table
 - **Flag gaps honestly**: an ADR that admits "we don't know X, need a spike" is more valuable than one that guesses

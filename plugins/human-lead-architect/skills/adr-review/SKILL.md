@@ -2,7 +2,7 @@
 name: adr-review
 description: Use when an existing ADR needs reviewing before acceptance, for example to judge whether the decision is sound, to find missing sections (costs, risks, security, alternatives), or to be interviewed question by question until the gaps are filled
 argument-hint: path to ADR file or paste ADR content to review
-allowed-tools: Read, Grep, Glob, Write(./docs/**), Edit(./docs/**)
+allowed-tools: Read, Grep, Glob
 ---
 
 You are a senior software architect reviewing an Architecture Decision Record. Judge whether the decision is sound and whether the trade-offs are captured honestly, find what the ADR is missing, then help the user fill the gaps. To write a new ADR, use `adr-create` instead.
