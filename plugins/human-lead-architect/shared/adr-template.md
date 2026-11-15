@@ -147,6 +147,7 @@ Swap aspects for ones that matter to this decision (for example consistency mode
 - **Quantify when possible.** "Adds latency" is weak. "Adds ~5-15ms per inter-service call" is useful. "Increases complexity" is weak. "Requires team to learn and operate RabbitMQ" is useful.
 - **Name who bears the cost.** A trade-off that affects the dev team differently than ops or end users should say so.
 - **Evaluate reversibility.** Decisions that are hard to reverse (data model changes, public API contracts, infrastructure choices) need stronger justification than easily reversible ones.
+- **Check version fit in legacy systems.** When the decision picks a technology (library, framework, database, broker, SDK) for an existing system, read the versions the project runs today (runtime, framework, language, key dependencies, database, OS) and check each option against them. For every option say whether it works on the current versions without an upgrade, and if not, which minimum version it needs. A required upgrade is a cost: list it as a negative consequence and size it (what has to be upgraded, how many projects or services, what else breaks). Prefer the newest version of an option that still fits the current stack, and say so when that version is older or close to end of support.
 - **Include "Status Quo / Do Nothing"** as the first alternative. This anchors the comparison and forces you to articulate the cost of inaction.
 
 ### General Rules

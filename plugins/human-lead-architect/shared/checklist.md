@@ -10,6 +10,7 @@ For each item, assess: ✅ Present & sufficient | ⚠️ Weak / vague | ❌ Miss
 - [ ] Business or technical driver is identified: "Why?" is answered (business rationale is explicit)
 - [ ] Scope is defined (what is affected, what is not)
 - [ ] Current state / baseline is described
+- [ ] For a technology choice in an existing system: each option is checked against the current runtime, framework and dependency versions, and any upgrade it forces is listed as a cost
 
 ## 2. Decision
 - [ ] Decision is specific and actionable (not vague like "use a better approach")

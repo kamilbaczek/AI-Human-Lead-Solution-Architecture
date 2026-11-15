@@ -17,7 +17,7 @@ Before any research, understand the current system:
 
 1. Check for existing ADRs (`docs/adr/`, `Docs/ArchitectureDecisionLog/`, or similar). Read them to understand prior decisions, patterns, and constraints already established.
 2. Scan the codebase for relevant code: the technology being evaluated, integration points, existing patterns.
-3. Identify: current tech stack, module boundaries, testing infrastructure, deployment model.
+3. Identify: current tech stack with exact versions (runtime, framework, language, key dependencies, database), module boundaries, testing infrastructure, deployment model.
 
 ### Phase 2: Web Research
 
@@ -26,7 +26,8 @@ Use WebSearch and WebFetch to research the decision space:
 1. **Technology comparison**: search for head-to-head comparisons, benchmarks, migration guides between the options.
 2. **Industry experience**: search for real-world adoption stories, post-mortems, "lessons learned" for each option.
 3. **Known pitfalls**: search for common failure modes, anti-patterns, and operational gotchas.
-4. **Ecosystem health**: check GitHub stars/activity, NuGet/npm download trends, maintainer activity, licensing.
+4. **Version fit**: for each option, find the minimum runtime, framework and dependency versions it needs (release notes, compatibility matrices) and compare them with the project's current versions. Note which options work without an upgrade and what the others would force to be upgraded.
+5. **Ecosystem health**: check GitHub stars/activity, NuGet/npm download trends, maintainer activity, licensing.
 
 Collect at least **3 distinct sources per option** before drafting. Prefer primary sources (official docs, release notes, maintainers' posts, reproducible benchmarks) over vendor marketing or aggregator blogs. If WebSearch is unavailable or returns too little, say so in the Research Brief and mark affected claims `Low` confidence.
 
