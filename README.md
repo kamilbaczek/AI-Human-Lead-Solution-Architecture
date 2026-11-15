@@ -130,6 +130,7 @@ Which skill do you need? It depends on how much you already know. No ADR log yet
 
 | Skill | Use it when | What it does |
 | --- | --- | --- |
+| 🧱 [`adr-init`](plugins/human-lead-architect/skills/adr-init/SKILL.md) | The project has no ADR log yet | Asks whether to use the default ADR template or a custom one and saves it as `docs/adr/template.md`. The other skills run it for you when they find no log |
 | ✍️ [`adr-create`](plugins/human-lead-architect/skills/adr-create/SKILL.md) | You already know the decision | Turns your decision into a complete ADR: real alternatives, a trade-off matrix, consequences and follow-ups. It numbers the file to match your ADR folder and checks the draft against a checklist before saving |
 | 🔎 [`adr-research-draft`](plugins/human-lead-architect/skills/adr-research-draft/SKILL.md) | The decision needs evidence you don't have | Reads your codebase and existing ADRs, collects at least 3 sources per option, and marks each claim with a confidence level. You get an ADR built on evidence, not on opinion |
 | ✅ [`adr-review`](plugins/human-lead-architect/skills/adr-review/SKILL.md) | You want an ADR checked before the team accepts it | Gives a verdict (Accept, Revise or Reject), ranks every issue as blocking, required or suggested, and checks trade-offs, reversibility and a checklist with REST API and database checks. Then it interviews you question by question to fill the gaps |
@@ -139,15 +140,51 @@ Which skill do you need? It depends on how much you already know. No ADR log yet
 
 ### The flow
 
-Every request goes through the significance gate first. If the decision fails it, we stop and tell you where it belongs instead.
+Every request goes through the significance gate first. A decision that fails it gets no ADR: a design decision inside one module or service gets a short note in that module's docs, anything else is pointed to where it belongs. A significant decision goes into the project's ADR log, using the log's own template if it has one. A technology choice in an existing system is checked against the versions the project runs today.
+
+Also on Miro: [ADR skills flow](https://miro.com/app/board/uXjVENtkJzc=/).
 
 ```mermaid
-flowchart LR
-    D([Decision]) --> G{Significance gate}
-    G -- significant --> C[Create or research]
-    C --> R[Review]
-    R --> A([Accepted ADR])
-    G -- not significant --> N([No ADR, a note on where it belongs])
+flowchart TD
+    classDef general fill:#FFE86D,stroke:#CBB333,color:#574900
+    classDef decision fill:#9CE6FF,stroke:#4FB1D3,color:#1C4657
+    classDef terminator fill:#B3E65F,stroke:#84AC43,color:#2F440B
+
+    start([Architecture decision to record]):::terminator
+    gate{{Significant? costly to reverse, shapes structure or quality}}:::decision
+    local{{Design decision inside one module or service?}}:::decision
+    note[Suggest a Markdown note in the module or service docs, with a ready-to-paste draft]:::general
+    elsewhere[Point to linter or formatter config, CONTRIBUTING.md or the PR description]:::general
+    log{{ADR log exists?}}:::decision
+    init[adr-init: ask default or custom template, save docs/adr/template.md]:::general
+    tpl{{Log has its own template?}}:::decision
+    custom[Use the project template]:::general
+    deftpl[Use the default template]:::general
+    tech{{Technology choice in an existing system?}}:::decision
+    fit[Check each option against current versions, list and size forced upgrades as a cost]:::general
+    write[Write the ADR: adr-create, or adr-research-draft when facts are needed]:::general
+    review[adr-review: verdict and checklist, then fill the gaps]:::general
+    accepted([Accepted]):::terminator
+    later[Later: adr-supersede, adr-index-check, adr-drift-check]:::general
+
+    start --> gate
+    gate -->|No| local
+    local -->|Yes| note
+    local -->|No| elsewhere
+    gate -->|Yes| log
+    log -->|No| init
+    init --> tpl
+    log -->|Yes| tpl
+    tpl -->|Yes| custom
+    tpl -->|No| deftpl
+    custom --> tech
+    deftpl --> tech
+    tech -->|Yes| fit
+    fit --> write
+    tech -->|No| write
+    write --> review
+    review --> accepted
+    accepted --> later
 ```
 
 > **Note:** The gate says no on purpose. An ADR log full of small choices hides the few decisions that matter.
