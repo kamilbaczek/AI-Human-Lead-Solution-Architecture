@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.3 - 2026-11-15
+
+* All ADR skills use the project's own ADR template when its architecture decision log has one; otherwise they use the default template in `shared/adr-template.md`
+
 ## 1.5.2 - 2026-11-05
 
 * `adr-research-draft`: 3 sources per option is a hard minimum again; the only exception is fewer than 2 for the recommended option, which means Low confidence and a spike

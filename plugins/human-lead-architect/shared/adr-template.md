@@ -2,6 +2,14 @@
 
 Shared by `adr-create`, `adr-research-draft` and `adr-review`. Fill every section; write `{TODO: ...}` instead of inventing content.
 
+## Which template to use
+
+1. Find the project's architecture decision log (see "Location and format" below).
+2. If the log has its own template (a `template.md`, `adr-template.md`, `0000-*.md` or similar file, or a template named in the log's README), use that template: its sections, headings, numbering and file format. Keep the trade-off and general rules below.
+3. If the log has no template, or there is no log, use the default template below.
+
+Tell the user which template you used and where it came from.
+
 ```markdown
 # ADR {NNN}: {Title}
 

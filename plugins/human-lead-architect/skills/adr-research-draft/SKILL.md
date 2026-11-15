@@ -40,7 +40,7 @@ Before writing the ADR, synthesize your findings into a structured trade-off ana
 
 ### Phase 4: Draft the ADR
 
-Produce the ADR using the template below, embedding research findings directly into the analysis.
+Produce the ADR using the project's own ADR template if its decision log has one, otherwise the default template below (see "Which template to use" in `../../shared/adr-template.md`), embedding research findings directly into the analysis.
 
 ## Output
 
