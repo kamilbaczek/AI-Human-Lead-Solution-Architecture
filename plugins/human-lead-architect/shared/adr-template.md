@@ -2,6 +2,16 @@
 
 Shared by `adr-create`, `adr-research-draft` and `adr-review`. Fill every section; write `{TODO: ...}` instead of inventing content.
 
+## Which template to use
+
+1. Find the project's architecture decision log (see "Location and format" below).
+2. If the log has its own template (a `template.md`, `adr-template.md`, `0000-*.md` or similar file, or a template named in the log's README), use that template: its sections, headings, numbering and file format. Keep the trade-off and general rules below.
+3. If the log exists but has no template, use the default template below.
+4. If there is no log, set one up first by following `../adr-init/SKILL.md` (relative to the calling skill's directory), which asks whether to use the default template or a custom one. Then write the ADR into the new log, starting at `001`.
+   - Read-only skills (`adr-review`) do not set up a log: use the default template and suggest running `adr-init`.
+
+Tell the user which template you used and where it came from.
+
 ```markdown
 # ADR {NNN}: {Title}
 
@@ -129,7 +139,7 @@ Swap aspects for ones that matter to this decision (for example consistency mode
 
 ### Location and format
 - If the project has an ADR directory (`docs/adr/`, `docs/architecture/decisions/`, `Docs/ArchitectureDecisionLog/`, or similar), save there and match its numbering, file naming and format (Markdown or AsciiDoc)
-- If none exists, save to `docs/adr/ADR-{NNN}-{slugified-title}.md`, starting at `001`
+- If none exists, set one up first with `adr-init`, then save to `docs/adr/ADR-{NNN}-{slugified-title}.md`, starting at `001`
 - If the new ADR replaces an earlier one, add `Supersedes: ADR {NNN}` under Status and set the old ADR's status to `Superseded by ADR {NNN}`
 
 ### Trade-Off Analysis Rules (Critical)
@@ -137,6 +147,7 @@ Swap aspects for ones that matter to this decision (for example consistency mode
 - **Quantify when possible.** "Adds latency" is weak. "Adds ~5-15ms per inter-service call" is useful. "Increases complexity" is weak. "Requires team to learn and operate RabbitMQ" is useful.
 - **Name who bears the cost.** A trade-off that affects the dev team differently than ops or end users should say so.
 - **Evaluate reversibility.** Decisions that are hard to reverse (data model changes, public API contracts, infrastructure choices) need stronger justification than easily reversible ones.
+- **Check version fit in legacy systems.** When the decision picks a technology (library, framework, database, broker, SDK) for an existing system, read the versions the project runs today (runtime, framework, language, key dependencies, database, OS) and check each option against them. For every option say whether it works on the current versions without an upgrade, and if not, which minimum version it needs. A required upgrade is a cost: list it as a negative consequence and size it (what has to be upgraded, how many projects or services, what else breaks). Prefer the newest version of an option that still fits the current stack, and say so when that version is older or close to end of support.
 - **Include "Status Quo / Do Nothing"** as the first alternative. This anchors the comparison and forces you to articulate the cost of inaction.
 
 ### General Rules

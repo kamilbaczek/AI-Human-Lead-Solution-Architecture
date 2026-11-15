@@ -16,7 +16,7 @@ Before anything else, read `../../shared/adr-significance.md` (relative to this 
 2. **Identify the architectural forces**: what constraints, quality attributes, team capabilities, and business pressures shape this decision?
 3. **Generate genuine alternatives**: always include "Status Quo / Do Nothing" as a baseline. Each alternative must be a real option, not a straw man.
 4. **Perform trade-off analysis**: for each option, evaluate against the forces. Use the Trade-Off Matrix (below) to check each option against every force.
-5. **Write the ADR**: use the template below. Be specific, not generic.
+5. **Write the ADR**: use the project's own ADR template if its decision log has one; otherwise the default template below (see "Which template to use" in `../../shared/adr-template.md`). Be specific, not generic.
 
 ## Output
 

@@ -81,4 +81,4 @@ When a subagent runs this skill and cannot ask questions, stop after the report 
 
 ## Finish
 
-Show the final ADR in the template format (`../../shared/adr-template.md`) and ask whether to save it per that template's "Location and format" rules, or update the existing file. Write only after the user says yes.
+Show the final ADR in the project's own ADR template if its decision log has one, otherwise the default template (see "Which template to use" in `../../shared/adr-template.md`), and ask whether to save it per that template's "Location and format" rules, or update the existing file. Write only after the user says yes.
