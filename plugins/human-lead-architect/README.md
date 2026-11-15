@@ -37,6 +37,15 @@ Reviews an existing ADR before acceptance: judges whether the decision is sound 
 /human-lead-architect:adr-review docs/adr/0007-event-sourcing.md
 ```
 
+### `/human-lead-architect:adr-init`
+
+Sets up an architecture decision log in a project that has none. Asks whether to use the default ADR template or a custom one, then saves it as `docs/adr/template.md`. The other ADR skills run it on their own when they find no log.
+
+```
+/human-lead-architect:adr-init
+/human-lead-architect:adr-init templates/our-adr.md
+```
+
 ### `/human-lead-architect:adr-supersede`
 
 Marks an accepted ADR as superseded by a newer one, checks the new ADR explains why, and lists the references that need updating. History is kept: only the old ADR's Status line changes.

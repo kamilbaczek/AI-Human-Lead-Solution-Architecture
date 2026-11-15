@@ -126,7 +126,7 @@ claude plugin update human-lead-architect@ai-human-lead-solution-architecture
 
 ## 🧰 Skills
 
-Which skill do you need? It depends on how much you already know. Start with `adr-create` if you know the decision, `adr-research-draft` if you need facts first, then run `adr-review` before the team accepts it. Later, use `adr-supersede`, `adr-index-check` and `adr-drift-check` to keep the log honest.
+Which skill do you need? It depends on how much you already know. No ADR log yet? Run `adr-init` first (the other skills do it for you if you forget). Start with `adr-create` if you know the decision, `adr-research-draft` if you need facts first, then run `adr-review` before the team accepts it. Later, use `adr-supersede`, `adr-index-check` and `adr-drift-check` to keep the log honest.
 
 | Skill | Use it when | What it does |
 | --- | --- | --- |
@@ -168,6 +168,7 @@ AI-Human-Lead-Solution-Architecture/
       agents/
         adr-reviewer.md
       skills/
+        adr-init/
         adr-create/
         adr-research-draft/
         adr-review/

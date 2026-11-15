@@ -1,9 +1,9 @@
 # Changelog
 
-## 1.5.3 - 2026-11-15
+## 1.6.0 - 2026-11-15
 
 * All ADR skills use the project's own ADR template when its architecture decision log has one; otherwise they use the default template in `shared/adr-template.md`
-* If the project has no ADR log yet, the writing skills ask whether to use the default template or a custom one, then set up `docs/adr/` with that template as `template.md`
+* New skill `adr-init`: sets up `docs/adr/` in a project with no ADR log, asking whether to use the default template or a custom one, and saves it as `docs/adr/template.md`. The writing skills run it when they find no log
 
 ## 1.5.2 - 2026-11-05
 

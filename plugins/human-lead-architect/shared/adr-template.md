@@ -7,11 +7,8 @@ Shared by `adr-create`, `adr-research-draft` and `adr-review`. Fill every sectio
 1. Find the project's architecture decision log (see "Location and format" below).
 2. If the log has its own template (a `template.md`, `adr-template.md`, `0000-*.md` or similar file, or a template named in the log's README), use that template: its sections, headings, numbering and file format. Keep the trade-off and general rules below.
 3. If the log exists but has no template, use the default template below.
-4. If there is no log, set one up before writing the ADR:
-   - Ask the user: "There is no architecture decision log yet. Use the default ADR template or a custom one? (for custom, give a path or paste it)". Wait for the answer.
-   - Create `docs/adr/` and save the chosen template there as `docs/adr/template.md`.
-   - Write the ADR into the new log, starting at `001`.
-   - Read-only skills (`adr-review`) do not set up a log: use the default template and tell the user no log exists yet.
+4. If there is no log, set one up first by following `../adr-init/SKILL.md` (relative to the calling skill's directory), which asks whether to use the default template or a custom one. Then write the ADR into the new log, starting at `001`.
+   - Read-only skills (`adr-review`) do not set up a log: use the default template and suggest running `adr-init`.
 
 Tell the user which template you used and where it came from.
 
@@ -142,7 +139,7 @@ Swap aspects for ones that matter to this decision (for example consistency mode
 
 ### Location and format
 - If the project has an ADR directory (`docs/adr/`, `docs/architecture/decisions/`, `Docs/ArchitectureDecisionLog/`, or similar), save there and match its numbering, file naming and format (Markdown or AsciiDoc)
-- If none exists, set one up first (see "Which template to use"), then save to `docs/adr/ADR-{NNN}-{slugified-title}.md`, starting at `001`
+- If none exists, set one up first with `adr-init`, then save to `docs/adr/ADR-{NNN}-{slugified-title}.md`, starting at `001`
 - If the new ADR replaces an earlier one, add `Supersedes: ADR {NNN}` under Status and set the old ADR's status to `Superseded by ADR {NNN}`
 
 ### Trade-Off Analysis Rules (Critical)
