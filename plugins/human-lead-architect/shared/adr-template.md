@@ -8,7 +8,7 @@ Shared by `adr-create`, `adr-research-draft` and `adr-review`. Fill every sectio
 2. If the log has its own template (a `template.md`, `adr-template.md`, `0000-*.md` or similar file, or a template named in the log's README), use that template: its sections, headings, numbering and file format. Keep the trade-off and general rules below.
 3. If the log exists but has no template, use the default template below.
 4. If there is no log, set one up before writing the ADR:
-   - Ask the user: "There is no architecture decision log yet. Use the default ADR template, or your own? (give a path or paste it)". Wait for the answer.
+   - Ask the user: "There is no architecture decision log yet. Use the default ADR template or a custom one? (for custom, give a path or paste it)". Wait for the answer.
    - Create `docs/adr/` and save the chosen template there as `docs/adr/template.md`.
    - Write the ADR into the new log, starting at `001`.
    - Read-only skills (`adr-review`) do not set up a log: use the default template and tell the user no log exists yet.
