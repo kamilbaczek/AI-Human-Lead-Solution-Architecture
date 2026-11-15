@@ -22,7 +22,7 @@ Do not write the ADR file and do not fill the template. In the reply:
 
 1. Say plainly that this decision does not warrant an ADR, and name the reason (for example "local, reversible in one pull request" or "a coding convention").
 2. If it is a design decision inside one module or service (an internal pattern, a library used only there, how a component works), suggest recording it as a short Markdown note in that module's or service's docs, for example `src/<module>/docs/design-decisions.md` or a "Design decisions" section in its `README.md`. Match the project's existing docs location if there is one. Give a ready-to-paste draft: title, date, context, decision, why, and what it would take to change it. Write the file only if the user says yes.
-3. For anything else, point to where it belongs: `.editorconfig` or an analyzer rule for code style, the coding guidelines or `CONTRIBUTING.md` for conventions, the pull request description for a local refactoring, the design system for visual choices.
+3. For anything else, point to where it belongs: the project's linter or formatter configuration for code style, the coding guidelines or `CONTRIBUTING.md` for conventions, the pull request description for a local refactoring, the design system for visual choices.
 4. Offer to write an ADR if the user can name an architectural consequence (a boundary, contract, dependency or quality attribute the decision changes).
 
 If the topic is borderline, ask for that architectural consequence once, then apply the gate to the answer.
